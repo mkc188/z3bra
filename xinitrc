@@ -1,25 +1,24 @@
 #!/bin/sh
 
 run() {
+	xsetroot -name groaaaar
+	xsetroot -cursor_name left_ptr
+	xrdb -load  ~/conf/xrdb.conf
 
-    xsetroot -name groaaaar
-    #hsetroot -tile ~/usr/img/bg/stairs.png -tint \#888888 -contrast 3
-    hsetroot -fill ~/.wall.png
-    xsetroot -cursor_name left_ptr
+	#hsetroot -fill ~/.wall.png
+	hsetroot -solid '#14120f'
 
-    xrdb -load  ~/conf/xrdb.conf
+	sxhkd -m 1 &
 
-    sxhkd -m 1 &
+	compton -cCf -D2 -e 0.4 -o1 -r8 -l-12 -t-12 &
 
-    compton -cCf -D2 -e 0.4 -o1 -r8 -l-12 -t-1 &
-    mailbar     &
-    #bars        &
-    #beepop      &
-    takeoffdir  &
-    wew | yawee &
-    #pulse       &
+	wew | yawee &
+	mailbar     &
+	takeoffdir  &
+	beepop      &
+	pulsar      &
 
-    exec xwait
+	exec xwait
 }
 
 run this shit
