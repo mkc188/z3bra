@@ -36,9 +36,9 @@ read -p "Hit <Enter> to continue, <Ctrl-C> to abort..."
 for f in $(grep -v '^#' $TMPFILE); do
   ln -s $PWD/$f ~/.$f
   if [ -L ~/.$f ] ; then
-    echo $OK   -> $f
+    echo "$OK   -> $f"
   else
-    echo $NOPE -> $f
+    echo "$NOPE -> $f"
   fi
 done
 
