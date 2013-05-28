@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+    <showIcons>yes</showIcons>
+
+<!-- applications menus -->
+    <!-- games -->
+    <menu id="apps-game-menu" label="games">
+        <item label="zero" icon="/usr/share/icons/Personnal/Quake-Live.png">
+            <action name="Execute">
+                <command>
+                    ~/.qlprism/qlprism.sh
+                </command>
+            </action>
+        </item>
+        <item label="ioq3" icon="/usr/share/icons/Personnal/Quake-III-Arena.png">
+            <action name="Execute">
+                <command>
+                    ioquake3
+                </command>
+            </action>
+        </item>
+        <item label="q3df" icon="/usr/share/icons/Personnal/defrag.png">
+            <action name="Execute">
+                <command>
+                    ioquake3 +set fs_game "defrag"
+                </command>
+            </action>
+        </item>
+    </menu>
+    <!-- file managers -->
+    <menu id="apps-fileman-menu" label="file manager">
+        <item label="thunar">
+            <action name="Execute">
+                <command>
+                    thunar
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                </startupnotify>
+            </action>
+        </item>
+    </menu>
+    <!-- terminal emulators -->
+    <menu id="apps-term-menu" label="terminal">
+        <item label="URxvt">
+            <action name="Execute">
+                <command>
+                    urxvtc
+                </command>
+            </action>
+        </item>
+        <item label="xterm">
+            <action name="Execute">
+                <command>
+                    xterm
+                </command>
+            </action>
+        </item>
+    </menu>
+    <!-- editors -->
+    <menu id="apps-edit-menu" label="editor">
+        <item label="leafPad">
+            <action name="Execute">
+                <command>
+                    leafpad
+                </command>
+            </action>
+        </item>
+    </menu>
+    <!-- web navigators -->
+    <menu id="apps-net-menu" label="web browser">
+        <item label="dwb">
+            <action name="Execute">
+                <execute>
+                    dwb
+                </execute>
+            </action>
+        </item>
+        <item label="chromium">
+            <action name="Execute">
+                <execute>
+                    chromium
+                </execute>
+            </action>
+        </item>
+    </menu>
+    <!-- chats -->
+    <menu id="apps-chat-menu" label="chat">
+        <item label="mails">
+            <action name="Execute">
+                <command>
+                    urxvtc -e mutt
+                </command>
+            </action>
+        </item>
+        <item label="irssi">
+            <action name="Execute">
+                <command>
+                    urxvtc -e irssi
+                </command>
+            </action>
+        </item>
+        <item label="mumble">
+            <action name="Execute">
+                <execute>
+                    mumble
+                </execute>
+            </action>
+        </item>
+        <item label="teamspeak">
+            <action name="Execute">
+                <execute>
+                    teamspeak3
+                </execute>
+            </action>
+        </item>
+    </menu>
+    <!-- multimedia -->
+    <menu id="apps-multimedia-menu" label="Multimedia">
+        <item label="smplayer">
+            <action name="Execute">
+                <command>
+                    smplayer
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                    <wmclass>
+                        MPlayer
+                    </wmclass>
+                </startupnotify>
+            </action>
+        </item>
+        <item label="ncmpcpp">
+            <action name="Execute">
+                <command>
+                    urxvtc -e ncmpcpp --screen clock
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                    <wmclass>
+                        ncmpcpp
+                    </wmclass>
+                </startupnotify>
+            </action>
+        </item>
+    </menu>zo
+    <!-- image/video managing -->
+    <menu id="apps-graphics-menu" label="image editing">
+        <item label="gimp">
+            <action name="Execute">
+                <command>
+                    gimp
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                </startupnotify>
+            </action>
+        </item>
+    </menu>
+    <!-- office -->
+    <menu id="apps-desk-menu" label="office">
+        <item label="writer">
+            <action name="Execute">
+                <command>
+                    abiword
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                </startupnotify>
+            </action>
+        </item>
+        <item label="scheme">
+            <action name="Execute">
+                <command>
+                    umlet
+                </command>
+                <startupnotify>
+                    <enabled>
+                        yes
+                    </enabled>
+                </startupnotify>
+            </action>
+        </item>
+    </menu>
+    <!-- customisation -->
+    <menu id="apps-custom-menu" label="custom">
+        <item label="GTK">
+            <action name="Execute">
+                <command>
+                    lxappearance
+                </command>
+            </action>
+        </item>
+        <item label="openbox">
+            <action name="Execute">
+                <command>
+                    obconf
+                </command>
+            </action>
+        </item>
+        <item label="reconfigure">
+            <action name="Reconfigure"/>
+        </item>
+    </menu>
+
+<!-- Global application menu -->
+<menu id="apps-menu" label="applications">
+    <menu id="apps-chat-menu"/>
+    <menu id="apps-edit-menu"/>
+    <menu id="apps-fileman-menu"/>
+    <menu id="apps-game-menu"/>
+    <menu id="apps-graphics-menu"/>
+    <menu id="apps-multimedia-menu"/>
+    <menu id="apps-desk-menu"/>
+    <menu id="apps-term-menu"/>
+    <menu id="apps-net-menu"/>
+</menu>
+<!-- root menu -->
+    <menu id="root-menu" label="Openbox 3">
+        <!-- <separator label="archlinux"/> -->
+        <item label="file browsing">
+            <action name="Execute">
+                <command>
+                    thunar
+                </command>
+            </action>
+        </item>
+        <item label="web browsing">
+            <action name="Execute">
+                <command>
+                    dwb
+                </command>
+            </action>
+        </item>
+        <item label="terminal">
+            <action name="Execute">
+                <command>
+                    urxvtc
+                </command>
+            </action>
+        </item>
+        <separator/>
+        <menu id="apps-menu"/>
+        <separator/>
+        <menu id="apps-custom-menu"/>
+        <item label="log off">
+            <action name="Exit">
+                <prompt>
+                    yes
+                </prompt>
+            </action>
+        </item>
+    </menu>
+</openbox_menu>
