@@ -1,0 +1,49 @@
+https://aur.archlinux.org/login
+password	passwd	QXJrQnVpbGQ=
+text	user	ejNicmE=
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=5727340f29376acb53cae2f6c132bc75
+password	password	dml2b3VsZQ==
+text	username	ejNicmE=
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=5255241aa025029efbb070a79a80fe24
+password	password	dml2b3VsZQ==
+text	username	ejNicmE=
+
+http://mafreebox.freebox.fr/login.php
+password	passwd	I3dpZ29zZTg0
+
+http://exiled.lebonforum.com/login
+password	password	dml2b3VsZQ==
+text	username	ejNicmE=
+
+http://isfen.emse.fr/isfen/AccesSite.php
+text	Nom	d2lsbGlhbS5nb2lmZm9u
+password	Identifiant	Vml2aSZCcm8=
+
+http://192.168.0.254/login.php
+password	passwd	I3dpZ29zZTg0
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=2d851c151359cfb3a811645e38fb6403
+text	username	ejNicmE=
+password	password	dml2b3VsZQ==
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=4896a557934b63c540bd149e291aded7
+text	username	ejNicmE=
+password	password	dml2b3VsZQ==
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=115831dcb00cec1f329f905959ee5b7a
+text	username	ejNicmE=
+password	password	dml2b3VsZQ==
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=a2e2b632a0f70d756407c20f556606e8
+text	username	ejNicmE=
+password	password	dml2b3VsZQ==
+
+http://exiledclan.cwebh.org/ucp.php?mode=login&sid=97f864fb13a667716ef797c8109d36de
+text	username	ejNicmE=
+password	password	dml2b3VsZQ==
+
+http://freebox.z3bra.org/login.php
+password	passwd	I3dpZ29zZTg0
+

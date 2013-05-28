@@ -1,0 +1,83 @@
+##
+## KEY-BINDING
+#
+
+# Unbind
+bind index,pager h noop
+bind index,pager j noop
+bind index,pager k noop
+bind index,pager l noop
+bind index,pager <up> noop
+bind index,pager <down> noop
+bind index,pager <right> noop
+bind index,pager <left> noop
+bind index,pager <Enter> noop
+
+# Generic
+bind generic l select-entry
+
+
+# Common
+bind index,pager R group-reply
+bind index,pager n next-entry
+bind index,pager p previous-entry
+macro index,pager <F4> ":source ~/.mutt/muttrc<enter>"  "reload mutt's configuration"
+macro index,pager <F5> "!fdm -l fetch<enter>"          "force mail fetching"
+
+# Sidebar
+bind index,pager J sidebar-next
+bind index,pager K sidebar-prev
+bind index,pager <pagedown> sidebar-next
+bind index,pager <pageup> sidebar-prev
+bind index,pager <space> sidebar-open
+macro index,pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Index
+# bind index <F5> fetch-mail
+bind index h change-folder
+bind index j next-entry
+bind index k previous-entry
+bind index l display-message
+bind index <return> display-message
+bind index G last-entry
+bind index gg first-entry
+bind index B bounce-message
+bind index z collapse-thread
+bind index Z collapse-all
+# To make all "new" mails to "read" (Ignore)
+macro index I '<tag-pattern>~N^M<tag-prefix><toggle-new><tag-prefix><tag-entry>'
+macro index C "<copy-message>?" "copy a message to a folder"
+macro index M "<save-message>?" "move a message to a folder"
+macro index A "<copy-message>+archive<enter>" "copy mail to 'archives'"
+macro index D "<save-message>+archive<enter>" "move mail to 'archives'"
+
+# Navigation
+bind editor <space> noop # avoid errors with spaces in names
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gd "<change-folder>=draft<enter>" "Go to drafts"
+macro index gs "<change-folder>=sent<enter>" "Go to sent items"
+macro index ga "<change-folder>=archive<enter>" "Go to all mails"
+
+
+# Pager
+bind pager gg top
+bind pager G bottom
+bind pager J next-entry
+bind pager K previous-entry
+bind pager j next-line
+bind pager k previous-line
+bind pager h exit
+bind pager l view-attachments
+bind pager <return> view-attachments
+macro pager M "<save-message>?" "move a message to a folder"
+
+# Attach
+bind attach l view-mailcap
+bind attach h exit
+bind attach H display-toggle-weed
+bind attach <return> view-mailcap
+
+# Compose
+bind compose l view-attach
+
+# vim: set ft=muttrc tw=72:

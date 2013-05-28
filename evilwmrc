@@ -1,0 +1,13 @@
+fn gelly
+mask1 mod4
+mask2 alt
+altmask shift
+term urxvtc
+snap 10
+bw 8
+fg #443c28
+fc #e8e9ca
+bg #323232
+app wbar
+fixed
+dock

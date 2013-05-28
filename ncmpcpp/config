@@ -1,0 +1,214 @@
+#
+## =============================================
+## mpd configuration ===========================
+##
+mpd_host                = "mpdconf@localhost"
+mpd_port                = "6600"
+mpd_music_dir           = "/mnt/music/"
+# mpd_crossfade_time      = "5"
+
+
+#
+## =============================================
+## delays ======================================
+##
+playlist_disable_highlight_delay = "1"
+message_delay_time = "4"
+
+#
+## =============================================
+## song formatting =============================
+##
+## Song format :
+##
+## %l - length
+## %f - filename
+## %D - directory
+## %a - artist
+## %t - title
+## %b - album
+## %y - year
+## %n - track number (01/12 -> 01)
+## %N - full track info (01/12 -> 01/12)
+## %g - genre
+## %c - composer
+## %p - performer
+## %d - disc
+## %C - comment
+## $R - begin right alignment
+##
+## Display if set  : {}
+## This or that    : {%this}|{%that}
+##
+## Color format :
+##
+## - 0 - default window color (discards all other colors)
+## - 1 - black
+## - 2 - red
+## - 3 - green
+## - 4 - yellow
+## - 5 - blue
+## - 6 - magenta
+## - 7 - cyan
+## - 8 - white
+## - 9 - end of current color
+##
+
+song_list_format = "$0{{$7%a$9} $1»»$9 {%t}}|{%f}$R{$1%l$9}"
+song_status_format = "$0{{$7%a$9 }{%t}}|{$7%f$9}"
+song_library_format = "$0{$7%n$9 }{%t}|{%f}"
+tag_editor_album_format = "%b {($7%y$9)}"
+
+##
+## Only available for the above
+##
+## - b - bold
+## - u - underline
+## - r - reverse colors (see color1 & color2 @"color defifinition"
+## - a - alternative character set
+##
+## Set attribute    : $?
+## Unset attribute  : $/?
+##
+
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+browser_playlist_prefix = "[$b$7playlists$9$/b] "
+selected_item_prefix = "$0"
+selected_item_suffix = "$9"
+
+## colors are not supported for below variable
+song_window_title_format = "{{%t} -- {%a}}|{%f}"
+
+#
+## =============================================
+## column format ===============================
+##
+## - syntax for each column is:
+##
+## (width of column)[column's color]{displayed tag}
+##
+## Note: Width is by default in %, if you want a column to
+## have fixed size, add 'f' after the value, e.g. (10)[white]{a}
+## will be the column that take 10% of screen (so the real column's
+## width will depend on actual screen size), whereas (10f)[white]{a}
+## will take 10 terminal cells, no matter how wide the screen is.
+##
+## - color is optional (if you want the default one, type [])
+##
+## Note: You can give a column additional attributes by putting appropriate
+## character after displayed tag character. Available attributes are:
+##
+## - r - column will be right aligned
+## - E - if tag is empty, empty tag marker won't be displayed
+##
+## E.g. {lr} will give you right aligned column of lengths.
+##
+
+song_columns_list_format = "(20)[cyan]{a|f} (20)[white]{t} (50)[cyan]{bEr} (6f)[black]{l}"
+
+
+
+#
+## =============================================
+## color definition ============================
+##
+colors_enabled = "yes"
+empty_tag_color = "cyan"
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "black"
+state_flags_color = "cyan"
+main_window_color = "white"
+color1 = "white"
+color2 = "black"
+main_window_highlight_color = "white"
+progressbar_color = "white"
+statusbar_color = "white"
+alternative_ui_separator_color = "black"
+active_column_color = "cyan"
+window_border_color = "blue"
+active_window_border = "cyan"
+
+
+#
+## =============================================
+## visualisation ===============================
+##
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "FIFO Visual"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "no"
+visualizer_type = "spectrum" # (spectrum/wave)
+visualizer_color = "cyan"
+visualizer_look = "◆▋"
+
+#
+## =============================================
+## other settings ==============================
+##
+##
+## Note: Custom command that will be executed each
+## time song changes. Useful for notifications etc.
+##
+## Attention: It doesn't support song format anymore.
+## Use `ncmpcpp --now-playing SONG_FORMAT` instead.
+##
+
+startup_screen = "10"
+# execute_on_song_change = ""
+playlist_show_remaining_time = "yes"
+playlist_display_mode = "columns" (classic/columns)
+browser_display_mode = "classic" (classic/columns)
+#search_engine_display_mode = "classic" (classic/columns)
+#incremental_seeking = "yes"
+#seek_time = "1"
+#autocenter_mode = "no"
+centered_cursor = "yes"
+progressbar_look = "─╼·" # ".·"
+#default_place_to_search_in = "database" (database/playlist)
+user_interface = "alternative" (classic/alternative)
+# media_library_left_column = "a" (possible values: a,y,g,c,p, legend above)
+default_find_mode = "wrapped" (wrapped/normal)
+default_space_mode = "add" (add/select)
+#default_tag_editor_left_col = "albums" (albums/dirs)
+#default_tag_editor_pattern = "%n - %t"
+header_visibility = "yes"
+statusbar_visibility = "yes"
+header_text_scrolling = "yes"
+fancy_scrolling = "yes"
+cyclic_scrolling = "yes"
+#lines_scrolled = "2"
+follow_now_playing_lyrics = "yes"
+ncmpc_like_songs_adding = "yes" # (enabled - add/remove, disabled - always add)
+show_hidden_files_in_local_browser = "no"
+jump_to_now_playing_song_at_start = "yes"
+ask_before_clearing_main_playlist = "yes"
+clock_display_seconds = "no"
+display_bitrate = "no"
+display_remaining_time = "yes"
+regular_expressions = "extended" (basic/extended)
+
+##
+## Note: If below is enabled, ncmpcpp will ignore leading
+## "The" word while sorting items in browser, tags in
+## media library, etc.
+##
+ignore_leading_the = "yes"
+#block_search_constraints_change_if_items_found = "yes"
+mouse_support = "yes"
+#mouse_list_scroll_whole_page = "yes"
+empty_tag_marker = "/none\\"
+#tag_editor_extended_numeration = "no"
+enable_window_title = "no"
+
+##### lyrics support #####
+##
+## supported lyrics databases:
+##
+## - 1 - lyricsplugin.com
+##
+#lyrics_database = "1"
+external_editor = "vim"
+use_console_editor = "yes" # (set to yes, if your editor is console app)

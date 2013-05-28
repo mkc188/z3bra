@@ -1,0 +1,66 @@
+# -- X11 custom binds ------------------------------------------- {{{ --
+# -- Application launchers ---------------------------------- {{{ --
+# "urxvt"
+# Mod4 + space
+# 
+# "dwb"
+# Mod4 + w
+# 
+# "gmrun"
+# Alt + F2
+# 
+# "~/.qlprism/qlprism.sh"
+# Mod4 + q
+# ----------------------------------------------------------- }}} --
+
+# -- Volume management -------------------------------------- {{{ --
+"amixer set Master 5%+ unmute"
+XF86AudioRaiseVolume
+
+"amixer set Master 5%- unmute"
+XF86AudioLowerVolume
+
+"amixer set Master toggle"
+XF86AudioMute
+# ----------------------------------------------------------- }}} --
+
+# -- MPC remote control ------------------------------------- {{{ --
+"mpc toggle"
+XF86AudioPlay
+
+"mpc stop"
+XF86AudioStop
+
+"mpc prev"
+XF86AudioPrev
+
+"mpc next"
+XF86AudioNext
+
+"mpc volume +10"
+control + XF86AudioRaiseVolume
+
+"mpc volume -10"
+control + XF86AudioLowerVolume
+
+"mpc pause"
+XF86AudioMute
+# ----------------------------------------------------------- }}} --
+#
+# -- Desktop control ---------------------------------------- {{{ --
+"slock"
+control + mod1 + l
+# ----------------------------------------------------------- }}} --
+#
+# -- Mouse control (see razercfg --help) -------------------- {{{ --
+"razercfg -p 1"
+mod1 + b:9
+
+"razercfg -p 3"
+mod1 + b:8
+# ----------------------------------------------------------- }}} --
+#
+# -- Empty section ------------------------------------------ {{{ --
+# ----------------------------------------------------------- }}} --
+
+# vim: set foldmethod=marker tw=72 syntax=conf: ----------------- }}} --

@@ -1,0 +1,116 @@
+#
+# ~/.screenrc
+#
+
+# ------------------------------------------------------------------------------
+# SCREEN SETTINGS
+# ------------------------------------------------------------------------------
+
+escape "^  "
+
+# session options
+sessionname gavroche
+multiuser on
+acladd willy
+
+startup_message off
+#nethack on
+
+#defflow on # will force screen to process ^S/^Q
+deflogin on
+autodetach on
+
+# save my eyes !!!
+vbell off
+vbell_msg "   Wuff  ----  Wuff!!  "
+
+# define a bigger scrollback, default is 100 lines
+defscrollback 1024
+
+# ------------------------------------------------------------------------------
+# SCREEN KEYBINDINGS
+# ------------------------------------------------------------------------------
+
+# Window managing
+bindkey ² focus next # bind "²" (²) to switch the input focus to the next region
+bindkey œ focus next # bind "œ" (²) to switch the input focus to the next region
+bindkey ^[Od prev  # change window with ctrl-left
+bindkey ^[Oc next  # change window with ctrl-right
+
+# Split managing
+bind V split -v
+bind S split
+bind o only
+bind r remove
+
+bind R eval "source ~/.screenrc" "echo '.screenrc reloaded !'"
+
+# Remove some stupid / dangerous key bindings
+bind ^k
+bind L
+bind ^\
+
+# Make them better
+bind I login on
+bind O login off
+bind } history
+
+# vi-style keybindings
+bind j focus down
+bind k focus up
+bind h focus left
+bind l focus right
+
+bindkey ^j focus down
+bindkey ^k focus up
+bindkey ^h focus left
+bindkey ^l focus right
+
+bind = resize =
+bind > resize -h +4
+bind < resize -h -4
+bind + resize -v +2
+bind - resize -v -2
+bind _ resize max
+
+bind w focus next
+
+bind s split
+bind v split -v
+
+bind : colon # screen's default anyway...
+
+# ------------------------------------------------------------------------------
+# TERMINAL SETTINGS
+# ------------------------------------------------------------------------------
+
+# turn sending of screen messages to hardstatus off
+# hardstatus on
+# Set the hardstatus prop on gui terms to set the titlebar/icon title
+termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+
+# clear screen after editing a file with console based editor
+altscreen on
+
+# always display the last line status bar
+caption		always
+hardstatus 	alwayslastline
+
+# set these terminals up to be 'optimal' instead of vt100
+termcapinfo xterm*|linux*|rxvt* OP
+
+# Change the xterm initialization string from is2=\E[!p\E[?3;4l\E[4l\E>
+# (This fixes the "Aborted because of window size change" konsole symptoms found
+#  in bug #134198)
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# Use 256 colors from rxvt terminal
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Enable non-blocking mode to better cope with flaky ssh connections.
+defnonblock 5
+
+
+# Bars
+caption string	"%{= Kw}%?%F%{=b cW}%?   %f*%t %=%?%F.: current :.%? %= .:%F%n %t "
+hardstatus string "%{= K}///%{w}//%{W}/%{dd} %{=b W}$LOGNAME%{-b w}@%{+b W}%H %= %{-b c}  %-Lw%?%F%{=b W}[%2n* %t  ]%?%{-b c}%+Lw  %{dd}  %= %{=b w} .: %D%d :: %c:%s :. %-10="

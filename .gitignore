@@ -1,0 +1,12 @@
+# nothing interesting here...
+irssi/config
+
+# mutt's uninteresting / personnal files
+mutt/account
+mutt/aliases
+mutt/bored.signature
+mutt/cache
+mutt/hcache
+mutt/mailcap
+mutt/temp
+mutt/.passwd.gpg
