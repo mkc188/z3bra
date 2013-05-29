@@ -94,6 +94,7 @@ set wildignore=*.o,*~
 " Always show cursor position
 set ruler
 
+
 " Height of the cmdline window
 set cmdheight=2
 
@@ -234,7 +235,7 @@ set laststatus=2
 " statusline itself
 set statusline=
 set statusline+=%<\                                 " cut at start
-set statusline+=(%n%M%H%M%R)\                       " flags
+set statusline+=(%n%M%H%R)\                       " flags
 set statusline+=%-40f\                              " path
 set statusline+=%=(%Y)\                             " file type
 set statusline+=(tw:%{&tw}\ ts:%{&ts}\ sw:%{&sw})\  " text format info
