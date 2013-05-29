@@ -9,23 +9,14 @@ unset GOBIN # use GOPATH for install
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
 
-## # source zshell config files (aliases, functions and environment vars)
-## export DOTDIR=~/etc/core/zsh
-## ZALI=$DOTDIR/zalias
-## ZFUN=$DOTDIR/zfunction
-## ZENV=$DOTDIR/zshenv
-## 
-## for zfile in $ZALI $ZFUN $ZENV; do
-##     if [ -f $zfile ]; then
-##         . $zfile
-##     fi
-## done
-
 # enable zsh completion menu
 autoload -U compinit && compinit
 
 # enable coloring
 autoload -U colors && colors
+
+# disown jobs on '&' or 'bg'
+setopt nohup
 
 # set the prompt
 PROMPT=""
