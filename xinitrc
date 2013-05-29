@@ -20,7 +20,7 @@ xrdb -load ~/.Xresources &
 xbindkeys
 
 #status bar
-~/.config/bar/status.sh &
+~/bin/bar/status.sh &
 
 # Set wallpaper
 # feh --bg-fill --no-fehbg ~/usr/img/bg/bear.jpg &
