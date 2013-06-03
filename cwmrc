@@ -39,7 +39,7 @@ snapdist                0
     # SIZE
     bind 4-equal    vmaximize
     bind 4S-equal   hmaximize
-    bind 4-x        maximise
+    bind 4-x        maximize
     bind 4M-h       resizeleft
     bind 4M-j       resizedown
     bind 4M-k       resizeup

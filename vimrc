@@ -94,6 +94,7 @@ set wildignore=*.o,*~
 " Always show cursor position
 set ruler
 
+
 " Height of the cmdline window
 set cmdheight=2
 
@@ -233,13 +234,13 @@ set laststatus=2
 
 " statusline itself
 set statusline=
-set statusline+=%<\                         " cut at start
-set statusline+=[%n%H%M%R%W]\               " flags
-set statusline+=%-40f\                      " path
-set statusline+=%=%y\                       " file type
-set statusline+=[%{&tw},%{&ts},%{&sw}]\     " text format info
-set statusline+=%10((%l,%c)%)\              " line and column
-set statusline+=%P                          " percentage of file
+set statusline+=%<\                                 " cut at start
+set statusline+=(%n%M%H%R)\                       " flags
+set statusline+=%-40f\                              " path
+set statusline+=%=(%Y)\                             " file type
+set statusline+=(tw:%{&tw}\ ts:%{&ts}\ sw:%{&sw})\  " text format info
+set statusline+=%10((%l/%L)%)\                      " line and column
+set statusline+=%P                                  " percentage of file
 
 set list
 set listchars=tab:▶⋅,trail:-,nbsp:⋅

@@ -38,20 +38,16 @@ URxvt*scrollBar:          false
 URxvt*cursorBlink:        false
 URxvt*cursorColor:        #535353
 URxvt*internalBorder:     4
-URxvt*perl-ext-common:    default,clipboard,url-select,keyboard-select
+URxvt*perl-ext-common:    default,url-select,keyboard-select
 URxvt.url-select.launcher:   /usr/bin/dwb
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:         perl:url-select:select_next
-URxvt.keysym.M-v:         perl:keyboard-select:activate
-URxvt.keysym.M-s:         perl:keyboard-select:search
+URxvt.keysym.M-s:         perl:keyboard-select:activate
 
 ! Colored man pages
 URxvt.colorIT:            #cacaca
 URxvt.colorBD:            #ae8510
 URxvt.colorUL:            #a28c64
-
-
-
 
 ! XTerm ---------------------------------------------------------
 
