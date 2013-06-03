@@ -41,6 +41,7 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
+  unixhub = { type = "IRC"; };
 };
 # }}}
 
@@ -49,14 +50,14 @@ channels = (
   # {{{
   { name = "#defrag-france"; chatnet = "quakenet"; autojoin = "Yes"; },
   { name = "#vim-fr"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#archlinux-fr"; chatnet = "freenode"; autojoin = "Yes"; },
   { 
     name = "#archlinux-newbie";
     chatnet = "freenode";
     autojoin = "No";
   },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "No"; }
+  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; }
 );
 # }}}
 
@@ -230,7 +231,7 @@ statusbar = {
       disabled = "yes";
     };
     new1 = { placement = "top"; items = { }; position = "100"; };
-    new2 = { placement = "bottom"; };
+    # new2 = { placement = "bottom"; };
     awl_0 = {
       placement = "top";
       items = {
