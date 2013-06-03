@@ -124,8 +124,8 @@ set t_Co=256
 " Theme & colors
 colorscheme shadow
 
-" Improve color for dark bkgd
-set background=light
+" Improve color for dark bkgd (set by the theme)
+" set background=light
 
 " Improve display
 set ttyfast
@@ -163,8 +163,9 @@ set smarttab        " Be smart !
 
 set modeline        " Enable EOF file options
 
-set tabstop=4       " tab = 4 spaces
+set tabstop=8       " tab = 8 spaces
 set shiftwidth=4    " indentation is 4 spaces
+set softtabstop=4   " Do your best, but I want 4 spaces
 
 set lbr     " enable line break
 set sbr=\\  " line break indicator
@@ -177,19 +178,12 @@ set wrap    " wrap lines
 " 2 Column to view fold
 setlocal foldcolumn=2
 
-" Folds color
-highlight Folded ctermbg=DarkGray ctermfg=White
-highlight FoldColumn ctermbg=DarkGray ctermfg=White
-
-" Remove EOL spaces on write
-" au BufWritePre * :%s/\s\+$//e
-
 " Underline the cursor row in the current window
 au VimEnter,WinEnter,BufWinEnter * set cursorline nocursorcolumn
 au WinLeave * set nocursorline nocursorcolumn
 
 " Define how to fold files in general
-set foldmethod=manual
+set foldmethod=syntax
 
 " Quickly switch between textwidth 0 and whatever you want
 " map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
@@ -235,7 +229,7 @@ set laststatus=2
 " statusline itself
 set statusline=
 set statusline+=%<\                                 " cut at start
-set statusline+=(%n%M%H%R)\                       " flags
+set statusline+=(%n%M%H%R)\                         " flags
 set statusline+=%-40f\                              " path
 set statusline+=%=(%Y)\                             " file type
 set statusline+=(tw:%{&tw}\ ts:%{&ts}\ sw:%{&sw})\  " text format info
@@ -259,10 +253,6 @@ vnoremap > >gv
 vnoremap < <gv
 vnoremap = =gv
 
-" Use ~/bin/vpaste to pastebin a file
-map vp :exec "w !vpaste ft=".&ft<CR>
-vmap vp :exec "'<,'>w !vpaste ft=".&ft<CR>
-
 " toggle paste mode
 set pastetoggle=<F11>
 
@@ -272,13 +262,11 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " exit insert mode
 inoremap jk <ESC>
 inoremap kj <ESC>
-inoremap jj <ESC>
-inoremap kk <ESC>
 
 " increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
 
-" quick write
+" quick write (like somewhere within ZZ and ZQ...)
 nnoremap ZW :w<CR>
 
 " toggle between gcc and make
@@ -343,7 +331,7 @@ endfu
 
 " Display a tips
 fu! ViewTips()
-    " Note that this require the 'fortune' program to be installed on 
+    " Note that this require the 'fortune' program to be installed on
     " your system, as well as the 'vimtweets' fortune file.
     "   $ wget http://bfontaine.net/fortunes/vimtweets
     "   $ strfile vimtweets vimtweets.dat
@@ -359,7 +347,7 @@ fu! CleverTab()
         return "\<C-N>"
     endif
 endfu
-" inoremap <Tab> <C-R>=CleverTab()<CR>
+inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Toggle between make and gcc for compiling with :make
 fu! ToggleCCompiler()
@@ -368,8 +356,6 @@ fu! ToggleCCompiler()
     else
         set makeprg=make
     endif
-
-        set makeprg
 endfu
 
 
@@ -377,6 +363,6 @@ endfu
 " ======================================================================
 
 " Echo a vim tips on Vim startup
-    autocmd VimEnter *  call ViewTips()
+autocmd VimEnter *  call ViewTips()
 
 " vim: tw=72:ts=4
