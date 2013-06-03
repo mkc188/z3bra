@@ -6,25 +6,25 @@
 
 ! Terminal colors ----------------------------------------------
 *background:#231f20
-*foreground:beige
+*foreground:#e8e9ca
 
-*color0:    grey20
+*color0:    grey30
 *color1:    coral4
 *color2:    #526f33
 *color3:    lightgoldenrod4
 *color4:    skyblue4
 *color5:    mediumorchid4
 *color6:    darkslategray4
-*color7:    wheat3
+*color7:    grey60
 
-*color8:    grey30
+*color8:    grey40
 *color9:    coral3
 *color10:   #8ea433
 *color11:   khaki2
 *color12:   lightblue3
 *color13:   mediumpurple2
 *color14:   darkslategray3
-*color15:   beige
+*color15:   #e8e9ca
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
