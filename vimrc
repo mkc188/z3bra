@@ -122,7 +122,7 @@ syntax on
 set t_Co=256
 
 " Theme & colors
-colorscheme ambient
+colorscheme shadow
 
 " Improve color for dark bkgd
 set background=light

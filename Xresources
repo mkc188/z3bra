@@ -5,25 +5,26 @@
 ! ==============================================================
 
 ! Terminal colors ----------------------------------------------
-! DARK BACKGROUND
 *background:#231f20
 *foreground:#e8e9ca
-*color0:    #535353
-*color8:    #747474
-*color1:    #c03000
-*color9:    #ff4400
-*color2:    #5f7f03
-*color10:   #aaff00
-*color3:    #ce8510
-*color11:   #ffff00
-*color4:    #327074
-*color12:   #44aadd
-*color5:    #73446f
-*color13:   #ff44bb
-*color6:    #32a084
-*color14:   #4bffbe
-*color7:    #e8e9ca
-*color15:   #ffffff
+
+*color0:    grey30
+*color1:    coral4
+*color2:    #526f33
+*color3:    lightgoldenrod4
+*color4:    skyblue4
+*color5:    mediumorchid4
+*color6:    darkslategray4
+*color7:    grey60
+
+*color8:    grey40
+*color9:    coral3
+*color10:   #8ea433
+*color11:   khaki2
+*color12:   lightblue3
+*color13:   mediumpurple2
+*color14:   darkslategray3
+*color15:   #e8e9ca
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
