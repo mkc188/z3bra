@@ -297,7 +297,7 @@ au BufRead,BufNewFile   *.c,*.h set filetype=c fdm=syntax
 au BufRead,BufNewFile   *.html,*.htm set fdm=syntax
 au BufRead,BufNewFile   *.html,*.htm inoremap </ </<C-x><C-o>
 au BufRead              /tmp/mutt-* call ToggleTW(72)
-au BufWritePost         .Xresources <silent>!xrdb %
+au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
 au BufEnter             *baseq3/*.cfg,*ui/*.menu,wolfcam-ql/*.cfg
             \ let quake_is_quake3=1

@@ -6,44 +6,24 @@
 
 ! Terminal colors ----------------------------------------------
 ! DARK BACKGROUND
-! *background:#1d1d16
-! *foreground:#ffffa2
-! *color0:    #303030
-! *color8:    #5F5F5F
-! *color1:    #c03000
-! *color9:    #ff4400
-! *color2:    #5f7f03
-! *color10:   #aaff00
-! *color3:    #ce8510
-! *color11:   #ffff00
-! *color4:    #327074
-! *color12:   #44aadd
-! *color5:    #73446f
-! *color13:   #ff44bb
-! *color6:    #32a084
-! *color14:   #4bffbe
-! *color7:    #baba77
-! *color15:   #ffffa2
-
-! LIGHT BACKGROUND
-*background:#e8e9ca
-*foreground:#443c28
-*color0:    #101010
-*color8:    #443c28
-*color1:    #3f0f04
-*color9:    #c03000
-*color2:    #323e14
-*color10:   #5f7f03
-*color3:    #4f3103
-*color11:   #ce8510
-*color4:    #00212a
-*color12:   #327074
-*color5:    #281130
-*color13:   #73446f
-*color6:    #003f3f
-*color14:   #125b58
-*color7:    #a28c64
-*color15:   #e8e9ca
+*background:#231f20
+*foreground:#e8e9ca
+*color0:    #535353
+*color8:    #747474
+*color1:    #c03000
+*color9:    #ff4400
+*color2:    #5f7f03
+*color10:   #aaff00
+*color3:    #ce8510
+*color11:   #ffff00
+*color4:    #327074
+*color12:   #44aadd
+*color5:    #73446f
+*color13:   #ff44bb
+*color6:    #32a084
+*color14:   #4bffbe
+*color7:    #e8e9ca
+*color15:   #ffffff
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
@@ -56,9 +36,7 @@ URxvt*font:               -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
 URxvt*boldFont:           -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
 URxvt*scrollBar:          false
 URxvt*cursorBlink:        false
-URxvt*cursorColor:        #443c28
-URxvt*cursorColor2:       #e8e9ca
-URxvt*underlineColor:     #999999
+URxvt*cursorColor:        #535353
 URxvt*internalBorder:     4
 URxvt*perl-ext-common:    default,url-select,keyboard-select
 URxvt.url-select.launcher:   /usr/bin/dwb
