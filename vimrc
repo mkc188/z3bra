@@ -26,31 +26,31 @@
 "  > General ===========================================================
 " ======================================================================
 
-    " Define <leader> key
-    let mapleader = "!"
+" Use Vim default instead of 100% vi compatibility
+set nocompatible
 
-    " How many lines Vim use for history
-    set history=100
+" Define <leader> key
+let mapleader = "!"
 
-    " Re-read file if changed outside
-    set autoread
+" How many lines Vim use for history
+set history=100
 
-    " Automatically save before commands like :next and :make
-    set autowrite
+" Re-read file if changed outside
+set autoread
 
-    " enable pathogen to manage plugins
-    exe pathogen#infect()
+" Automatically save before commands like :next and :make
+set autowrite
 
-    " Enable filetype plugins
-    filetype plugin on
-    filetype indent on
+" enable pathogen to manage plugins
+exe pathogen#infect()
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
 
 
 "  > Interface =========================================================
 " ======================================================================
-
-" Use Vim default instead of 100% vi compatibility
-set nocompatible
 
 " Show (partial) command in status line.
 set showcmd
@@ -72,9 +72,6 @@ set mouse=a
 
 " Show the line number on the left
 set number
-
-" Show the cursor position at anytime
-set ruler
 
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
@@ -167,13 +164,13 @@ set tabstop=8       " tab = 8 spaces
 set shiftwidth=4    " indentation is 4 spaces
 set softtabstop=4   " Do your best, but I want 4 spaces
 
-set lbr     " enable line break
-set sbr=\\  " line break indicator
-set tw=0    " text width
+set lbr             " enable line break
+set sbr=\\          " line break indicator
+set tw=0            " text width
 
-set ai      " auto indent
-set si      " smart indent
-set wrap    " wrap lines
+set ai              " auto indent
+set si              " smart indent
+set wrap            " wrap lines
 
 " 2 Column to view fold
 setlocal foldcolumn=2
