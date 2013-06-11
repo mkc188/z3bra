@@ -31,14 +31,16 @@ set certificate_file="~/.mutt/certificates" # certificates
 
 ## --- Status bar ---
 set status_chars  = " *%A"
-set status_format = "────[ Folder: %f ]───[ %r%m messages%?n?\
-                    (%n new)?%?d? (%d to delete)?%?t?\
-                    (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+# set status_format = "────[ Folder: %f ]───[ %r%m messages%?n?\
+#                     (%n new)?%?d? (%d to delete)?%?t?\
+#                     (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set status_format = "%> (%f -- %lb) %u/%m %?t?t:%t ?%?d?d:%d ?%?p?p:%p?"
+set status_on_top = no
 
 ## --- Sidebar ---
 set sidebar_visible = yes                       # why not !
 set sidebar_width = 32                          # column size
-set sidebar_delim = "|"                         # separator
+set sidebar_delim = "▎"                         # separator
 set sidebar_format = " %B %! %> %?N?(%N)?%S  "  # content
 set sidebar_folderindent = no                   # respect indent
 set sidebar_sort = no                           # sort alphabeticaly

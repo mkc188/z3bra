@@ -5,14 +5,14 @@ color signature brightblue default
 color attachment yellow default
 color message brightyellow default
 color error brightwhite red
-color indicator brightwhite brightblack
-color status  white default
+color indicator brightwhite black
+color status  brightyellow default
 color tree black default
 color normal brightblack default
 color markers red default
 color search black default
 color tilde brightmagenta default
-color sidebar_new black white
+color sidebar_new black brightyellow
 
 # Colors
 color index brightblack default ~F
