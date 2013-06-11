@@ -83,6 +83,9 @@ alias vol='alsamixer'
 # IRC client
 alias irc='irssi'
 
+# BTPD
+alias btc="btcli -d ~/var/btp"
+
 ## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: FUNCTIONS {{{
