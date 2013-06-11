@@ -14,6 +14,13 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.blinkenshell.org";
+    chatnet = "blinkenshell";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "yes";
+  },
+  {
     address = "irc.unixhub.net";
     chatnet = "unixhub";
     port = "6667";
@@ -25,7 +32,7 @@ servers = (
 ## COMMANDS
 chatnets = {
   # {{{
-  Freenode = {
+  freenode = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -33,7 +40,8 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg NickServ IDENTIFY password; /unquery NickServ";
   };
-  QuakeNet = {
+  blinkenshell = { type = "IRC"; };
+  quakeNet = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -56,6 +64,11 @@ channels = (
     name = "#archlinux-newbie";
     chatnet = "freenode";
     autojoin = "No";
+  },
+  { 
+    name = "#blinkenshell";
+    chatnet = "blinkenshell";
+    autojoin = "Yes";
   },
   { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; }
 );
@@ -230,7 +243,7 @@ statusbar = {
       };
       disabled = "yes";
     };
-    new1 = { placement = "top"; items = { }; position = "100"; };
+    new1 = { placement = "bottom"; items = { }; position = "1"; };
     # new2 = { placement = "bottom"; };
     awl_0 = {
       placement = "top";
@@ -248,7 +261,7 @@ statusbar = {
 settings = {
   # {{{
   core = {
-    real_name = "willy z-brah";
+    real_name = "Bill Gfn";
     user_name = "z-brah";
     nick = "z3bra";
     #  timestamp_format = "%H:%M:%S";
@@ -267,8 +280,8 @@ settings = {
     expand_escapes = "yes";
   };
   "perl/core/scripts" = {
-    awl_display_key = "%w$H $C $S";
-    awl_display_key_active = "$H %K$C $S";
+    awl_display_key = "%k$H $C $S";
+    awl_display_key_active = "$H %Y$C $S";
     # awl_sort = "refnum";
     # awl_hide_data = "0";
     awl_placement = "top";
