@@ -121,18 +121,18 @@ extract () {
 }
 
 # spawn a new main tmux session or attach to it if it exists
-t () {
-    SESSION_NAME=$(hostname)
-
-    tmux attach-session -t $SESSION_NAME
-
-    if [ $? -eq 1 ]; then
-        tmux new-session -s $SESSION_NAME -d
-        tmux new-window -dk -c~ -n "IRC"  -t $SESSION_NAME:0 irssi
-        tmux new-window -c~ -n "MAIL" -t $SESSION_NAME:9 mutt
-        tmux attach-session -t $SESSION_NAME
-    fi
-}
+# t () {
+#     SESSION_NAME=$(hostname)
+# 
+#     tmux attach-session -t $SESSION_NAME
+# 
+#     if [ $? -eq 1 ]; then
+#         tmux new-session -s $SESSION_NAME -d
+#         tmux new-window -dk -c~ -n "IRC"  -t $SESSION_NAME:0 irssi
+#         tmux new-window -c~ -n "MAIL" -t $SESSION_NAME:9 mutt
+#         tmux attach-session -t $SESSION_NAME
+#     fi
+# }
 
 # auto-cd into a created directory
 mkcd () {
