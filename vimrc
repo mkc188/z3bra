@@ -1,10 +1,6 @@
 " ======================================================================
 "
-" Maintainer : Willy Goiffon
-"
-"
-" Version    : 1.5 - 01-01-2013
-"
+" Maintainer : Willy 'z3bra' Goiffon
 "
 " Section    :
 "   > General
@@ -20,37 +16,38 @@
 "   > Functions
 "   > Misc
 "
+" vim: set fdm=marker tw=72 noai et:
+"
 " ======================================================================
-
 
 "  > General ===========================================================
-" ======================================================================
-
-    " Define <leader> key
-    let mapleader = "!"
-
-    " How many lines Vim use for history
-    set history=100
-
-    " Re-read file if changed outside
-    set autoread
-
-    " Automatically save before commands like :next and :make
-    set autowrite
-
-    " enable pathogen to manage plugins
-    exe pathogen#infect()
-
-    " Enable filetype plugins
-    filetype plugin on
-    filetype indent on
-
-
-"  > Interface =========================================================
-" ======================================================================
-
+" {{{
+"
 " Use Vim default instead of 100% vi compatibility
 set nocompatible
+
+" Define <leader> key
+let mapleader = "!"
+
+" How many lines Vim use for history
+set history=100
+
+" Re-read file if changed outside
+set autoread
+
+" Automatically save before commands like :next and :make
+set autowrite
+
+" enable pathogen to manage plugins
+exe pathogen#infect()
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+" }}}
+
+"  > Interface =========================================================
+" {{{
 
 " Show (partial) command in status line.
 set showcmd
@@ -72,9 +69,6 @@ set mouse=a
 
 " Show the line number on the left
 set number
-
-" Show the cursor position at anytime
-set ruler
 
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
@@ -110,10 +104,10 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
+" }}}
 
 "  > Colors & more =====================================================
-" ======================================================================
+" {{{
 
 " Enable syntax
 syntax on
@@ -144,19 +138,19 @@ let FILETAG=expand("tags")
 if filereadable(FILETAG)
     exe 'set tags=' . FILETAG
 endif
-
+" }}}
 
 "  > Files =============================================================
-" ======================================================================
+" {{{
 
 " Turn of backup (don't forget to push on git !!)
 set nobackup
 set nowb
 set noswapfile
-
+" }}}
 
 "  > Text formatting ===================================================
-" ======================================================================
+" {{{
 
 set expandtab       " convert tabs into space
 set smarttab        " Be smart !
@@ -167,13 +161,13 @@ set tabstop=8       " tab = 8 spaces
 set shiftwidth=4    " indentation is 4 spaces
 set softtabstop=4   " Do your best, but I want 4 spaces
 
-set lbr     " enable line break
-set sbr=\\  " line break indicator
-set tw=0    " text width
+set lbr             " enable line break
+set sbr=\\          " line break indicator
+set tw=0            " text width
 
-set ai      " auto indent
-set si      " smart indent
-set wrap    " wrap lines
+set ai              " auto indent
+set si              " smart indent
+set wrap            " wrap lines
 
 " 2 Column to view fold
 setlocal foldcolumn=2
@@ -188,10 +182,10 @@ set foldmethod=syntax
 " Quickly switch between textwidth 0 and whatever you want
 " map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
 map <leader>w :call ToggleTW(72)<CR>
-
+" }}}
 
 "  > Moving within file, buffers, windows & co. ========================
-" ======================================================================
+" {{{
 
 " Treat broken lines as multiple lines with j/k
 map j gj
@@ -218,10 +212,10 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Remember info about open buffers on close
 set viminfo^=%
-
+" }}}
 
 "  > Status line =======================================================
-" ======================================================================
+" {{{
 
 " enable statusline
 set laststatus=2
@@ -238,10 +232,10 @@ set statusline+=%P                                  " percentage of file
 
 set list
 set listchars=tab:▶⋅,trail:-,nbsp:⋅
-
+" }}}
 
 "  > Mapping ===========================================================
-" ======================================================================
+" {{{
 
 " So that Y behave like C and D
 nmap Y y$
@@ -271,10 +265,10 @@ nnoremap ZW :w<CR>
 
 " toggle between gcc and make
 nmap <Leader>cc :call ToggleCCompiler()<CR>
-
+" }}}
 
 "  > Filetypes commands ================================================
-" ======================================================================
+" {{{
 
 " Default FileType
 
@@ -299,10 +293,10 @@ autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+" }}}
 
-
-"  > Functions
-" ======================================================================
+"  > Functions =========================================================
+" {{{
 
 " Change textwidth
 fu! ToggleTW(num)
@@ -357,10 +351,10 @@ fu! ToggleCCompiler()
         set makeprg=make
     endif
 endfu
+" }}}
 
-
-"  > Misc
-" ======================================================================
+"  > Misc ==============================================================
+" {{{
 
 " Echo a vim tips on Vim startup
 autocmd VimEnter *  call ViewTips()

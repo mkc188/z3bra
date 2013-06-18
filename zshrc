@@ -15,18 +15,10 @@ autoload -U compinit && compinit
 # enable coloring
 autoload -U colors && colors
 
-# disown jobs on '&' or 'bg'
-setopt nohup
-
-# set the prompt
-PROMPT=""
-PROMPT="$PROMPT%{$fg[white]%}▶"
-PROMPT="$PROMPT%{$reset_color%} "
-
-# right aligned prompt
-RPROMPT="%{$reset_color%}◢ "
-RPROMPT="$RPROMPT%{$fg[white]%}%~"
-RPROMPT="$RPROMPT%{$reset_color%} ◣"
+# set the prompt 
+PROMPT="
+%{$fg_bold[yellow]%} »  "
+RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
 
 # vi-like key bindings
 bindkey -v
@@ -83,6 +75,12 @@ alias vol='alsamixer'
 # IRC client
 alias irc='irssi'
 
+# TMUX
+alias t='tmux'
+
+# BTPD
+alias btc="btcli -d ~/var/btp"
+
 ## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: FUNCTIONS {{{
@@ -118,18 +116,18 @@ extract () {
 }
 
 # spawn a new main tmux session or attach to it if it exists
-t () {
-    SESSION_NAME=$(hostname)
-
-    tmux attach-session -t $SESSION_NAME
-
-    if [ $? -eq 1 ]; then
-        tmux new-session -s $SESSION_NAME -d
-        tmux new-window -dk -c~ -n "IRC"  -t $SESSION_NAME:0 irssi
-        tmux new-window -c~ -n "MAIL" -t $SESSION_NAME:9 mutt
-        tmux attach-session -t $SESSION_NAME
-    fi
-}
+# t () {
+#     SESSION_NAME=$(hostname)
+# 
+#     tmux attach-session -t $SESSION_NAME
+# 
+#     if [ $? -eq 1 ]; then
+#         tmux new-session -s $SESSION_NAME -d
+#         tmux new-window -dk -c~ -n "IRC"  -t $SESSION_NAME:0 irssi
+#         tmux new-window -c~ -n "MAIL" -t $SESSION_NAME:9 mutt
+#         tmux attach-session -t $SESSION_NAME
+#     fi
+# }
 
 # auto-cd into a created directory
 mkcd () {
