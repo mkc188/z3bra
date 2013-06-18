@@ -24,7 +24,7 @@ xbindkeys
 
 # Set wallpaper
 # feh --bg-fill --no-fehbg ~/usr/img/bg/bear.jpg &
-feh --bg-tile --no-fehbg ~/usr/img/bg/stripes.png
+feh --bg-tile --no-fehbg ~/usr/img/bg/stripes_dark.png
 # launch devilspie
 # devilspie -a &
 # Compositing
