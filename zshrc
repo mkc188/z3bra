@@ -15,18 +15,10 @@ autoload -U compinit && compinit
 # enable coloring
 autoload -U colors && colors
 
-# disown jobs on '&' or 'bg'
-setopt nohup
-
-# set the prompt
-PROMPT=""
-PROMPT="$PROMPT%{$fg[white]%}▶"
-PROMPT="$PROMPT%{$reset_color%} "
-
-# right aligned prompt
-RPROMPT="%{$reset_color%}◢ "
-RPROMPT="$RPROMPT%{$fg[white]%}%~"
-RPROMPT="$RPROMPT%{$reset_color%} ◣"
+# set the prompt 
+PROMPT="
+%{$fg_bold[yellow]%} »  "
+RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
 
 # vi-like key bindings
 bindkey -v
@@ -82,6 +74,9 @@ alias vol='alsamixer'
 
 # IRC client
 alias irc='irssi'
+
+# TMUX
+alias t='tmux'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
