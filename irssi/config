@@ -243,8 +243,9 @@ statusbar = {
       };
       disabled = "yes";
     };
-    new1 = { placement = "bottom"; items = { }; position = "1"; };
-    # new2 = { placement = "bottom"; };
+    void_topic = { placement = "top"; position = "0"; };
+    void_status = { placement = "top"; position = "100"; };
+    void_bottom = { placement = "bottom"; items = { }; position = "1"; };
     awl_0 = {
       placement = "top";
       items = {
