@@ -25,7 +25,7 @@ none=$(tput sgr0)
 
 
 # set the command prompt
-export PS1="\[$yellow\]\w \[$none\]\$ "
+export PS1="\[$black\]\w \[$none\]\$ "
 
 # add folders to PATH
 export PATH=$PATH:~/bin:.
@@ -81,9 +81,6 @@ alias sv="sudo vim"
 alias vol="alsamixer"
 
 alias t='tmux attach'
-
-## Softwares
-alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && ssh'
 
 # IRC client aliases to join networks
 alias irc='irssi'
