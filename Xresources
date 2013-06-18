@@ -8,30 +8,30 @@
 *background:#231f20
 *foreground:#e8e9ca
 
-*color0:    grey30
-*color1:    coral4
+*color0:    #535353
+*color1:    #8b3e2f
 *color2:    #526f33
-*color3:    lightgoldenrod4
-*color4:    skyblue4
-*color5:    mediumorchid4
-*color6:    darkslategray4
-*color7:    grey60
+*color3:    #8B814C
+*color4:    #4A708B
+*color5:    #7A378B
+*color6:    #528B8B
+*color7:    #999999
 
-*color8:    grey40
-*color9:    coral3
+*color8:    #666666
+*color9:    #CD5B45
 *color10:   #8ea433
-*color11:   khaki2
-*color12:   lightblue3
-*color13:   mediumpurple2
-*color14:   darkslategray3
-*color15:   #e8e9ca
+*color11:   #EEE685
+*color12:   #9AC0CD
+*color13:   #9F79EE
+*color14:   #79CDCD
+*color15:   #E8E9CA
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
 URxvt*termName:           rxvt-256color
 URxvt*loginShell:         false
 URxvt*saveLines:          1024
-URxvt*geometry:           96x28
+URxvt*geometry:           80x16
 URxvt*depth:              32
 URxvt*font:               -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
 URxvt*boldFont:           -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
@@ -43,7 +43,7 @@ URxvt*perl-ext-common:    default,url-select,keyboard-select
 URxvt.url-select.launcher:   /usr/bin/dwb
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:         perl:url-select:select_next
-URxvt.keysym.M-s:         perl:keyboard-select:activate
+URxvt.keysym.M-v:         perl:keyboard-select:activate
 
 ! Colored man pages
 URxvt.colorIT:            #cacaca
