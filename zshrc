@@ -5,6 +5,9 @@ export GOPATH=~/code/go
 export PATH=$PATH:$GOPATH/bin:$HOME/bin:.
 unset GOBIN # use GOPATH for install
 
+# Remote MPD server
+export MPD_HOST='mpdconf@gavroche'
+
 ## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
@@ -80,6 +83,9 @@ alias t='tmux'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
+
+# HANDY RICKY SCRIPT
+alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
 
 ## }}}
 

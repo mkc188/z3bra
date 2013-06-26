@@ -7,7 +7,9 @@ sticky yes
 # Any entry here is shown in the application menu
 command term            urxvt
 command internet        chromium
-command qlprism         "/home/willy/.quakelive/qlprism/qlprism.sh"
+command fichier         pcmanfm
+command libreoffice     libreoffice
+command qlprism         "/home/z3bra/.quakelive/qlprism/qlprism.sh"
 
 # Ignore programs by that name by not drawing borders around them.
 ignore bar

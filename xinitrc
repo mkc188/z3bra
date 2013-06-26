@@ -3,13 +3,6 @@
 # ~/.xinitrc
 #
 
-DEFAULT_SESSION="cwm"
-
-# load fonts
-# xset +fp /usr/share/fonts/local/
-# xset +fp /usr/share/fonts/misc/
-# xset fp rehash
-
 # enable RGBA module for GTK
 export GTK_MODULES=rgba
 
@@ -23,8 +16,9 @@ xbindkeys
 ~/bin/bar/status.sh &
 
 # Set wallpaper
-# feh --bg-fill --no-fehbg ~/usr/img/bg/bear.jpg &
-feh --bg-tile --no-fehbg ~/usr/img/bg/stripes.png
+#feh --bg-fill --no-fehbg ~/usr/img/bg/cubes.jpg &
+hsetroot -fill ~/usr/img/bg/cubes.jpg &
+
 # launch devilspie
 # devilspie -a &
 # Compositing
@@ -32,17 +26,4 @@ feh --bg-tile --no-fehbg ~/usr/img/bg/stripes.png
 compton -cCb -r16 -t-22 -l-22 -o.8
 
 # Choose WM
-case $1 in
-    evilwm)
-        exec evilwm
-        ;;
-    cwm)
-        exec cwm
-        ;;
-    console)
-        exec urxvtc
-        ;;
-    *)
-        exec $DEFAULT_SESSION
-        ;;
-esac
+exec cwm
