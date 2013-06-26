@@ -116,7 +116,7 @@ syntax on
 set t_Co=256
 
 " Theme & colors
-colorscheme shadow
+colorscheme sandstorm
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
