@@ -146,11 +146,11 @@ abstracts = { # {{{
 
   # private message in query
   # privmsgnick = "{msgnick $*}";
-  privmsgnick = "%g<%N %|";
+  privmsgnick = "%g<<%N %|";
 
   # own private message in query
   #ownprivmsgnick = "{privmsgnick $*}";
-  ownprivmsgnick = "%r>%N %|";
+  ownprivmsgnick = "%b>>%N %|";
   #ownprivnick = "$*";
 
 
@@ -244,7 +244,7 @@ abstracts = { # {{{
   # normal text
   sb_act_text = "%n$*";
   # public message
-  sb_act_msg = "%K$*%n";
+  sb_act_msg = "%w$*%n";
   # hilight
   sb_act_hilight = "%W$*%n";
   # hilight with specified color, $0 = color, $1 = text
