@@ -42,7 +42,10 @@ alias mv='mv -i'
 
 # Alias to avoid some 'RAAAAAAAAAH !!'
 alias :q='quit'
-alias fuck='sudo $(fc -n -l -1)'
+alias fu='sudo $(fc -n -l -1)'
+
+# Network/System monitoring
+alias netlist='lsof -i -P | grep LISTEN' # show active network listener
 
 # Pipes & more
 alias -g BG='& exit'
@@ -57,26 +60,19 @@ alias -g S='| curl -F "sprunge=<-" http://sprunge.us'
 alias ls='ls --color=auto'
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 # some more ls aliases
-alias ll='ls -alhF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+alias ll='ls -alhF'
+alias la='ls -A'
+alias l='ls -CF'
 
 ## Edition
 export EDITOR='vim'
 alias v='vim'
 alias sv='sudo vim'
-alias e='$EDITOR'
-alias se='sudo $EDITOR'
 
 ## ALSA
 alias vol='alsamixer'
-
-# IRC client
-alias irc='irssi'
 
 # TMUX
 alias t='tmux'
@@ -84,8 +80,12 @@ alias t='tmux'
 # BTPD
 alias btc="btcli -d ~/var/btp"
 
+# desktop recording
+alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
+alias rcommit="curl -s http://whatthecommit.com/index.txt"
 
 ## }}}
 
@@ -121,6 +121,17 @@ extract () {
     fi
 }
 
+gify() {
+  if [[ -n "$1" && -n "$2" ]]; then
+    ffmpeg -i $1 -pix_fmt rgb24 temp.gif
+    convert -layers Optimize temp.gif $2
+    rm temp.gif
+  else
+    echo "proper usage: gif-ify <input_movie.mov> <output_file.gif>"
+    echo "You DO need to include extensions."
+  fi
+}
+
 # spawn a new main tmux session or attach to it if it exists
 # t () {
 #     SESSION_NAME=$(hostname)
@@ -136,7 +147,7 @@ extract () {
 # }
 
 # auto-cd into a created directory
-mkcd () {
+mcd () {
     mkdir $@ && cd $_
 }
 

@@ -17,10 +17,8 @@ xbindkeys
 
 # Set wallpaper
 #feh --bg-fill --no-fehbg ~/usr/img/bg/cubes.jpg &
-hsetroot -fill ~/usr/img/bg/cubes.jpg &
+hsetroot -fill ~/usr/img/bg/turtle.png &
 
-# launch devilspie
-# devilspie -a &
 # Compositing
 # compton -cCb -t-5 -l-5 -r4.2 -o.4
 compton -cCb -r16 -t-22 -l-22 -o.8
