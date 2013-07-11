@@ -8,7 +8,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="sahara"
+let g:colors_name="sandstorm"
 
 "
 " Highlighting definitions.
