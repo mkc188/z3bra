@@ -6,4 +6,7 @@ mutt/cache
 mutt/hcache
 mutt/mailcap
 mutt/temp
+mutt/crypt
 mutt/.passwd.gpg
+
+ncmpcpp/error.log

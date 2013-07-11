@@ -113,6 +113,9 @@ set reverse_alias
 set sort_alias="alias"
 source $alias_file
 
+## --- PGP ---
+source ~/.mutt/crypt
+
 ## --- Colors ---
 source ~/.mutt/colors
 
