@@ -231,7 +231,7 @@ set statusline+=%10((%l/%L)%)\                      " line and column
 set statusline+=%P                                  " percentage of file
 
 set list
-set listchars=tab:▶⋅,trail:-,nbsp:⋅
+set listchars=tab:\|\ ,trail:⋅,nbsp:˽
 " }}}
 
 "  > Mapping ===========================================================
