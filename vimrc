@@ -253,9 +253,9 @@ set pastetoggle=<F11>
 " easily change the working directory
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" exit insert mode
-inoremap jk <ESC>
-inoremap kj <ESC>
+" blabla don't scroll
+nmap jj jk
+nmap kk kj
 
 " increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
