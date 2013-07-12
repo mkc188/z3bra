@@ -181,7 +181,7 @@ set foldmethod=syntax
 
 " Quickly switch between textwidth 0 and whatever you want
 " map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
-map <leader>w :call ToggleTW(72)<CR>
+map <leader>w :call ToggleTW(80)<CR>
 " }}}
 
 "  > Moving within file, buffers, windows & co. ========================
