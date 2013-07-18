@@ -147,6 +147,9 @@ endif
 set nobackup
 set nowb
 set noswapfile
+
+" improve vim path
+set path=.,,inc,src,/usr/include
 " }}}
 
 "  > Text formatting ===================================================
@@ -252,6 +255,11 @@ set pastetoggle=<F11>
 
 " easily change the working directory
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" open the file correcponding to the source/header actually openned.
+" it replace .c with .h in the file name, eg. file.cpp -> file.hpp
+" You must set your path correctly so that :find will find it.
+nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 
 " increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
