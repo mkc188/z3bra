@@ -13,7 +13,7 @@ export MPD_HOST='mpdconf@gavroche'
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
 
 # start X at login
-[ -z $DISPLAY ] && startx
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
 
 # enable zsh completion menu
 autoload -U compinit && compinit
@@ -78,7 +78,7 @@ alias sv='sudo vim'
 alias vol='alsamixer'
 
 # TMUX
-alias t='tmux'
+alias t='tmux -2' forces 256 colors
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
