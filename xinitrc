@@ -6,6 +6,9 @@
 # enable RGBA module for GTK
 export GTK_MODULES=rgba
 
+# load nvidia config
+nvidia-settings -l
+
 xsetroot -cursor_name left_ptr &
 # Load X resources
 xrdb -load ~/.Xresources &
