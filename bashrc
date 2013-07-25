@@ -5,28 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[ -r /etc/bash_completion   ] && . /etc/bash_completion
-
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
-
-# colors
-black=$(tput setaf 0)
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-blue=$(tput setaf 4)
-magenta=$(tput setaf 5)
-cyan=$(tput setaf 6)
-white=$(tput setaf 7)
-bold=$(tput bold)
-none=$(tput sgr0)
-
-
-# set the command prompt
-export PS1="\[$black\]\w \[$none\]\$ "
-
 # add folders to PATH
 export PATH=$PATH:~/bin:.
 
@@ -46,10 +24,9 @@ set -o vi
 ## ALIASES ##
 
 ## Terminal
-alias q="exit"
 alias quit="exit"
 alias c="clear"
-alias reload="source ~/.bashrc"
+alias so="source ~/.bashrc"
 
 # Add a 'proctection' on rm | mv | cp
 alias rm='rm -i'
@@ -65,12 +42,9 @@ alias fuck='sudo $(fc -n -l -1)'
 alias ls='ls --color=auto'
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 # some more ls aliases
 alias ll='ls -alhF --color=auto'
-alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 
 ## Applications
@@ -80,17 +54,12 @@ alias sv="sudo vim"
 
 alias vol="alsamixer"
 
-alias t='tmux attach'
-
-# IRC client aliases to join networks
-alias irc='irssi'
+alias t="tmux"
 
 ## Functions
-function start() { sudo systemctl start $@; }
-function stop() { sudo systemctl stop $@; }
-function restart() { sudo systemctl restart $@; }
-function enable() { sudo systemctl enable $@; }
-function disable() { sudo systemctl disable $@; }
+function start() { sudo /etc/rc.d/$1 start; }
+function stop() { sudo /etc/rc.d/$1 stop; }
+function restart() { sudo /etc/rc.d/$1 restart; }
 
 function thumbify() {
     if [ -f $1 ]; then
