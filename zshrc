@@ -12,6 +12,9 @@ export MPD_HOST='mpdconf@gavroche'
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
 
+# start X at login
+[[ -z $DISPLAY && $XDG_VTNR -ne 1 ]] && startx
+
 # enable zsh completion menu
 autoload -U compinit && compinit
 
@@ -75,7 +78,7 @@ alias sv='sudo vim'
 alias vol='alsamixer'
 
 # TMUX
-alias t='tmux'
+alias t='tmux -2' forces 256 colors
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
@@ -84,8 +87,8 @@ alias btc="btcli -d ~/var/btp"
 alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
 
 # HANDY RICKY SCRIPT
-alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
-alias rcommit="curl -s http://whatthecommit.com/index.txt"
+alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
+alias rcommit="curl -s 'http://whatthecommit.com/index.txt\'"
 
 ## }}}
 

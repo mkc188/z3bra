@@ -12,7 +12,6 @@
 "   > Status line
 "   > Mapping
 "   > Filetype commands
-"   > Plugin settings
 "   > Functions
 "   > Misc
 "
@@ -38,9 +37,6 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
-" enable pathogen to manage plugins
-exe pathogen#infect()
-
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -64,8 +60,8 @@ set smartcase           " Do smart case matching
 set incsearch           " Incremental search
 set magic               " Use magic for regular expressions
 
-" Enable mouse usage (all modes)
-set mouse=a
+" Disable mouse usage (all modes)
+set mouse=
 
 " Show the line number on the left
 set number
@@ -113,10 +109,10 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=256
+set t_Co=16
 
 " Theme & colors
-colorscheme sandstorm
+colorscheme 16
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -147,6 +143,9 @@ endif
 set nobackup
 set nowb
 set noswapfile
+
+" improve vim path
+set path=.,,inc,src,/usr/include
 " }}}
 
 "  > Text formatting ===================================================
@@ -181,7 +180,7 @@ set foldmethod=syntax
 
 " Quickly switch between textwidth 0 and whatever you want
 " map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
-map <leader>w :call ToggleTW(72)<CR>
+map <leader>w :call ToggleTW(80)<CR>
 " }}}
 
 "  > Moving within file, buffers, windows & co. ========================
@@ -231,7 +230,7 @@ set statusline+=%10((%l/%L)%)\                      " line and column
 set statusline+=%P                                  " percentage of file
 
 set list
-set listchars=tab:▶⋅,trail:-,nbsp:⋅
+set listchars=tab:\|\ ,trail:⋅,nbsp:˽
 " }}}
 
 "  > Mapping ===========================================================
@@ -253,9 +252,10 @@ set pastetoggle=<F11>
 " easily change the working directory
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" exit insert mode
-inoremap jk <ESC>
-inoremap kj <ESC>
+" open the file correcponding to the source/header actually openned.
+" it replace .c with .h in the file name, eg. file.cpp -> file.hpp
+" You must set your path correctly so that :find will find it.
+nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 
 " increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
@@ -273,16 +273,13 @@ nmap <Leader>cc :call ToggleCCompiler()<CR>
 " Default FileType
 
 " Special commands
-au BufEnter             * set fdm=marker
-au BufEnter             *.php set ft=php.html fdm=syntax
-au BufRead,BufNewFile   *.c,*.h set filetype=c fdm=syntax
-au BufRead,BufNewFile   *.html,*.htm set fdm=syntax
-au BufRead,BufNewFile   *.html,*.htm inoremap </ </<C-x><C-o>
-au BufRead              /tmp/mutt-* call ToggleTW(72)
+au BufEnter             *.php set ft=php.html
+au BufRead,BufNewFile   *.c,*.h set filetype=c
+au BufRead,BufNewFile   *.html,*.htm ab </ </<C-x><C-o>
+au BufRead              /tmp/mutt-* call ToggleTW(80)
 au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
-au BufEnter             *baseq3/*.cfg,*ui/*.menu,wolfcam-ql/*.cfg
-            \ let quake_is_quake3=1
+au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
 
 
 " Filetype completion

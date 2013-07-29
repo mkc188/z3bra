@@ -6,6 +6,9 @@
 # enable RGBA module for GTK
 export GTK_MODULES=rgba
 
+# load nvidia config
+nvidia-settings -l
+
 xsetroot -cursor_name left_ptr &
 # Load X resources
 xrdb -load ~/.Xresources &
@@ -17,7 +20,7 @@ xbindkeys
 
 # Set wallpaper
 #feh --bg-fill --no-fehbg ~/usr/img/bg/cubes.jpg &
-hsetroot -fill ~/usr/img/bg/turtle.png &
+hsetroot -fill ~/usr/img/bg/shblah.png &
 
 # Compositing
 # compton -cCb -t-5 -l-5 -r4.2 -o.4

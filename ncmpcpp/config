@@ -177,7 +177,7 @@ mouse_support = "no"
 #
 empty_tag_marker = "<none>"
 #
-allow_physical_files_deletion = "yes"
+allow_physical_files_deletion = "no"
 allow_physical_directories_deletion = "no"
 external_editor = "vim"
 use_console_editor = "vim" # (set to yes, if your editor is console app)
