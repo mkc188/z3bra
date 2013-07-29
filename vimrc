@@ -60,8 +60,8 @@ set smartcase           " Do smart case matching
 set incsearch           " Incremental search
 set magic               " Use magic for regular expressions
 
-" Enable mouse usage (all modes)
-set mouse=a
+" Disable mouse usage (all modes)
+set mouse=
 
 " Show the line number on the left
 set number
