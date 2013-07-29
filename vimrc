@@ -12,7 +12,6 @@
 "   > Status line
 "   > Mapping
 "   > Filetype commands
-"   > Plugin settings
 "   > Functions
 "   > Misc
 "
@@ -38,9 +37,6 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
-" enable pathogen to manage plugins
-exe pathogen#infect()
-
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -64,8 +60,8 @@ set smartcase           " Do smart case matching
 set incsearch           " Incremental search
 set magic               " Use magic for regular expressions
 
-" Enable mouse usage (all modes)
-set mouse=a
+" Disable mouse usage (all modes)
+set mouse=
 
 " Show the line number on the left
 set number
@@ -113,10 +109,10 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=256
+set t_Co=16
 
 " Theme & colors
-colorscheme sandstorm
+colorscheme 16
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -278,13 +274,12 @@ nmap <Leader>cc :call ToggleCCompiler()<CR>
 
 " Special commands
 au BufEnter             *.php set ft=php.html
-au BufRead,BufNewFile   *.c,*.h set ft=c
-au BufRead,BufNewFile   *.html,*.htm inoremap </ </<C-x><C-o>
-au BufRead              /tmp/mutt-* call ToggleTW(72)
+au BufRead,BufNewFile   *.c,*.h set filetype=c
+au BufRead,BufNewFile   *.html,*.htm ab </ </<C-x><C-o>
+au BufRead              /tmp/mutt-* call ToggleTW(80)
 au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
-au BufEnter             *baseq3/*.cfg,*ui/*.menu,wolfcam-ql/*.cfg
-            \ let quake_is_quake3=1
+au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
 
 
 " Filetype completion
