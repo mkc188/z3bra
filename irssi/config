@@ -289,7 +289,7 @@ settings = {
     expand_escapes = "yes";
   };
   "perl/core/scripts" = {
-    awl_display_key = "%k$H $C $S";
+    awl_display_key = "%K$H $C $S";
     awl_display_key_active = "$H %Y$C $S";
     # awl_sort = "refnum";
     # awl_hide_data = "0";
