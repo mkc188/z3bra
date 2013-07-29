@@ -21,6 +21,12 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.gamesurge.net";
+    chatnet = "gamesurge";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
     address = "irc.unixhub.net";
     chatnet = "unixhub";
     port = "6667";
@@ -50,6 +56,7 @@ chatnets = {
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
   unixhub = { type = "IRC"; };
+  gamesurge = { type = "IRC"; };
 };
 # }}}
 
@@ -70,7 +77,8 @@ channels = (
     chatnet = "blinkenshell";
     autojoin = "Yes";
   },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; }
+  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "No"; },
+  { name = "#cube.fr"; chatnet = "gamesurge"; autojoin = "Yes"; }
 );
 # }}}
 
