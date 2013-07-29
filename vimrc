@@ -277,10 +277,8 @@ nmap <Leader>cc :call ToggleCCompiler()<CR>
 " Default FileType
 
 " Special commands
-au BufEnter             * set fdm=marker
-au BufEnter             *.php set ft=php.html fdm=syntax
-au BufRead,BufNewFile   *.c,*.h set filetype=c fdm=syntax
-au BufRead,BufNewFile   *.html,*.htm set fdm=syntax
+au BufEnter             *.php set ft=php.html
+au BufRead,BufNewFile   *.c,*.h set ft=c
 au BufRead,BufNewFile   *.html,*.htm inoremap </ </<C-x><C-o>
 au BufRead              /tmp/mutt-* call ToggleTW(72)
 au BufWritePost         .Xresources !xrdb %
