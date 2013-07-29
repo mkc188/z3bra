@@ -12,7 +12,6 @@
 "   > Status line
 "   > Mapping
 "   > Filetype commands
-"   > Plugin settings
 "   > Functions
 "   > Misc
 "
@@ -37,9 +36,6 @@ set autoread
 
 " Automatically save before commands like :next and :make
 set autowrite
-
-" enable pathogen to manage plugins
-exe pathogen#infect()
 
 " Enable filetype plugins
 filetype plugin on
@@ -277,16 +273,13 @@ nmap <Leader>cc :call ToggleCCompiler()<CR>
 " Default FileType
 
 " Special commands
-au BufEnter             * set fdm=marker
-au BufEnter             *.php set ft=php.html fdm=syntax
-au BufRead,BufNewFile   *.c,*.h set filetype=c fdm=syntax
-au BufRead,BufNewFile   *.html,*.htm set fdm=syntax
-au BufRead,BufNewFile   *.html,*.htm inoremap </ </<C-x><C-o>
-au BufRead              /tmp/mutt-* call ToggleTW(72)
+au BufEnter             *.php set ft=php.html
+au BufRead,BufNewFile   *.c,*.h set filetype=c
+au BufRead,BufNewFile   *.html,*.htm ab </ </<C-x><C-o>
+au BufRead              /tmp/mutt-* call ToggleTW(80)
 au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
-au BufEnter             *baseq3/*.cfg,*ui/*.menu,wolfcam-ql/*.cfg
-            \ let quake_is_quake3=1
+au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
 
 
 " Filetype completion
