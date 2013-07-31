@@ -12,9 +12,6 @@ export MPD_HOST='mpdconf@gavroche'
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
 
-# start X at login
-[[ -z $DISPLAY && $XDG_VTNR -ne 1 ]] && startx
-
 # enable zsh completion menu
 autoload -U compinit && compinit
 
