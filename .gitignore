@@ -10,3 +10,5 @@ mutt/crypt
 mutt/.passwd.gpg
 
 ncmpcpp/error.log
+
+elinks/*
