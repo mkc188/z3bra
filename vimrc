@@ -332,7 +332,7 @@ endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
-    if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
+    if strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
         return "\<Tab>"
     else
         return "\<C-N>"
