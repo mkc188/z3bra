@@ -63,8 +63,8 @@ set magic               " Use magic for regular expressions
 " Disable mouse usage (all modes)
 set mouse=
 
-" Show the line number on the left
-set number
+" Show the line number on the left (or not)
+set nonumber
 
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
@@ -169,7 +169,7 @@ set si              " smart indent
 set wrap            " wrap lines
 
 " 2 Column to view fold
-setlocal foldcolumn=2
+setlocal foldcolumn=0
 
 " Underline the cursor row in the current window
 au VimEnter,WinEnter,BufWinEnter * set cursorline nocursorcolumn
