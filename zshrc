@@ -121,7 +121,7 @@ extract () {
     fi
 }
 
-gify() {
+gifify() {
   if [[ -n "$1" && -n "$2" ]]; then
     ffmpeg -i $1 -pix_fmt rgb24 temp.gif
     convert -layers Optimize temp.gif $2
