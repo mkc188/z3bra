@@ -11,4 +11,6 @@ mutt/.passwd.gpg
 
 ncmpcpp/error.log
 
+elinks/*
+
 vim/.netrwhist
