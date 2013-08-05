@@ -18,7 +18,7 @@ if has("gui_running") || &t_Co == 256
     "
     " Actual colours and styles.
     "
-    highlight Comment      term=NONE cterm=NONE ctermfg=0    ctermbg=NONE
+    highlight Comment      term=NONE cterm=NONE ctermfg=8    ctermbg=NONE
     highlight Constant     term=NONE cterm=NONE ctermfg=226  ctermbg=NONE
     highlight Cursor       term=NONE cterm=NONE ctermfg=66   ctermbg=222
     highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=233
