@@ -190,6 +190,9 @@ map <leader>w :call ToggleTW(80)<CR>
 "  > Moving within file, buffers, windows & co. ========================
 " {{{
 
+" matchit actually comes with vim...
+silent! runtime macros/matchit.vim
+
 " Treat broken lines as multiple lines with j/k
 map j gj
 map k gk
