@@ -109,10 +109,14 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=16
+set t_Co=256
 
 " Theme & colors
-colorscheme 16
+if &t_Co == 256
+    colorscheme sandstorm
+else
+    colorscheme shadow
+endif
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
