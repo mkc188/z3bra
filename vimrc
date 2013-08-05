@@ -216,7 +216,7 @@ set viminfo^=%
 
 " disable statusline
 set laststatus=0
-set statusline=%f\ (%n)
+set statusline=
 
 " use ruler instead (less intrusive
 set ruler
