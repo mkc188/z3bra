@@ -68,9 +68,6 @@ set nonumber
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
 
-" Improve display
-set ttyfast
-
 " Define the offset with the cursor when moving vertically
 set so=7
 
