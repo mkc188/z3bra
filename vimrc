@@ -265,6 +265,9 @@ nnoremap ZW :w<CR>
 
 " toggle between gcc and make
 nmap <Leader>cc :call ToggleCCompiler()<CR>
+
+" upload to sprunge.us
+command Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 
 "  > Filetypes commands ================================================
