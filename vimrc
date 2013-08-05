@@ -107,11 +107,7 @@ syntax on
 set t_Co=256
 
 " Theme & colors
-if &t_Co == 256
-    colorscheme sandstorm
-else
-    colorscheme shadow
-endif
+colorscheme sandstorm
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -220,6 +216,7 @@ set viminfo^=%
 
 " disable statusline
 set laststatus=0
+set statusline=%f\ (%n)
 
 " use ruler instead (less intrusive
 set ruler
