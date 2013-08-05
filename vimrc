@@ -2,6 +2,8 @@
 "
 " Maintainer : Willy 'z3bra' Goiffon
 "
+" vim: fdm=marker:tw=72:cc=73:noai:et
+"
 " Section    :
 "   > General
 "   > Interface
@@ -14,8 +16,6 @@
 "   > Filetype commands
 "   > Functions
 "   > Misc
-"
-" vim: set fdm=marker tw=72 noai et:
 "
 " ======================================================================
 
@@ -109,10 +109,14 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=16
+set t_Co=256
 
 " Theme & colors
-colorscheme 16
+if &t_Co == 256
+    colorscheme sandstorm
+else
+    colorscheme shadow
+endif
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -185,6 +189,9 @@ map <leader>w :call ToggleTW(80)<CR>
 
 "  > Moving within file, buffers, windows & co. ========================
 " {{{
+
+" matchit actually comes with vim...
+silent! runtime macros/matchit.vim
 
 " Treat broken lines as multiple lines with j/k
 map j gj
@@ -332,7 +339,7 @@ endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
-    if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
+    if strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
         return "\<Tab>"
     else
         return "\<C-N>"
@@ -355,5 +362,3 @@ endfu
 
 " Echo a vim tips on Vim startup
 autocmd VimEnter *  call ViewTips()
-
-" vim: tw=72:ts=4
