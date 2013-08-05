@@ -2,6 +2,8 @@
 "
 " Maintainer : Willy 'z3bra' Goiffon
 "
+" vim: fdm=marker:tw=72:cc=73:noai:et
+"
 " Section    :
 "   > General
 "   > Interface
@@ -14,8 +16,6 @@
 "   > Filetype commands
 "   > Functions
 "   > Misc
-"
-" vim: set fdm=marker tw=72 noai et:
 "
 " ======================================================================
 
@@ -355,5 +355,3 @@ endfu
 
 " Echo a vim tips on Vim startup
 autocmd VimEnter *  call ViewTips()
-
-" vim: tw=72:ts=4
