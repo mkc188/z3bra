@@ -80,12 +80,8 @@ set wildmenu
 " Files to ignore with it
 set wildignore=*.o,*~
 
-" Always show cursor position
-set ruler
-
-
 " Height of the cmdline window
-set cmdheight=2
+set cmdheight=1
 
 " Do not redraw while executing macros
 set lazyredraw
@@ -219,27 +215,23 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 set viminfo^=%
 " }}}
 
-"  > Status line =======================================================
+"  > Status line ===============================================================
 " {{{
 
-" enable statusline
-set laststatus=2
+" disable statusline
+set laststatus=0
 
-" statusline itself
-set statusline=
-set statusline+=%<\                                 " cut at start
-set statusline+=(%n%M%H%R)\                         " flags
-set statusline+=%-40f\                              " path
-set statusline+=%=(%Y)\                             " file type
-set statusline+=(tw:%{&tw}\ ts:%{&ts}\ sw:%{&sw})\  " text format info
-set statusline+=%10((%l/%L)%)\                      " line and column
-set statusline+=%P                                  " percentage of file
+" use ruler instead (less intrusive
+set ruler
+
+" put everything I need in the ruler
+set rulerformat=%-50(%=%M%H%R\ %f%<\ (%n)%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
 " }}}
 
-"  > Mapping ===========================================================
+"  > Mapping ===================================================================
 " {{{
 
 " So that Y behave like C and D
