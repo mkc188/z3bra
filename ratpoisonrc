@@ -31,9 +31,9 @@ addhook switchgroup select -
 addhook switchgroup next
 
 # workspaces
-gnew   dev
-gnewbg web
-gnewbg chill
+gnew   DEV
+gnewbg WEB
+gnewbg MEH
 gmerge default
 gdelete default
 
