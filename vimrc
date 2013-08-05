@@ -1,8 +1,8 @@
-" ======================================================================
+" ==============================================================================
 "
 " Maintainer : Willy 'z3bra' Goiffon
 "
-" vim: fdm=marker:tw=72:cc=73:noai:et
+" vim: fdm=marker:tw=80:cc=81:noai:et
 "
 " Section    :
 "   > General
@@ -17,9 +17,9 @@
 "   > Functions
 "   > Misc
 "
-" ======================================================================
+" ==============================================================================
 
-"  > General ===========================================================
+"  > General ===================================================================
 " {{{
 "
 " Use Vim default instead of 100% vi compatibility
@@ -37,12 +37,11 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
-" Enable filetype plugins
-filetype plugin on
+filetype on
 filetype indent on
 " }}}
 
-"  > Interface =========================================================
+"  > Interface =================================================================
 " {{{
 
 " Show (partial) command in status line.
@@ -102,7 +101,7 @@ set t_vb=
 set tm=500
 " }}}
 
-"  > Colors & more =====================================================
+"  > Colors & more =============================================================
 " {{{
 
 " Enable syntax
@@ -140,7 +139,7 @@ if filereadable(FILETAG)
 endif
 " }}}
 
-"  > Files =============================================================
+"  > Files =====================================================================
 " {{{
 
 " Turn of backup (don't forget to push on git !!)
@@ -152,7 +151,7 @@ set noswapfile
 set path=.,,inc,src,/usr/include
 " }}}
 
-"  > Text formatting ===================================================
+"  > Text formatting ===========================================================
 " {{{
 
 set expandtab       " convert tabs into space
@@ -187,7 +186,7 @@ set foldmethod=syntax
 map <leader>w :call ToggleTW(80)<CR>
 " }}}
 
-"  > Moving within file, buffers, windows & co. ========================
+"  > Moving within file, buffers, windows & co. ================================
 " {{{
 
 " matchit actually comes with vim...
@@ -302,7 +301,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
 " }}}
 
-"  > Functions =========================================================
+"  > Functions =================================================================
 " {{{
 
 " Change textwidth
@@ -360,7 +359,7 @@ fu! ToggleCCompiler()
 endfu
 " }}}
 
-"  > Misc ==============================================================
+"  > Misc ======================================================================
 " {{{
 
 " Echo a vim tips on Vim startup
