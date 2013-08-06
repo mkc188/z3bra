@@ -1,17 +1,16 @@
 # ~/.ratpoisonrc
 
 unmanage rdesktop
-unmanage screenkey
 
 # options
 startup_message off
 
 # ratpoison
-set border 0
+set border 28
 set padding 20 40 20 20
 set fgcolor #e8e9ca
 set bgcolor #231f20
-set font "cure"
+set font "tamsyn"
 set winname name
 set winfmt %s%8t
 set inputwidth 256
