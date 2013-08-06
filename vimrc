@@ -222,7 +222,7 @@ set statusline=
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-50(%=%M%H%R\ %f%<\ (%n)%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-64(%=%M%H%R\ %f\ (%n)%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
@@ -309,7 +309,7 @@ fu! ToggleTW(num)
 endfu
 
 " Increment a column of number
-function! Incr()
+fu! Incr()
     let a = line('.') - line("'<")
     let c = virtcol("'<")
     if a > 0
