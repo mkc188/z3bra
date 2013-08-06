@@ -22,6 +22,7 @@ set barpadding 0 0
 # aliases
 alias ls       exec ratpoison -c "echo $(~/bin/rpls)"
 alias showroot exec ratpoison -c 'select -' -c 'only'
+alias sshot    exec ~/bin/instagram ratpoison-$(date +%Y-%m-%d).jpg
 alias getvol   exec ratpoison -c "echo vol. $(amixer sget Master | tail -1 | awk '{print $5}')"
 
 # hooks
@@ -97,7 +98,7 @@ definekey top s-w windows
 definekey top XF86HomePage exec dwb
 definekey top XF86Calculator exec urxvt
 definekey top s-Return exec urxvt
-definekey top Print exec ~/bin/instagram ratpoison-$(date +%Y-%m-%d).jpg
+definekey top Print sshot
 definekey top XF86Mail exec urxvt -e mutt
 
 # media keys
