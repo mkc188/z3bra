@@ -85,7 +85,7 @@ alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
-alias rcommit="curl -s 'http://whatthecommit.com/index.txt\'"
+alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
 
 ## }}}
 
