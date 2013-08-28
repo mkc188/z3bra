@@ -5,7 +5,7 @@
 " vim: fdm=marker:tw=80:cc=81:noai:et
 "
 " Section    :
-"   > General
+"   > General 
 "   > Interface
 "   > Colors & more
 "   > Files
@@ -68,9 +68,6 @@ set nonumber
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
 
-" Improve display
-set ttyfast
-
 " Define the offset with the cursor when moving vertically
 set so=7
 
@@ -104,7 +101,7 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=256
+" set t_Co=256
 
 " Theme & colors
 colorscheme sandstorm
@@ -222,7 +219,7 @@ set statusline=
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-50(%=%M%H%R\ %f%<\ (%n)%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-64(%=%M%H%R\ %f\ (%n)%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
@@ -309,7 +306,7 @@ fu! ToggleTW(num)
 endfu
 
 " Increment a column of number
-function! Incr()
+fu! Incr()
     let a = line('.') - line("'<")
     let c = virtcol("'<")
     if a > 0
