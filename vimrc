@@ -1,11 +1,12 @@
-" ======================================================================
+" ====================================================================== "
 "
 " Maintainer : Willy 'z3bra' Goiffon
+"
 "
 " vim: fdm=marker:tw=72:cc=73:noai:et
 "
 " Section    :
-"   > General
+"   > General 
 "   > Interface
 "   > Colors & more
 "   > Files
@@ -109,13 +110,13 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=256
+" set t_Co=256
 
 " Theme & colors
 if &t_Co == 256
     colorscheme sandstorm
 else
-    colorscheme shadow
+    colorscheme default
 endif
 
 " Improve color for dark bkgd (set by the theme)
