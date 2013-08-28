@@ -1,9 +1,8 @@
-" ====================================================================== "
+" ==============================================================================
 "
 " Maintainer : Willy 'z3bra' Goiffon
 "
-"
-" vim: fdm=marker:tw=72:cc=73:noai:et
+" vim: fdm=marker:tw=80:cc=81:noai:et
 "
 " Section    :
 "   > General 
@@ -18,9 +17,9 @@
 "   > Functions
 "   > Misc
 "
-" ======================================================================
+" ==============================================================================
 
-"  > General ===========================================================
+"  > General ===================================================================
 " {{{
 "
 " Use Vim default instead of 100% vi compatibility
@@ -38,12 +37,11 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
-" Enable filetype plugins
-filetype plugin on
+filetype on
 filetype indent on
 " }}}
 
-"  > Interface =========================================================
+"  > Interface =================================================================
 " {{{
 
 " Show (partial) command in status line.
@@ -82,12 +80,8 @@ set wildmenu
 " Files to ignore with it
 set wildignore=*.o,*~
 
-" Always show cursor position
-set ruler
-
-
 " Height of the cmdline window
-set cmdheight=2
+set cmdheight=1
 
 " Do not redraw while executing macros
 set lazyredraw
@@ -103,7 +97,7 @@ set t_vb=
 set tm=500
 " }}}
 
-"  > Colors & more =====================================================
+"  > Colors & more =============================================================
 " {{{
 
 " Enable syntax
@@ -113,11 +107,7 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-if &t_Co == 256
-    colorscheme sandstorm
-else
-    colorscheme default
-endif
+colorscheme sandstorm
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -141,7 +131,7 @@ if filereadable(FILETAG)
 endif
 " }}}
 
-"  > Files =============================================================
+"  > Files =====================================================================
 " {{{
 
 " Turn of backup (don't forget to push on git !!)
@@ -153,7 +143,7 @@ set noswapfile
 set path=.,,inc,src,/usr/include
 " }}}
 
-"  > Text formatting ===================================================
+"  > Text formatting ===========================================================
 " {{{
 
 set expandtab       " convert tabs into space
@@ -188,7 +178,7 @@ set foldmethod=syntax
 map <leader>w :call ToggleTW(80)<CR>
 " }}}
 
-"  > Moving within file, buffers, windows & co. ========================
+"  > Moving within file, buffers, windows & co. ================================
 " {{{
 
 " matchit actually comes with vim...
@@ -221,27 +211,24 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 set viminfo^=%
 " }}}
 
-"  > Status line =======================================================
+"  > Status line ===============================================================
 " {{{
 
-" enable statusline
-set laststatus=2
-
-" statusline itself
+" disable statusline
+set laststatus=0
 set statusline=
-set statusline+=%<\                                 " cut at start
-set statusline+=(%n%M%H%R)\                         " flags
-set statusline+=%-40f\                              " path
-set statusline+=%=(%Y)\                             " file type
-set statusline+=(tw:%{&tw}\ ts:%{&ts}\ sw:%{&sw})\  " text format info
-set statusline+=%10((%l/%L)%)\                      " line and column
-set statusline+=%P                                  " percentage of file
+
+" use ruler instead (less intrusive
+set ruler
+
+" put everything I need in the ruler
+set rulerformat=%-50(%=%M%H%R\ %f%<\ (%n)%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
 " }}}
 
-"  > Mapping ===========================================================
+"  > Mapping ===================================================================
 " {{{
 
 " So that Y behave like C and D
@@ -275,10 +262,10 @@ nnoremap ZW :w<CR>
 nmap <Leader>cc :call ToggleCCompiler()<CR>
 
 " upload to sprunge.us
-command Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
+command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 
-"  > Filetypes commands ================================================
+"  > Filetypes commands ========================================================
 " {{{
 
 " Default FileType
@@ -303,7 +290,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
 " }}}
 
-"  > Functions =========================================================
+"  > Functions =================================================================
 " {{{
 
 " Change textwidth
@@ -361,7 +348,7 @@ fu! ToggleCCompiler()
 endfu
 " }}}
 
-"  > Misc ==============================================================
+"  > Misc ======================================================================
 " {{{
 
 " Echo a vim tips on Vim startup
