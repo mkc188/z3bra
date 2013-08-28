@@ -74,8 +74,9 @@ alias sv='sudo vim'
 ## ALSA
 alias vol='alsamixer'
 
-# TMUX
-alias t='tmux -2' forces 256 colors
+# TMUX / DTACH
+alias t='tmux' forces 256 colors
+alias d='dtach -a ~/tmp/irssi.sk'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"

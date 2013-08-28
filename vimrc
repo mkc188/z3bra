@@ -5,7 +5,7 @@
 " vim: fdm=marker:tw=80:cc=81:noai:et
 "
 " Section    :
-"   > General
+"   > General 
 "   > Interface
 "   > Colors & more
 "   > Files
@@ -101,7 +101,7 @@ set tm=500
 syntax on
 
 " Use 256 colors
-set t_Co=256
+" set t_Co=256
 
 " Theme & colors
 colorscheme sandstorm
