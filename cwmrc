@@ -16,7 +16,7 @@ ignore bar
 ignore wbar
 
 # automatic grouping for specific windows
-autogroup 3 Dwb
+autogroup 2 Dwb
 autogroup 5 QLPrism
 
 # behavior, look & feel
