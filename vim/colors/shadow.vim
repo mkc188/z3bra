@@ -11,7 +11,6 @@ endif
 
 let colors_name = "shadow"
 
-if &t_Co > 15
     " Window elements
     hi Cursor                   ctermfg=0 ctermbg=15
     hi Folded                   ctermfg=8 ctermbg=0
@@ -59,4 +58,3 @@ if &t_Co > 15
     hi! link xmlEntity          Statement
     hi! link xmlCData           Comment
     hi! link xmlAttrib          Attribute
-endif
