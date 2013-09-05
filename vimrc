@@ -37,6 +37,9 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
+" How long should we highlight a match ? (bracket, parenthesis, etc..)
+set mat=1
+
 filetype on
 filetype indent on
 " }}}
@@ -51,7 +54,7 @@ set showcmd
 set autoindent
 
 " Show matching brackets.
-set showmatch
+"set showmatch
 
 " Search options
 set ignorecase          " Ignore case in search
@@ -215,7 +218,7 @@ set viminfo^=%
 set laststatus=0
 set statusline=
 
-" use ruler instead (less intrusive
+" use ruler instead (less intrusive)
 set ruler
 
 " put everything I need in the ruler
@@ -223,6 +226,8 @@ set rulerformat=%-64(%=%M%H%R\ %f\ (%n)%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
+
+set fillchars=vert:\|,fold:─
 " }}}
 
 "  > Mapping ===================================================================
