@@ -270,13 +270,11 @@ command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
 "  > Filetypes commands ========================================================
 " {{{
 
-" Default FileType
-
 " Special commands
-au BufEnter             *.php set ft=php.html
-au BufRead,BufNewFile   *.c,*.h set filetype=c
-au BufRead,BufNewFile   *.html,*.htm ab </ </<C-x><C-o>
-au BufRead              /tmp/mutt-* call ToggleTW(80)
+au FileType             make set noet
+au Filetype             php set ft=php.html
+au Filetype             html ab </ </<C-x><C-o>
+au Filetype             mail set tw=80 cc=81 fdm=marker
 au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
 au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
