@@ -12,24 +12,25 @@ endif
 let colors_name = "shadow"
 
     " Window elements
-    hi Cursor                   ctermfg=0 ctermbg=15
-    hi Folded                   ctermfg=8 ctermbg=0
+    hi Cursor                   ctermfg=7 ctermbg=0 cterm=bold
+    hi CursorLine               ctermfg=0 ctermbg=7 cterm=none
+    hi Folded                   ctermfg=0 ctermbg=0 cterm=bold
     hi LineNr                   ctermfg=7
     hi NonText                  ctermfg=7
     hi Normal                   ctermfg=7
-    hi StatusLine               ctermfg=15 ctermbg=0 cterm=none
-    hi Visual                   ctermfg=15 ctermbg=0
+    hi StatusLine               ctermfg=7 ctermbg=0 cterm=bold
+    hi Visual                   ctermfg=7 ctermbg=0
 
     " Main groups
-    hi Comment                  ctermfg=15
-    hi Constant                 ctermfg=11 cterm=none
-    hi Statement                ctermfg=11 cterm=none
-    hi StatementU               ctermfg=11 cterm=underline
-    hi Keyword                  ctermfg=8
+    hi Comment                  ctermfg=0 cterm=bold
+    hi Constant                 ctermfg=3 cterm=bold
+    hi Statement                ctermfg=3 cterm=bold
+    hi StatementU               ctermfg=1
+    hi Keyword                  ctermfg=3
     hi Underlined               cterm=underline
-    hi Error                    ctermfg=15 ctermbg=1
+    hi Error                    ctermfg=7 ctermbg=1 cterm=bold
+    hi String                   ctermfg=1 cterm=bold
 
-    hi! link String             Constant
     hi! link Character          Constant
     hi! link Number             Constant
     hi! link Boolean            Constant
@@ -46,7 +47,7 @@ let colors_name = "shadow"
     hi! link Ignore             Normal
     hi! link Todo               Error
 
-    hi! link Title              Normal 
+    hi! link Title              Normal
 
     hi! link phpDefine          StatementU
 
