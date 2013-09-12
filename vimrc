@@ -163,6 +163,9 @@ set ai              " auto indent
 set si              " smart indent
 set wrap            " wrap lines
 
+" Open vsplits on the right
+set splitright
+
 " 2 Column to view fold
 setlocal foldcolumn=0
 
