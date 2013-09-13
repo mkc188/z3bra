@@ -17,10 +17,10 @@ function wm() {
     xbindkeys
 
     #status bar
-    ~/bin/bar/status.sh &
+    ~/bin/bar/status.sh & # it acts kinda weirdly
 
     # Set wallpaper
-    hsetroot -fill ~/usr/img/bg/shblah.png &
+    hsetroot -fill ~/usr/img/bg/map.jpg &
 
     # Compositing
     # enable RGBA module for GTK
@@ -30,17 +30,9 @@ function wm() {
     compton -cCb -r16 -t-22 -l-22 -o.8
 
     # spawn window manager
-    case $1 in
-        rat) exec ratpoison;;
-        cwm) exec cwm;;
-    esac
+    exec $1
 }
 
-case $1 in
-    cwm) wm cwm;;
-    rat) wm rat;;
-    qlp) exec ~/.quakelive/qlprism/qlprism.sh;;
-    q3a) exec /opt/quake3/iodfengine.x86_64;;
-    cub) exec sauerbraten-client;;
-    *)   wm cwm;;
-esac
+[[ -z $1 ]] && wm cwm
+
+wm $1
