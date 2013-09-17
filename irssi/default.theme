@@ -157,11 +157,11 @@ abstracts = { # {{{
   ########## Actions (/ME stuff) #########################
 
   # generic one that's used by most actions
-  action = "  %K$* %K+%y+%Y+ %|";
+  action = "  %Y$* ▒ %|";
 
   # own action, both private/public
   # ownaction = "{action $*}";
-  ownaction = "  %K$* %K+%y+%Y+ ";
+  ownaction = "  %K$* %Y▒";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -264,8 +264,8 @@ formats = { # {{{
     quit = "%R<%K<    quit %r▒%n {channick $0}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %C$2}";
 
-    nick_changed = "%K{channick $[-13]0} %G▒%n {channick $1}";
-    your_nick_changed = "%K       you %G▒%n {channick $1}";
+    nick_changed = "%K{channick $[-10]0} %Y▒ %Krenamed to %n{channick $1}";
+    your_nick_changed = "%K       you %Y▒ %Krenamed to %n{channick $1}";
 
     pubmsg = "{pubmsgnick $2 {pubnick $[-8]0}}$1";
 
