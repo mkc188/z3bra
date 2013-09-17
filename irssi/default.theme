@@ -93,7 +93,7 @@ abstracts = { # {{{
   server = "%y$*%N";
 
   # some kind of comment is printed
-  comment = "%n(%K\"$*\"%n);";
+  comment = "%n(%K$*%n)";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -121,7 +121,7 @@ abstracts = { # {{{
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
   # msgnick = "$1-$0%K·%N %|";
-  msgnick = "%R$0%w $1 %K▒%n %|";
+  msgnick = "%R$0%w $1 %K│%n %|";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0 $1}";
@@ -157,11 +157,11 @@ abstracts = { # {{{
   ########## Actions (/ME stuff) #########################
 
   # generic one that's used by most actions
-  action = "  %Y$* ▒ %|";
+  action = "  %Y$* %y│ %Y%|";
 
   # own action, both private/public
   # ownaction = "{action $*}";
-  ownaction = "  %K$* %Y▒";
+  ownaction = "  %K$* %y│%Y";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -177,7 +177,7 @@ abstracts = { # {{{
   ########## other IRC events #############################
 
   # whois
-  whois = "%#    $[8]0 = $1-;";
+  whois = "%#    $[8]0 = $1-;%:";
 
   # notices
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
@@ -187,7 +187,7 @@ abstracts = { # {{{
   servernotice = " %N($*)";
 
   # CTCPs
-  ownctcp = "%NCTCP c = %Mnew%n $0 ($1-) ";
+  ownctcp = "%NCTCP c = %Ynew%n $0 ($1-) ";
   ctcp = "%N$*%n";
 
   # wallops
@@ -196,8 +196,8 @@ abstracts = { # {{{
   wallop_action = "%K * $*%n ";
 
   # netsplits
-  netsplit = "    %Knsplit %R▒ %b\"$*\"%n";
-  netjoin =  "     %Knjoin %G▒ %b\"$*\"%n";
+  netsplit = "    %Knsplit %R│ %b\"$*\"%n";
+  netjoin =  "     %Knjoin %G│ %b\"$*\"%n";
 
   # /names list
   names_users = " %Y┌%y── %KNAMES%Y ─────%y──%Y───────────────────%y────%K───────── ─ ─ ──  ─── ";
@@ -205,7 +205,7 @@ abstracts = { # {{{
   names_nick_op = "{names_nick $* %R}";
   names_nick_halfop = "{names_nick $* %C}";
   names_nick_voice = "{names_nick $* %K}";
-  names_prefix = "%K<%Y│%K> %n $1";
+  names_prefix = " %Y│%y│ %n $1";
   names_channel = "\"%b$*\"%n";
 
   # DCC
@@ -258,14 +258,15 @@ formats = { # {{{
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "%G>%K>    join %g▒%n {channick $0}";
-    part = "%R<%K<    part %r▒%n {channick $0}";
-    kick = "%R<%K<  kicked %r▒%n {channick $0}";
-    quit = "%R<%K<    quit %r▒%n {channick $0}";
-    quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %C$2}";
+    #join = " %Y┌%y── %KJOINS%Y %y────────%Y─%K────           ──  ───%: %Y│%y│ %n{channick $0} %: %Y│%y│ %n{nickhost $1}%: %y└────%Y──────%K──────%y─────────────%K─ ───   ─ ";
+    join = "%G>%K>    join %G│ %W{channick $0}%K: {nickhost %w$1}";
+    part = "%R<%K<    part %R│ %W{channick $0}%K: {reason %Y$3}";
+    kick = "%r<%K<    kick %r│ %W{channick $0}%K: {reason %r$3}";
+    quit = "%R<%K<    quit %R│ %W{channick $0}%K: {reason %R$2}";
+    quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
-    nick_changed = "%K{channick $[-10]0} %Y▒ %Krenamed to %n{channick $1}";
-    your_nick_changed = "%K       you %Y▒ %Krenamed to %n{channick $1}";
+    nick_changed = "%Y!%K!  rename %y│ %n{channick $0} %K: %Y{channick $1}";
+    your_nick_changed = "%Y!%K!  rename %y│ %nyou%K: %Y{channick $1}";
 
     pubmsg = "{pubmsgnick $2 {pubnick $[-8]0}}$1";
 
@@ -287,8 +288,8 @@ formats = { # {{{
 
   }; # }}}
   "fe-common/irc" = { # {{{
-    chanmode_change = "%Y!%K!    mode %y▒%n {channick $1}";
-    server_chanmode_change = "%Y!%K!    mode %y▒%n {channick $1}";
+    chanmode_change = "%Y!%K!    mode %y│%n {channick $1}";
+    server_chanmode_change = "%Y!%K!    mode %y│%n {channick $1}";
 
     own_action = "{ownaction $[-8]0} $1";
     action_private = "{pvtaction $[-8]0}$1";
