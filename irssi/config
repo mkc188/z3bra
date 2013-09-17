@@ -274,7 +274,7 @@ settings = {
     real_name = "Bill Gfn";
     user_name = "z-brah";
     nick = "z3bra";
-    #  timestamp_format = "%H:%M:%S";
+    timestamp_format = "%H%M";
     quit_message = "int random_number() { return 3; /*number randomly chosen with a dice roll*/ }";
   };
 
@@ -309,3 +309,57 @@ hilights = (
 # }}}
 
 logs = { };
+ignores = ( );
+
+windows = {
+  1 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#vim-fr";
+        tag = "freenode";
+      }
+    );
+  };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux-fr";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#unixhub";
+        tag = "unixhub";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#defrag-france";
+        tag = "quakeNet";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#blinkenshell";
+        tag = "blinkenshell";
+      }
+    );
+  };
+};
