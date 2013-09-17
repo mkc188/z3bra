@@ -37,6 +37,9 @@ set autoread
 " Automatically save before commands like :next and :make
 set autowrite
 
+" How long should we highlight a match ? (bracket, parenthesis, etc..)
+set mat=1
+
 filetype on
 filetype indent on
 " }}}
@@ -51,7 +54,7 @@ set showcmd
 set autoindent
 
 " Show matching brackets.
-set showmatch
+"set showmatch
 
 " Search options
 set ignorecase          " Ignore case in search
@@ -67,9 +70,6 @@ set nonumber
 
 " Make <BACKSPACE> do what it should do
 set backspace=indent,eol,start
-
-" Improve display
-set ttyfast
 
 " Define the offset with the cursor when moving vertically
 set so=7
@@ -107,7 +107,11 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-colorscheme sandstorm
+if &t_Co == 256
+    colorscheme sandstorm
+else
+    colorscheme dust
+endif
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -218,14 +222,16 @@ set viminfo^=%
 set laststatus=0
 set statusline=
 
-" use ruler instead (less intrusive
+" use ruler instead (less intrusive)
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-50(%=%M%H%R\ %f%<\ (%n)%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-64(%=%M%H%R\ %f\ (%n)%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
+
+set fillchars=vert:\|,fold:─
 " }}}
 
 "  > Mapping ===================================================================
@@ -268,13 +274,11 @@ command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
 "  > Filetypes commands ========================================================
 " {{{
 
-" Default FileType
-
 " Special commands
-au BufEnter             *.php set ft=php.html
-au BufRead,BufNewFile   *.c,*.h set filetype=c
-au BufRead,BufNewFile   *.html,*.htm ab </ </<C-x><C-o>
-au BufRead              /tmp/mutt-* call ToggleTW(80)
+au FileType             make set noet
+au Filetype             php set ft=php.html
+au Filetype             html ab </ </<C-x><C-o>
+au Filetype             mail set tw=80 cc=81 fdm=marker
 au BufWritePost         .Xresources !xrdb %
 au BufRead,BufNewFile   *.tab setfiletype chords
 au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
@@ -309,7 +313,7 @@ fu! ToggleTW(num)
 endfu
 
 " Increment a column of number
-function! Incr()
+fu! Incr()
     let a = line('.') - line("'<")
     let c = virtcol("'<")
     if a > 0

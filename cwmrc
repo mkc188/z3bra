@@ -1,5 +1,5 @@
 # Set default Xft(3) font
-fontname "cure"
+fontname "tamsyn"
 
 # Turn on sticky-group mode
 sticky yes
@@ -11,31 +11,27 @@ command fichier         pcmanfm
 command libreoffice     libreoffice
 command qlprism         "/home/z3bra/.quakelive/qlprism/qlprism.sh"
 
-# Ignore programs by that name by not drawing borders around them.
-ignore bar
-ignore wbar
-
 # automatic grouping for specific windows
-autogroup 3 Dwb
+autogroup 2 Dwb
 autogroup 5 QLPrism
 
 # behavior, look & feel
-borderwidth             8
-color activeborder      "#666666"
-color inactiveborder    "#444444"
-color font              "#443c28"
-color selfont           "#e8e9ca"
-color menubg            "#e8e9ca"
-color menufg            "#443c28"
-color groupborder       "#2244ac"
-color ungroupborder     "#ac4422"
+borderwidth             2
+color activeborder      "#d75f00"
+color inactiveborder    "#303030"
+color font              "#d75f00"
+color menubg            "#303030"
+color selfont           "#ffffff"
+color menufg            "#1d1d1d"
+color groupborder       "#8ea433"
+color ungroupborder     "#eee685"
 
-gap                     10 40 10 10
+gap                     36 16 10 10
 moveamount              4
 snapdist                0
 
 # Keybindings
-    # unbind
+    # unbind
     bind M-return unmap
 # Windows control
     # SIZE
@@ -105,7 +101,7 @@ bind 4-w        dwb
 bind 4-q        'sh -c ~/.quakelive/qlprism/qlprism.sh'
 bind 4-exclam   exec
 bind 4-colon    ssh
-bind 4S-slash    search
+bind 4S-slash   search
 
 # Mousebindings
 mousebind M-1   window_move

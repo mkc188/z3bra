@@ -43,7 +43,7 @@ bind S split
 bind o only
 bind r remove
 
-bind R eval "source ~/.screenrc" "echo '.screenrc reloaded !'"
+bind R eval "source /home/z3bra/.screenrc" "echo '.screenrc reloaded !'"
 
 # Remove some stupid / dangerous key bindings
 bind ^k
@@ -76,7 +76,6 @@ bind _ resize max
 bind w focus next
 
 bind s split
-bind v split -v
 
 bind : colon # screen's default anyway...
 
@@ -93,8 +92,8 @@ termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 altscreen on
 
 # always display the last line status bar
-caption		always
-hardstatus 	alwayslastline
+caption               never
+hardstatus      alwayslastline
 
 # set these terminals up to be 'optimal' instead of vt100
 termcapinfo xterm*|linux*|rxvt* OP
@@ -112,5 +111,5 @@ defnonblock 5
 
 
 # Bars
-caption string	"%{= Kw}%?%F%{=b cW}%?   %f*%t %=%?%F.: current :.%? %= .:%F%n %t "
-hardstatus string "%{= K}///%{w}//%{W}/%{dd} %{=b W}$LOGNAME%{-b w}@%{+b W}%H %= %{-b c}  %-Lw%?%F%{=b W}[%2n* %t  ]%?%{-b c}%+Lw  %{dd}  %= %{=b w} .: %D%d :: %c:%s :. %-10="
+caption string  "%{= Kw}%?%F%{=b cW}%?   %f*%t %=%?%F.: current :.%? %= .:%F%n %t "
+hardstatus string "%{b k} %= %{=b K} %-Lw%?%F%{=b W}%n* %t%?%{=b K}%+Lw   %= %{=b Y} %d-%m %{=b w}%c %-10="
