@@ -45,7 +45,7 @@ if has("gui_running") || &t_Co == 256
     highlight Special      term=NONE cterm=NONE ctermfg=222  ctermbg=NONE
     highlight SpecialKey   term=NONE cterm=NONE ctermfg=184  ctermbg=NONE
     highlight Statement    term=NONE cterm=NONE ctermfg=11   ctermbg=NONE
-    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=237
+    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
     highlight StatusLineNC term=NONE cterm=NONE ctermfg=0    ctermbg=237
     highlight String       term=NONE cterm=NONE ctermfg=166  ctermbg=NONE
     highlight Todo         term=NONE cterm=NONE ctermfg=196  ctermbg=226
