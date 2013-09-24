@@ -4,51 +4,54 @@
 ! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ==============================================================
 
-! Terminal colors ----------------------------------------------
+! Terminal colors (dark) ---------------------------------------
 *background:#232323
 *foreground:#e8e9ca
 
-*color0:    #232323
+*color0:    #1d1d1d
 *color1:    #8b3e2f
 *color2:    #526f33
-*color3:    #8B814C
-*color4:    #4A708B
-*color5:    #7A378B
-*color6:    #528B8B
-*color7:    #999999
+*color3:    #665847
+*color4:    #4a708b
+*color5:    #7a378b
+*color6:    #528b8b
+*color7:    #aba472
 
-*color8:    #4c4c4c
+*color8:    #232323
 *color9:    #d75f00
-*color10:   #8ea433
-*color11:   #EEE685
-*color12:   #9AC0CD
-*color13:   #9F79EE
-*color14:   #79CDCD
-*color15:   #E8E9CA
+*color10:   #cee318
+*color11:   #eee685
+*color12:   #9ac0cd
+*color13:   #9f79ee
+*color14:   #79cdcd
+*color15:   #e8e9ca
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
-URxvt*termName:           rxvt-256color
-URxvt*loginShell:         false
-URxvt*saveLines:          1024
-URxvt*geometry:           80x16
-URxvt*depth:              32
-URxvt*font:               -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
-URxvt*boldFont:           -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
-URxvt*scrollBar:          false
-URxvt*cursorBlink:        false
-URxvt*cursorColor:        #535353
-URxvt*internalBorder:     2
-URxvt*perl-ext-common:    default,url-select,keyboard-select
-URxvt.url-select.launcher:   /usr/bin/dwb
+URxvt*termName:             rxvt-256color
+URxvt*loginShell:           false
+URxvt*saveLines:            1024
+URxvt*geometry:             96x20
+URxvt*transparent:          true
+URxvt*shading:              28
+URxvt*blurRadius:           20
+URxvt*depth:                32
+URxvt*font:                 -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
+URxvt*boldFont:             -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
+URxvt*scrollBar:            false
+URxvt*cursorBlink:          false
+URxvt*cursorColor:          white
+URxvt*internalBorder:       2
+URxvt*perl-ext-common:      default,url-select,keyboard-select
+URxvt.url-select.launcher:  /usr/bin/dwb
 URxvt.url-select.underline: true
-URxvt.keysym.M-u:         perl:url-select:select_next
-URxvt.keysym.M-v:         perl:keyboard-select:activate
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-v:           perl:keyboard-select:activate
 
 ! Colored man pages
-URxvt.colorIT:            #cacaca
-URxvt.colorBD:            #ae8510
-URxvt.colorUL:            #a28c64
+URxvt.colorIT:              #cacaca
+URxvt.colorBD:              #eee685
+URxvt.colorUL:              #a28c64
 
 ! XTerm ---------------------------------------------------------
 
