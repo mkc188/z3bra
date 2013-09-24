@@ -59,20 +59,20 @@ info_eol = "false";
 
 # these characters are automatically replaced with specified color
 # (dark grey by default)
-replaces = { "[]" = "%g$*%n"; };
+replaces = { "[]" = "%y$*%n"; };
 
 abstracts = { # {{{
 
   ############# generic ###############################
 
-  indent_default = "11";
+  indent_default = "8";
 
   # text to insert at the beginning of each non-message line
   # line_start = "%g//%n ";
   line_start = "";
 
   # timestamp styling, nothing by default
-  timestamp = "";
+  timestamp = "%W$0%N";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
@@ -81,19 +81,19 @@ abstracts = { # {{{
   error = "%R$*%n";
 
   # channel name is printed
-  channel = "%b$*%n";
+  channel = "%N$*%n";
 
   # nick is printed
   nick = "%_$*%_";
 
   # nick host is printed
-  nickhost = "%g$*";
+  nickhost = "%N$*";
 
   # server name is printed
-  server = "%_$*%_";
+  server = "%y$*%N";
 
   # some kind of comment is printed
-  comment = "%n(%b\"$*\"%n);";
+  comment = "%n(%K$*%n)";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -104,7 +104,7 @@ abstracts = { # {{{
   ## channel specific messages
 
   # highlighted nick/host is printed (joins)
-  channick_hilight = "%g$*%N";
+  channick_hilight = "%y$*%N";
   chanhost_hilight = "{nickhost $*}";
 
   # nick/host is printed (parts, quits, etc.)
@@ -112,7 +112,7 @@ abstracts = { # {{{
   chanhost = "{nickhost $*}";
 
   # highlighted channel name is printed
-  channelhilight = "%g$*%n";
+  channelhilight = "%y$*%n";
 
   # ban/ban exception/invite list mask is printed
   ban = "$*";
@@ -121,7 +121,7 @@ abstracts = { # {{{
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
   # msgnick = "$1-$0%K·%N %|";
-  msgnick = "%w$0%n $1 %K:%n %|";
+  msgnick = "%R$0%w $1 %K│%n %|";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0 $1}";
@@ -129,11 +129,11 @@ abstracts = { # {{{
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0 $1}";
-  pubnick = "%N$*%n";
+  pubnick = "%w$*%n";
 
   # public highlighted message in channel
   pubmsghinick = "{msgnick $0 $1}%w";
-  menick = "%B$*%n";
+  menick = "%R$*%n";
 
   # channel name is printed with message
   msgchannel = "%K:%m$*%n";
@@ -146,22 +146,22 @@ abstracts = { # {{{
 
   # private message in query
   # privmsgnick = "{msgnick $*}";
-  privmsgnick = "%g<<%N %|";
+  privmsgnick = "%Rstranger %K>%R> %N%|";
 
   # own private message in query
   #ownprivmsgnick = "{privmsgnick $*}";
-  ownprivmsgnick = "%b>>%N %|";
+  ownprivmsgnick = "%Yyou      %K>%Y> %N%|";
   #ownprivnick = "$*";
 
 
   ########## Actions (/ME stuff) #########################
 
   # generic one that's used by most actions
-  action = "  %m$* %M* %m%|";
+  action = "  %Y$* %y│ %Y%|";
 
   # own action, both private/public
   # ownaction = "{action $*}";
-  ownaction = "  %m$* %M*%N%m";
+  ownaction = "  %K$* %y│%Y";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -177,7 +177,7 @@ abstracts = { # {{{
   ########## other IRC events #############################
 
   # whois
-  whois = "%#    $[8]0 = $1-;";
+  whois = "%#    $[8]0 = $1-;%:";
 
   # notices
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
@@ -187,7 +187,7 @@ abstracts = { # {{{
   servernotice = " %N($*)";
 
   # CTCPs
-  ownctcp = "%NCTCP c = %Mnew%n $0 ($1-) ";
+  ownctcp = "%NCTCP c = %Ynew%n $0 ($1-) ";
   ctcp = "%N$*%n";
 
   # wallops
@@ -196,16 +196,16 @@ abstracts = { # {{{
   wallop_action = "%K * $*%n ";
 
   # netsplits
-  netsplit = "       %Knsplit %R< %b\"$*\"%n";
-  netjoin = "        %Knjoin %G> %b\"$*\"%n";
+  netsplit = "    %Knsplit %R│ %b\"$*\"%n";
+  netjoin =  "     %Knjoin %G│ %b\"$*\"%n";
 
   # /names list
-  names_prefix = "%Y!%K!      names %Y!%n ";
+  names_users = " %Y┌%y── %KNAMES%Y ─────%y──%Y───────────────────%y────%K───────── ─ ─ ──  ─── ";
   names_nick = "%_$2$0%_%n$1- ";
   names_nick_op = "{names_nick $* %R}";
   names_nick_halfop = "{names_nick $* %C}";
   names_nick_voice = "{names_nick $* %K}";
-  names_users = "%Y!%K!      names %Y!%n $1";
+  names_prefix = " %Y│%y│ %n $1";
   names_channel = "\"%b$*\"%n";
 
   # DCC
@@ -216,7 +216,7 @@ abstracts = { # {{{
   dccownmsg = "%g /* $0 ($1-) */";
   dccownnick = "$*%n";
   dccownquerynick = "$*%n";
-  dccownaction = "{action $*}";
+  dccownaction = "{a┌tion $*}";
   dccownaction_target = "{action $*}";
 
   # DCC chat, others
@@ -258,40 +258,42 @@ formats = { # {{{
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "%G>%K>       join %g>%n {channick $0}";
-    part = "%R<%K<       part %r<%n {channick $0}";
-    kick = "%R<%K<     kicked %r<%n {channick $0}";
-    quit = "%R<%K<       quit %r<%n {channick $0}";
-    quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %C$2}";
+    #join = " %Y┌%y── %KJOINS%Y %y────────%Y─%K────           ──  ───%: %Y│%y│ %n{channick $0} %: %Y│%y│ %n{nickhost $1}%: %y└────%Y──────%K──────%y─────────────%K─ ───   ─ ";
+    join = "%G>%K>    join %G│ %W{channick $0}%K: {nickhost %w$1}";
+    part = "%R<%K<    part %R│ %W{channick $0}%K: {reason %Y$3}";
+    kick = "%r<%K<    kick %r│ %W{channick $0}%K: {reason %r$3}";
+    quit = "%R<%K<    quit %R│ %W{channick $0}%K: {reason %R$2}";
+    quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
-    nick_changed = "%K{channick $[-13]0} %G>%n {channick $1}";
-    your_nick_changed = "%K          you %G>%n {channick $1}";
+    nick_changed = "%Y!%K!  rename %y│ %n{channick $0} %K: %Y{channick $1}";
+    your_nick_changed = "%Y!%K!  rename %y│ %nyou%K: %Y{channick $1}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick $[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick $[-8]0}}$1";
 
-    own_msg = "{ownmsgnick $2 {ownnick $[-11]0}}$1";
-    own_msg_channel = "{ownmsgnick $3 {ownnick $[-11]0}{msgchannel $1}}$2";
-    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-11]2}}$1";
+    own_msg = "{ownmsgnick $2 {ownnick $[-8]0}}$1";
+    own_msg_channel = "{ownmsgnick $3 {ownnick $[-8]0}{msgchannel $1}}$2";
+    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-8]2}}$1";
 
-    pubmsg_me = "{pubmsghinick $2 {menick $[-11]0}}$1";
-    pubmsg_me_channel = "{pubmsghinick $3 {menick $[-11]0}{msgchannel $1}}$2";
+    pubmsg_me = "{pubmsghinick $2 {menick $[-8]0}}$1";
+    pubmsg_me_channel = "{pubmsghinick $3 {menick $[-8]0}{msgchannel $1}}$2";
 
-    pubmsg_hilight = "{pubmsghinick $3 {menick $[-11]1}}$2";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $[-11]1$4{msgchannel $2}}$3";
+    pubmsg_hilight = "{pubmsghinick $3 {menick $[-8]1}}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $[-8]1$4{msgchannel $2}}$3";
 
-    pubmsg_channel = "{pubmsgnick {pubnick %G$[-11]0}$2}$1";
-    msg_private_query = "{privmsgnick $[-11]0}$2";
+    pubmsg_channel = "{pubmsgnick {pubnick %G$[-8]0}$2}$1";
+    msg_private_query = "{privmsgnick $[-8]0}$2";
     new_topic = "        %ctopic %K= %|%B'$2' %non %b$1%n%K[set by {nick %y$0}]";
 
-    endofnames = "%Y!%K!      names %Y!%m Total: {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal%n";
+    endofnames = " %y└────%Y──%K──%y─────%K─          ─ ─             ─      %y───── ";
+
   }; # }}}
   "fe-common/irc" = { # {{{
-    chanmode_change = "%Y!%K!       mode %y!%n {channick $1}";
-    server_chanmode_change = "%Y!%K!       mode %y!%n {channick $1}";
+    chanmode_change = "%Y!%K!    mode %y│%n {channick $1}";
+    server_chanmode_change = "%Y!%K!    mode %y│%n {channick $1}";
 
-    own_action = "{ownaction $[-11]0} $1";
-    action_private = "{pvtaction $[-11]0}$1";
-    action_private_query = "{pvtaction_query $[-11]0} $2";
-    action_public = "{pubaction $[-11]0}$1";
+    own_action = "{ownaction $[-8]0} $1";
+    action_private = "{pvtaction $[-8]0}$1";
+    action_private_query = "{pvtaction_query $[-8]0} $2";
+    action_public = "{pubaction $[-8]0}$1";
   }; # }}}
 }; # }}}
