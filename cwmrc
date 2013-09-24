@@ -16,9 +16,9 @@ autogroup 2 Dwb
 autogroup 5 QLPrism
 
 # behavior, look & feel
-borderwidth             2
-color activeborder      "#d75f00"
-color inactiveborder    "#303030"
+borderwidth             4
+color activeborder      "#4c4c4c"
+color inactiveborder    "#d75f00"
 color font              "#d75f00"
 color menubg            "#303030"
 color selfont           "#ffffff"

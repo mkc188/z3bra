@@ -107,7 +107,11 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-colorscheme sandstorm
+if &t_Co == 256
+    colorscheme sandstorm
+else
+    colorscheme dust
+endif
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -225,7 +229,7 @@ set statusline=
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-64(%=%M%H%R\ %f\ (%n)%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-50(%=%M%H%R\ %t\ (%{&enc})%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
 
 set list
 set listchars=tab:\|\ ,trail:⋅,nbsp:˽
