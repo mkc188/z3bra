@@ -13,7 +13,7 @@ let colors_name = "shadow"
 
     " Window elements
     hi Cursor                   ctermfg=7 ctermbg=0 cterm=bold
-    hi CursorLine               ctermfg=0 ctermbg=7 cterm=none
+    hi CursorLine               ctermfg=15 ctermbg=NONE cterm=underline
     hi Folded                   ctermfg=0 ctermbg=0 cterm=bold
     hi LineNr                   ctermfg=7
     hi NonText                  ctermfg=7
