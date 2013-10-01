@@ -16,6 +16,9 @@ function wm() {
     # personnal bindings
     xbindkeys
 
+    # set WM name
+    xsetroot -name $1
+
     #status bar
     ~/bin/bar/status.sh & # it acts kinda weirdly
 
