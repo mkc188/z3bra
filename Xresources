@@ -5,10 +5,10 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-*background:#231f20
+*background:#222222
 *foreground:#e8e9ca
 
-*color0:    #231f20
+*color0:    #222222
 *color1:    #8b3e2f
 *color2:    #526f33
 *color3:    #665847

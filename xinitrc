@@ -20,7 +20,7 @@ function wm() {
     ~/bin/bar/status.sh & # it acts kinda weirdly
 
     # Set wallpaper
-    hsetroot -fill ~/usr/img/bg/map.jpg &
+    hsetroot -tile ~/usr/img/bg/stripes.png &
 
     # Compositing
     # enable RGBA module for GTK
@@ -28,7 +28,7 @@ function wm() {
 
     #compton -cCb -t-5 -l-5 -r4.2 -o.4
     #compton -cCb -r16 -t-22 -l-22 -o.8
-    compton -cCb -o0
+    compton -cb -o0
 
     # spawn window manager
     exec $1
