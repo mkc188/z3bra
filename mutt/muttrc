@@ -22,7 +22,7 @@ set mbox=+archive
 
 ## --- Local directories ---
 set mailcap_path = "~/.mutt/mailcap"        # how to view attachements
-set header_cache="~/.mutt/hcache"           # store headers
+set header_cache="~/.mutt/cache/head"       # store headers
 set tmpdir = "~/.mutt/temp"                 # where store postponed
 set message_cachedir="~/.mutt/cache/body"   # store bodies
 set certificate_file="~/.mutt/certificates" # certificates
@@ -51,6 +51,7 @@ mailboxes   +INBOX      \
             +purchase   \
             +isfen      \
             +stuffs     \
+            +jobs       \
             +dev        \
             +--[done]---------------------------\
             +sent       \
