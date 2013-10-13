@@ -332,7 +332,9 @@ fu! ViewTips()
     "   $ wget http://bfontaine.net/fortunes/vimtweets
     "   $ strfile vimtweets vimtweets.dat
     "   # mv vimtweets* /usr/share/fortune/
-    echomsg system('/usr/bin/fortune vimtweets')
+    if filereadable('/usr/bin/fortune')
+        echomsg system('/usr/bin/fortune vimtweets')
+    endif
 endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
