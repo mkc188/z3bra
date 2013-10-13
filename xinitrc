@@ -6,6 +6,9 @@
 # load nvidia config
 nvidia-settings -l
 
+# Set wallpaper
+hsetroot -tile ~/usr/img/bg/stripes.png &
+
 # default cursor
 xsetroot -cursor_name left_ptr &
 
@@ -16,11 +19,11 @@ function wm() {
     # personnal bindings
     xbindkeys
 
+    # set WM name
+    xsetroot -name $1
+
     #status bar
     ~/bin/bar/status.sh & # it acts kinda weirdly
-
-    # Set wallpaper
-    hsetroot -fill ~/usr/img/bg/map.jpg &
 
     # Compositing
     # enable RGBA module for GTK
@@ -28,7 +31,7 @@ function wm() {
 
     #compton -cCb -t-5 -l-5 -r4.2 -o.4
     #compton -cCb -r16 -t-22 -l-22 -o.8
-    compton -cCb -o0
+    compton -cb -o0
 
     # spawn window manager
     exec $1
