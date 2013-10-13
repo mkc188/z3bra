@@ -76,7 +76,7 @@ alias vol='alsamixer'
 
 # TMUX / DTACH
 alias t='tmux' forces 256 colors
-alias d='dtach -a ~/tmp/irssi.sk'
+alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
