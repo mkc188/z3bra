@@ -1,7 +1,6 @@
 # ~/.ratpoisonrc
 
 unmanage rdesktop
-unmanage MPlayer
 
 # options
 startup_message off
@@ -9,8 +8,8 @@ startup_message off
 # ratpoison
 set border 28
 set padding 16 36 16 16
-set fgcolor #e8e9ca
-set bgcolor #232323
+set fgcolor #ffffff
+set bgcolor #222222
 set font "tamsyn"
 set winname name
 set winfmt %s%8t
