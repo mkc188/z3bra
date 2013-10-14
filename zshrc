@@ -1,14 +1,12 @@
 ## CONFIGURATION FILE FOR Z SHELL :: ENVIRONMENT {{{
 
-# Path for Go projects
-export GOPATH=~/code/go
-export PATH=$PATH:$GOPATH/bin:$HOME/bin:.
-unset GOBIN # use GOPATH for install
+# Improve the PATH
+export PATH=$PATH:$HOME/bin:.
 
 # Remote MPD server
 export MPD_HOST='mpdconf@gavroche'
 
-## }}}
+## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
 
@@ -76,7 +74,7 @@ alias vol='alsamixer'
 
 # TMUX / DTACH
 alias t='tmux' forces 256 colors
-alias d='dtach -a ~/tmp/irssi.sk'
+alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"

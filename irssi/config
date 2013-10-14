@@ -64,6 +64,7 @@ chatnets = {
 channels = (
   # {{{
   { name = "#defrag-france"; chatnet = "quakenet"; autojoin = "Yes"; },
+  { name = "#pndc"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#vim-fr"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#archlinux-fr"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -78,6 +79,7 @@ channels = (
     autojoin = "Yes";
   },
   { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
+  { name = "#wizards"; chatnet = "unixhub"; autojoin = "Yes"; },
   { name = "#cube.fr"; chatnet = "gamesurge"; autojoin = "Yes"; }
 );
 # }}}
@@ -271,11 +273,11 @@ statusbar = {
 settings = {
   # {{{
   core = {
-    real_name = "Bill Gfn";
+    real_name = "z3bra";
     user_name = "z-brah";
     nick = "z3bra";
-    timestamp_format = "%H%M";
-    quit_message = "int random_number() { return 3; /*number randomly chosen with a dice roll*/ }";
+    timestamp_format = "%H.%M";
+    quit_message = "int random() { return 3; /*number randomly chosen with a dice roll*/ }";
   };
 
   "fe-text" = { scrollback_time = "48h"; actlist_sort = "refnum"; };

@@ -6,6 +6,9 @@
 # load nvidia config
 nvidia-settings -l
 
+# Set wallpaper
+hsetroot -tile ~/usr/img/bg/stripes.png &
+
 # default cursor
 xsetroot -cursor_name left_ptr &
 
@@ -21,9 +24,6 @@ function wm() {
 
     #status bar
     ~/bin/bar/status.sh & # it acts kinda weirdly
-
-    # Set wallpaper
-    hsetroot -tile ~/usr/img/bg/stripes.png &
 
     # Compositing
     # enable RGBA module for GTK
