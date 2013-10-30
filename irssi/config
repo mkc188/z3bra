@@ -90,11 +90,7 @@ aliases = {
   J = "join";
   WJOIN = "join -window";
   WQUERY = "query -window";
-  LEAVE = "part";
   P = "part";
-  BYE = "quit";
-  EXIT = "quit";
-  SIGNOFF = "quit";
   DESCRIBE = "action";
   DATE = "time";
   HOST = "userhost";
@@ -108,7 +104,6 @@ aliases = {
   M = "msg";
   T = "topic";
   C = "clear";
-  CL = "clear";
   K = "kick";
   KB = "kickban";
   KN = "knockout";
@@ -139,6 +134,7 @@ aliases = {
   Q = "QUIT";
   QU = "QUERY";
   UQ = "UNQUERY";
+  HL = "lastlog -hilight";
 };
 # }}}
 
@@ -157,6 +153,12 @@ statusbar = {
 
     topicbarstart = "{topicsbstart}";
     topicbarend = "{topicsbend}";
+
+    # Top and bottom line
+    #line_top = "%K──────────────┐";
+    #line_bottom = "%K              │";
+    line_top = "";
+    line_bottom = "";
 
     # treated "normally", you could change the time/user name to whatever
     time = "{sb $Z}";
@@ -255,13 +257,29 @@ statusbar = {
       disabled = "yes";
     };
     void_topic = { placement = "top"; position = "0"; };
-    void_status = { placement = "top"; position = "100"; };
-    void_bottom = { placement = "bottom"; items = { }; position = "1"; };
+    void_status = {
+      placement = "top";
+      items = { line_top = { }; };
+      position = "100";
+    };
+    void_bottom = {
+      placement = "bottom";
+      items = { line_bottom = { }; };
+      position = "1";
+    };
     awl_0 = {
       placement = "top";
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
