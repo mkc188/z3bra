@@ -269,7 +269,7 @@ formats = { # {{{
     quit = "%K            %R◥ %K│ %W{channick $0}%K: {reason %R$2}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
-    nick_changed = "%K            %y◢ %K│ %n{channick $0} %K: %Y{channick $1}";
+    nick_changed =      "%K            %y◢ %K│ %n{channick $0} %K: %Y{channick $1}";
     your_nick_changed = "%K            %y◢ %K│ %nyou%K: %Y{channick $1}";
 
     pubmsg = "{pubmsgnick $2 {pubnick $[-11]0}}$1";
@@ -293,8 +293,8 @@ formats = { # {{{
 
   }; # }}}
   "fe-common/irc" = { # {{{
-    chanmode_change =        "%K             %y◢ %K│ %n {channick $1}";
-    server_chanmode_change = "%K             %y◢ %K│ %n {channick $1}";
+    chanmode_change =           "%K            %y◢ %K│ %n {channick $1}";
+    server_chanmode_change =    "%K            %y◢ %K│ %n {channick $1}";
 
     own_action = "{ownaction $[-11]0} $1";
     action_private = "{pvtaction $[-11]0}$1";

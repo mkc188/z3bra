@@ -55,11 +55,7 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
-  unixhub = {
-    type = "IRC";
-    nick = "z3bra";
-    autosendcmd = "/msg nickserv AUTH z3bra password; /unquery nickserv";
-  };
+  unixhub = { type = "IRC"; };
   gamesurge = { type = "IRC"; };
 };
 # }}}
