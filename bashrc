@@ -3,11 +3,29 @@
 #
 
 ## INIT {{{
+
+# MPD server name
+export MPD_HOST="gavroche"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # add folders to PATH
-export PATH=$PATH:~/bin:.
+export PATH="$PATH:~/bin:."
+
+# Fancy prompt
+fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
+    '\[\e[0;34m\]' '\[\e[0;35m\]' '\[\e[0;36m\]' '\[\e[0;37m\]'
+    '\[\e[1;30m\]' '\[\e[1;31m\]' '\[\e[1;32m\]' '\[\e[1;33m\]'
+    '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
+
+export PS1="\n ${fg[11]}: ${fg[8]}($(hostname|cut -b-3)) ${fg[15]}"
+
+# Default editor to use
+export EDITOR="vim"
+
+# command line editing
+set -o vi
 
 # use auto-completion after those words
 complete -cf sudo
@@ -17,9 +35,13 @@ complete -cf pkill
 # }}}
 
 ## FUNCTIONS {{{
-function start() { sudo /etc/rc.d/$1 start; }
-function stop() { sudo /etc/rc.d/$1 stop; }
-function restart() { sudo /etc/rc.d/$1 restart; }
+
+function start()    { sudo systemctl start $@;   }
+function stop()     { sudo systemctl stop $@;    }
+function restart()  { sudo systemctl restart $@; }
+function status()   { sudo systemctl status $@;  }
+function enable()   { sudo systemctl enable $@;  }
+function disable()  { sudo systemctl disable $@; }
 
 function thumbify() {
     if [ -f $1 ]; then
@@ -30,13 +52,13 @@ function thumbify() {
             mogrify -resize 250x250 thumb-$1
         fi
     else
-        echo "Error: '$1' is not a valid file!"
+        echo "$1: not a regular file"
     fi
 }
 
 function ttycolors() {
     if [ "$TERM" = "linux" ]; then
-        echo -en "\e]P0232323" #black    -> this is the background color as well. 
+        echo -en "\e]P0222222" #black    -> also the background
         echo -en "\e]P18b3e2f" #darkred
         echo -en "\e]P2526f33" #darkgreen
         echo -en "\e]P38b814c" #brown
@@ -51,9 +73,19 @@ function ttycolors() {
         echo -en "\e]PC9ac0cd" #blue
         echo -en "\e]PD9f79ee" #magenta
         echo -en "\e]PE79cdcd" #cyan
-        echo -en "\e]PFffffff" #white   -> this is the foreground color as well.
+        echo -en "\e]PFffffff" #white   -> also the foreground
         clear #for background artifacting
     fi
+}
+
+# auto-cd into a created directory
+mcd () {
+    mkdir $@ && cd $_
+}
+
+# perform 'ls' right after entering a directory
+function cd() {
+    builtin cd $@ && ls -CF
 }
 ## }}}
 
@@ -65,23 +97,22 @@ alias c="clear"
 alias so="source ~/.bashrc"
 
 # Add a 'proctection' on rm | mv | cp
-alias rm='rm -i'
-alias cp='cp -rvi'
-alias mv='mv -i'
+alias cp="cp -rvi"
+alias mv="mv -i"
 
 # Alias to avoid some "RAAAAAAAAAH !!"
 alias :q="quit"
 alias cd..="cd .."
-alias fuck='sudo $(fc -n -l -1)'
+alias fuck="sudo $(fc -n -l -1)"
 
 # Make some output colorfull
-alias ls='ls --color=auto'
+alias ls="ls --color=auto"
 
-alias grep='grep --color=auto'
+alias grep="grep --color=auto"
 
 # some more ls aliases
-alias ll='ls -alhF --color=auto'
-alias l='ls -CF --color=auto'
+alias ll="ls -alhF --color=auto"
+alias l="ls -CF --color=auto"
 
 ## Applications
 export EDITOR="vim"
@@ -90,16 +121,22 @@ alias sv="sudo vim"
 
 alias vol="alsamixer"
 
-alias t="tmux"
+# TMUX / DTACH
+alias t='tmux'
+alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
+
+# BTPD
+alias btc="btcli -d ~/var/btp"
+
+# desktop recording
+alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+
+# HANDY RICKY SCRIPT
+alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
+alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
 # }}}
 
-## CONFIG {{{
-# vim as default editor
-export EDITOR='vim'
-
-# use vi-like CLI
-set -o vi
-
+## TWEAKS {{{
 # change tty colors
 ttycolors
 # }}}

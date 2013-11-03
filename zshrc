@@ -4,7 +4,7 @@
 export PATH=$PATH:$HOME/bin:.
 
 # Remote MPD server
-export MPD_HOST='mpdconf@gavroche'
+export MPD_HOST='gavroche'
 
 ## }}}
 
