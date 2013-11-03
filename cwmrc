@@ -9,7 +9,7 @@ command term            urxvt
 command internet        surf http://duckduckgo.com/lite
 command fichier         pcmanfm
 command libreoffice     libreoffice
-command quakelive       "xinit ~/.quakelive/xinit -- :1"
+command quakelive       "xinit /home/z3bra/.quakelive/xinit -- :1"
 command defrag          /opt/quake3/iodfengine.x86_64
 
 # automatic grouping for specific windows
@@ -95,7 +95,7 @@ bind CM-q       quit
 bind 4-Return   terminal
 bind 4-space    terminal
 bind 4-w        dwb
-bind 4-q        'xinit ~/.quakelive/xinit -- :1'
+bind 4-q        'xinit /home/z3bra/.quakelive/xinit -- :1'
 bind 4-exclam   exec
 bind 4-colon    ssh
 bind 4S-slash   search
