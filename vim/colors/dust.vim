@@ -20,7 +20,7 @@ let g:colors_name="sandstorm"
     highlight Comment      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Constant     term=NONE cterm=bold ctermfg=3    ctermbg=NONE
     highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=0
-    highlight CursorLine   term=NONE cterm=NONE ctermfg=0    ctermbg=7
+    highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE    ctermbg=NONE
     highlight DiffAdd      term=NONE cterm=bold ctermfg=NONE ctermbg=2
     highlight DiffChange   term=NONE cterm=bold ctermfg=NONE ctermbg=4
     highlight DiffDelete   term=NONE cterm=bold ctermfg=NONE ctermbg=1
