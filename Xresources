@@ -31,10 +31,10 @@
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
-URxvt*geometry:             96x20
+URxvt*geometry:             81x20
 URxvt*depth:                32
-URxvt*font:                 -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
-URxvt*boldFont:             -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*
+URxvt*font:                 -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
+URxvt*boldFont:             -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*cursorColor:          white
