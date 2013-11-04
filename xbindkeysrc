@@ -24,26 +24,26 @@ XF86AudioLowerVolume
 XF86AudioMute
 # ----------------------------------------------------------- }}} --
 
-# -- MPC remote control ------------------------------------- {{{ --
-"mpc toggle"
+# -- mpc -h gavroche remote control ------------------------------------- {{{ --
+"mpc -h gavroche toggle"
 XF86AudioPlay
 
-"mpc stop"
+"mpc -h gavroche stop"
 XF86AudioStop
 
-"mpc prev"
+"mpc -h gavroche prev"
 XF86AudioPrev
 
-"mpc next"
+"mpc -h gavroche next"
 XF86AudioNext
 
-"mpc volume +10"
+"mpc -h gavroche volume +10"
 control + XF86AudioRaiseVolume
 
-"mpc volume -10"
+"mpc -h gavroche volume -10"
 control + XF86AudioLowerVolume
 
-"mpc pause"
+"mpc -h gavroche pause"
 XF86AudioMute
 # ----------------------------------------------------------- }}} --
 #

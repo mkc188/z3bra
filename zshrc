@@ -4,7 +4,7 @@
 export PATH=$PATH:$HOME/bin:.
 
 # Remote MPD server
-export MPD_HOST='mpdconf@gavroche'
+export MPD_HOST='gavroche'
 
 ## }}}
 
@@ -85,7 +85,7 @@ alias btc="btcli -d ~/var/btp"
 alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
 
 # HANDY RICKY SCRIPT
-alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
+alias rick="curl -s -L 'http://bit.ly/10hA8iC' | bash"
 alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
 
 ## }}}
@@ -124,9 +124,10 @@ extract () {
 
 gifify() {
   if [[ -n "$1" && -n "$2" ]]; then
-    ffmpeg -i $1 -pix_fmt rgb24 temp.gif
-    convert -layers Optimize temp.gif $2
-    rm temp.gif
+    mkdir gif-tmp
+    ffmpeg -i $1 -r 1 -f image2 gif-tmp/%05d.jpg
+    convert -delay 100 gif-tmp/*.jpg $2
+    rm -rf gif-tmp/
   else
     echo "proper usage: gif-ify <input_movie.mov> <output_file.gif>"
     echo "You DO need to include extensions."
