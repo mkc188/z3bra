@@ -83,8 +83,6 @@ channels = (
     autojoin = "Yes";
   },
   { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
-  { name = "#wizards"; chatnet = "unixhub"; autojoin = "Yes"; },
-  { name = "#cube.fr"; chatnet = "gamesurge"; autojoin = "Yes"; }
 );
 # }}}
 
@@ -276,6 +274,14 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
