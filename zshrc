@@ -16,15 +16,17 @@ autoload -U compinit && compinit
 # enable coloring
 autoload -U colors && colors
 
-# set the prompt 
+# set the prompt
 PROMPT="
 %{$fg_bold[yellow]%} »  "
 RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
 
+[[ -z $TMUX ]] && exec tmux
+
 # vi-like key bindings
 bindkey -v
 
-## }}}
+## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: ALIASES {{{
 

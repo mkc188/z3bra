@@ -12,13 +12,10 @@ command libreoffice     libreoffice
 command quakelive       "xinit /home/z3bra/.quakelive/xinit -- :1"
 command defrag          /opt/quake3/iodfengine.x86_64
 
-# automatic grouping for specific windows
-autogroup 2 Dwb
-
 # behavior, look & feel
-borderwidth             1
-color inactiveborder    "#111111"
-color activeborder      "#4c4c4c"
+borderwidth             4
+color inactiveborder    "#222222"
+color activeborder      "#eee685"
 color font              "#ffffff"
 color menubg            "#222222"
 color selfont           "#ffffff"
@@ -26,9 +23,9 @@ color menufg            "#4c4c4c"
 color groupborder       "#526f33"
 color ungroupborder     "#8b3e2f"
 
-gap                     36 16 10 10
+gap                     8 8 8 8
 moveamount              2
-snapdist                0
+snapdist                4
 
 # Keybindings
 # SIZE
@@ -93,9 +90,6 @@ bind CM-q       quit
 
 # Applications
 bind 4-Return   terminal
-bind 4-space    terminal
-bind 4-w        dwb
-bind 4-q        'xinit /home/z3bra/.quakelive/xinit -- :1'
 bind 4-exclam   exec
 bind 4-colon    ssh
 bind 4S-slash   search
