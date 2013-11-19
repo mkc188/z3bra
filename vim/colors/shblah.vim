@@ -8,7 +8,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="sandstorm"
+let g:colors_name="shblah"
 
 "
 " Highlighting definitions.
@@ -36,8 +36,8 @@ let g:colors_name="sandstorm"
     highlight Special      term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
     highlight SpecialKey   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
     highlight Statement    term=NONE cterm=bold ctermfg=3    ctermbg=NONE
-    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=237
-    highlight StatusLineNC term=NONE cterm=NONE ctermfg=0    ctermbg=237
+    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=7
+    highlight StatusLineNC term=NONE cterm=NONE ctermfg=0    ctermbg=7
     highlight String       term=NONE cterm=bold ctermfg=1    ctermbg=NONE
     highlight Todo         term=NONE cterm=NONE ctermfg=3    ctermbg=7
     highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
