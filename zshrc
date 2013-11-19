@@ -21,7 +21,7 @@ PROMPT="
 %{$fg_bold[yellow]%} »  "
 RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
 
-[[ -z $TMUX ]] && exec tmux
+[[ -z $TMUX ]] && [[ $TERM != "screen-256color" ]] && exec tmux
 
 # vi-like key bindings
 bindkey -v

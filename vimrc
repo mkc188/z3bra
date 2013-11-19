@@ -107,11 +107,7 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-if &t_Co == 256
-    colorscheme sandstorm
-else
-    colorscheme dust
-endif
+colorscheme shblah
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -270,8 +266,8 @@ nnoremap ZW :w<CR>
 " toggle between gcc and make
 nmap <Leader>cc :call ToggleCCompiler()<CR>
 
-" upload to sprunge.us
-command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
+" upload to sprunge.us (without range, upload the whole file)
+command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 
 "  > Filetypes commands ========================================================
