@@ -5,8 +5,8 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-*background:#222222
-*foreground:#e8e9ca
+URxvt*background:#222222
+URxvt*foreground:#e8e9ca
 
 *color0:    #222222
 *color1:    #8b3e2f
@@ -52,10 +52,11 @@ URxvt.colorUL:              #a28c64
 
 ! XTerm ---------------------------------------------------------
 
+xterm*background:#222222
+xterm*foreground:#e8e9ca
 xterm*scrollBar:         false
-xterm*faceName:          gohu
+xterm*faceName:          tamsyn
 xterm*faceSize:          8
-xterm*geometry:          64x2
 xterm*boldMode:          false
 xterm*cutNewline:        false
 xterm*on4Clicks:         group
