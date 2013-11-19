@@ -12,7 +12,7 @@ color normal brightblack default
 color markers red default
 color search black default
 color tilde brightmagenta default
-color sidebar_new black brightyellow
+color sidebar_new brightyellow default
 
 # Colors
 color index brightblack default ~F
