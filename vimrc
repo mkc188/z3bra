@@ -107,11 +107,7 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-if &t_Co == 256
-    colorscheme sandstorm
-else
-    colorscheme dust
-endif
+colorscheme shblah
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
