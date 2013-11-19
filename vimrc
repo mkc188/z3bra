@@ -271,7 +271,7 @@ nnoremap ZW :w<CR>
 nmap <Leader>cc :call ToggleCCompiler()<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
-command! -nargs=0 -range=% Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
+command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 
 "  > Filetypes commands ========================================================
