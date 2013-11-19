@@ -16,9 +16,6 @@ function wm() {
     # Load X resources
     xrdb -load ~/.Xresources &
 
-    # personnal bindings
-    xbindkeys
-
     # set WM name
     xsetroot -name $1
 
@@ -32,6 +29,9 @@ function wm() {
     #compton -cCb -t-5 -l-5 -r4.2 -o.4
     #compton -cCb -r16 -t-22 -l-22 -o.8
     compton -cb -o0
+
+    # personnal bindings
+    xbindkeys
 
     # spawn window manager
     exec $1
