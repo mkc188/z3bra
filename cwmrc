@@ -7,10 +7,11 @@ sticky yes
 # Any entry here is shown in the application menu
 command term            urxvt
 command internet        surf http://duckduckgo.com/lite
-command fichier         pcmanfm
-command libreoffice     libreoffice
+command "--------"      clear
 command quakelive       "xinit /home/z3bra/.quakelive/xinit -- :1"
 command defrag          /opt/quake3/iodfengine.x86_64
+command teeworlds       teeworlds
+command rage            "wine ~/var/games/rage/Rage.exe"
 
 # behavior, look & feel
 borderwidth             4
