@@ -4,14 +4,8 @@
 
 ## INIT {{{
 
-# MPD server name
-export MPD_HOST="gavroche"
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-# add folders to PATH
-export PATH="$PATH:~/bin:."
 
 # Fancy prompt
 fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
@@ -20,9 +14,6 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 
 export PS1="\n ${fg[11]}: ${fg[8]}($(hostname|cut -b-3)) ${fg[15]}"
-
-# Default editor to use
-export EDITOR="vim"
 
 # command line editing
 set -o vi
