@@ -329,7 +329,9 @@ fu! ViewTips()
     "   $ strfile vimtweets vimtweets.dat
     "   # mv vimtweets* /usr/share/fortune/
     if filereadable('/usr/bin/fortune')
-        echomsg system('/usr/bin/fortune vimtweets')
+        if filereadable('/usr/share/fortune/vimtweets')
+            echomsg system('/usr/bin/fortune vimtweets')
+        endif
     endif
 endfu
 
