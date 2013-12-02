@@ -7,7 +7,7 @@
 nvidia-settings -l
 
 # Set wallpaper
-hsetroot -tile ~/usr/img/bg/stripes.png &
+hsetroot -fill ~/usr/img/bg/sunrise.jpg
 
 # default cursor
 xsetroot -cursor_name left_ptr &
