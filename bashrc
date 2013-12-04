@@ -76,7 +76,7 @@ mcd () {
 
 # perform 'ls' right after entering a directory
 function cd() {
-    builtin cd $@ && ls -CF
+    builtin cd "$@" && ls -CF
 }
 ## }}}
 
