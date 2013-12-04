@@ -4,7 +4,7 @@
 #
 
 # load nvidia config
-nvidia-settings -l
+nvidia-settings -l --config=$HOME/.config/nvidia
 
 # Set wallpaper
 hsetroot -fill ~/usr/img/bg/sunrise.jpg
@@ -19,18 +19,11 @@ function wm() {
     # set WM name
     xsetroot -name $1
 
-    #status bar
-    ~/bin/bar/status.sh & # it acts kinda weirdly
-
     # Compositing
     # enable RGBA module for GTK
     export GTK_MODULES=rgba
 
-    #compton -cCb -t-5 -l-5 -r4.2 -o.4
-    #compton -cCb -r16 -t-22 -l-22 -o.8
     compton -cb -o0
-
-    # personnal bindings
     xbindkeys
 
     # spawn window manager
@@ -39,4 +32,11 @@ function wm() {
 
 [[ -z $1 ]] && wm cwm
 
-wm $1
+case $1 in
+    rage)       exec wine ~/var/games/rage/Rage.exe;;
+    defrag)     exec /opt/quake3/iodfengine.x86_64;;
+    quakelive)  exec qlprism;;
+    teeworlds)  exec teeworlds;;
+    sauerbraten)  exec sauerbraten-client;;
+    *) wm $1;;
+esac

@@ -8,15 +8,19 @@ sticky yes
 command term            urxvt
 command internet        surf http://duckduckgo.com/lite
 command "--------"      clear
-command quakelive       "xinit /home/z3bra/.quakelive/xinit -- :1"
-command defrag          /opt/quake3/iodfengine.x86_64
-command teeworlds       teeworlds
-command rage            "wine ~/var/games/rage/Rage.exe"
+command rage            "xinit rage -- :1"
+command defrag          "xinit defrag -- :1"
+command quakelive       "xinit quakelive -- :1"
+command teeworlds       "xinit teeworlds -- :1"
+command sauerbraten     "xinit sauerbraten -- :1"
+
+# do not manage these
+ignore xclock
 
 # behavior, look & feel
-borderwidth             4
+borderwidth             2
 color inactiveborder    "#222222"
-color activeborder      "#eee685"
+color activeborder      "#222222"
 color font              "#ffffff"
 color menubg            "#222222"
 color selfont           "#ffffff"
