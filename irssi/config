@@ -3,32 +3,26 @@ servers = (
   # {{{
   {
     address = "irc.quakenet.org";
-    chatnet = "quakenet";
+    chatnet = "qn";
     port = "6667";
     autoconnect = "yes";
   },
   {
     address = "irc.freenode.org";
-    chatnet = "freenode";
+    chatnet = "fn";
     port = "6667";
     autoconnect = "yes";
   },
   {
     address = "irc.blinkenshell.org";
-    chatnet = "blinkenshell";
+    chatnet = "bl";
     port = "6697";
     use_ssl = "yes";
     autoconnect = "yes";
   },
   {
-    address = "irc.gamesurge.net";
-    chatnet = "gamesurge";
-    port = "6667";
-    autoconnect = "no";
-  },
-  {
     address = "irc.unixhub.net";
-    chatnet = "unixhub";
+    chatnet = "uh";
     port = "6667";
     autoconnect = "yes";
   }
@@ -38,7 +32,7 @@ servers = (
 ## COMMANDS
 chatnets = {
   # {{{
-  freenode = {
+  fn = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -46,8 +40,8 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg NickServ IDENTIFY password; /unquery NickServ";
   };
-  blinkenshell = { type = "IRC"; };
-  quakeNet = {
+  bl = { type = "IRC"; };
+  qn = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -55,34 +49,26 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
-  unixhub = {
+  uh = {
     type = "IRC";
     nick = "z3bra";
-    autosendcmd = "/msg nickserv AUTH z3bra password; /unquery nickserv";
+    autosendcmd = "/msg nickserv IDENTIFY z3bra password; /unquery nickserv";
   };
-  gamesurge = { type = "IRC"; };
 };
 # }}}
 
 ## CHANNELS
 channels = (
   # {{{
-  { name = "#defrag-france"; chatnet = "quakenet"; autojoin = "Yes"; },
-  { name = "#pndc"; chatnet = "freenode"; autojoin = "No"; },
-  { name = "#vim-fr"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "No"; },
-  { name = "#archlinux-fr"; chatnet = "freenode"; autojoin = "Yes"; },
-  { 
-    name = "#archlinux-newbie";
-    chatnet = "freenode";
-    autojoin = "No";
-  },
-  { 
-    name = "#blinkenshell";
-    chatnet = "blinkenshell";
-    autojoin = "Yes";
-  },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
+  { name = "#defrag-france"; chatnet = "qn"; autojoin = "Yes"; },
+  { name = "#pndc"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#vim-fr"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#archlinux"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#archlinux-fr"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#arch-fr-off"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#archlinux-newbie"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#blinkenshell"; chatnet = "bl"; autojoin = "Yes"; },
+  { name = "#unixhub"; chatnet = "uh"; autojoin = "Yes"; }
 );
 # }}}
 
@@ -137,6 +123,8 @@ aliases = {
   QU = "QUERY";
   UQ = "UNQUERY";
   HL = "lastlog -hilight";
+  OP = "msg ChanServ OP $C";
+  DEOP = "msg ChanServ DEOP $C";
 };
 # }}}
 
@@ -277,14 +265,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      placement = "top";
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 # }}}
@@ -359,12 +339,22 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#arch-fr-off";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#unixhub";
         tag = "unixhub";
       }
     );
   };
-  4 = {
+  5 = {
     items = (
       {
         type = "CHANNEL";
@@ -374,7 +364,7 @@ windows = {
       }
     );
   };
-  5 = {
+  6 = {
     items = (
       {
         type = "CHANNEL";
