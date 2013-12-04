@@ -46,16 +46,19 @@ set sidebar_sort = no                           # sort alphabeticaly
 set sidebar_shortpath = yes                     # fix first char column
 
 mailboxes   +INBOX      \
+            +--[maillist]-----------------------\
+            +vim-fr     \
             +--[folders]------------------------\
-            +paperwork  \
-            +purchase   \
+            +dev        \
+            +jobs       \
             +isfen      \
             +stuffs     \
-            +jobs       \
-            +dev        \
+            +paperwork  \
+            +purchase   \
             +--[done]---------------------------\
             +sent       \
             +draft      \
+            +gmail      \
             +archive
 
 

@@ -107,11 +107,7 @@ syntax on
 " set t_Co=256
 
 " Theme & colors
-if &t_Co == 256
-    colorscheme sandstorm
-else
-    colorscheme dust
-endif
+colorscheme shblah
 
 " Improve color for dark bkgd (set by the theme)
 " set background=light
@@ -229,12 +225,13 @@ set statusline=
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-50(%=%M%H%R\ %t\ (%{&enc})%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
+
 
 set list
-set listchars=tab:\|\ ,trail:⋅,nbsp:˽
+set listchars=tab:│\ ,trail:⋅,nbsp:˽
 
-set fillchars=vert:\|,fold:─
+set fillchars=vert:│,fold:-
 " }}}
 
 "  > Mapping ===================================================================
@@ -270,8 +267,8 @@ nnoremap ZW :w<CR>
 " toggle between gcc and make
 nmap <Leader>cc :call ToggleCCompiler()<CR>
 
-" upload to sprunge.us
-command! Sprunge w !curl -F 'sprunge=<-' http://sprunge.us
+" upload to sprunge.us (without range, upload the whole file)
+command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 
 "  > Filetypes commands ========================================================
@@ -333,7 +330,9 @@ fu! ViewTips()
     "   $ strfile vimtweets vimtweets.dat
     "   # mv vimtweets* /usr/share/fortune/
     if filereadable('/usr/bin/fortune')
-        echomsg system('/usr/bin/fortune vimtweets')
+        if filereadable('/usr/share/fortune/vimtweets')
+            echomsg system('/usr/bin/fortune vimtweets')
+        endif
     endif
 endfu
 

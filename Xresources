@@ -5,26 +5,26 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-*background:#222222
-*foreground:#e8e9ca
+URxvt*background:[90]#221a17
+URxvt*foreground:#b3b4b1
 
 *color0:    #222222
-*color1:    #8b3e2f
-*color2:    #526f33
+*color1:    #784742
+*color2:    #427363
 *color3:    #665847
-*color4:    #4a708b
+*color4:    #6a708b
 *color5:    #7a378b
-*color6:    #528b8b
-*color7:    #999999
+*color6:    #52707b
+*color7:    #b3b4b1
 
-*color8:    #4c4c4c
-*color9:    #d75f00
-*color10:   #cee318
-*color11:   #eee685
-*color12:   #9ac0cd
-*color13:   #9f79ee
-*color14:   #79cdcd
-*color15:   #e8e9ca
+*color8:    #5c4c4c
+*color9:    #d43f10
+*color10:   #cef318
+*color11:   #ede265
+*color12:   #6ac0fd
+*color13:   #ef79ae
+*color14:   #49d4dd
+*color15:   #ffffff
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
@@ -37,7 +37,7 @@ URxvt*font:                 -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch
 URxvt*boldFont:             -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
-URxvt*cursorColor:          white
+URxvt*cursorColor:          #5c4c4c
 URxvt*internalBorder:       2
 URxvt*perl-ext-common:      default,url-select,keyboard-select
 URxvt.url-select.launcher:  /usr/bin/dwb
@@ -52,10 +52,11 @@ URxvt.colorUL:              #a28c64
 
 ! XTerm ---------------------------------------------------------
 
+xterm*background:#222222
+xterm*foreground:#e8e9ca
 xterm*scrollBar:         false
-xterm*faceName:          gohu
+xterm*faceName:          tamsyn
 xterm*faceSize:          8
-xterm*geometry:          64x2
 xterm*boldMode:          false
 xterm*cutNewline:        false
 xterm*on4Clicks:         group
@@ -72,3 +73,12 @@ xterm*charClass:         33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:
 xterm*jumpScroll:        true
 xterm*multiScroll:       true
 xterm*saveLines:         512
+
+xclock*background:      #efefe5
+xclock*face:            Archivo Narrow-16
+xclock*foreground:      #4a708b
+xclock*analog:          false
+xclock*geometry:        +1280+860
+xclock*strftime:        %a %d/%m   %H:%M
+xclock*update:          30
+

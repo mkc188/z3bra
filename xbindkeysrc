@@ -1,10 +1,10 @@
 # -- X11 custom binds ------------------------------------------- {{{ --
 # -- Application launchers ---------------------------------- {{{ --
-# "urxvt"
-# Mod4 + space
+ "urxvt"
+ Mod4 + space
 # 
-# "dwb"
-# Mod4 + w
+ "dwb"
+ Mod4 + w
 # 
 # "gmrun"
 # Alt + F2
