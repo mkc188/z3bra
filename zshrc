@@ -6,6 +6,9 @@ export PATH=$PATH:$HOME/bin:.
 # Remote MPD server
 export MPD_HOST='gavroche'
 
+# Mails, anyone ?
+export MAIL=$HOME/var/mail/INBOX
+
 ## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
