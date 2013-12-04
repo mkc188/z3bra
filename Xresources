@@ -73,3 +73,12 @@ xterm*charClass:         33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:
 xterm*jumpScroll:        true
 xterm*multiScroll:       true
 xterm*saveLines:         512
+
+xclock*background:      #efefe5
+xclock*face:            Archivo Narrow-16
+xclock*foreground:      #4a708b
+xclock*analog:          false
+xclock*geometry:        +1280+860
+xclock*strftime:        %a %d/%m   %H:%M
+xclock*update:          30
+
