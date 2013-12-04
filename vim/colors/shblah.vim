@@ -25,6 +25,7 @@ let g:colors_name="shblah"
     highlight DiffAdd      term=NONE cterm=NONE ctermfg=NONE ctermbg=2
     highlight DiffChange   term=NONE cterm=NONE ctermfg=NONE ctermbg=4
     highlight DiffDelete   term=NONE cterm=NONE ctermfg=NONE ctermbg=1
+    highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
     highlight Identifier   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
