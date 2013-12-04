@@ -12,8 +12,12 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[0;34m\]' '\[\e[0;35m\]' '\[\e[0;36m\]' '\[\e[0;37m\]'
     '\[\e[1;30m\]' '\[\e[1;31m\]' '\[\e[1;32m\]' '\[\e[1;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
+nofg='\[\e[0m\]'
 
-export PS1="\n ${fg[11]}: ${fg[8]}($(hostname|cut -b-3)) ${fg[15]}"
+PS1="\n"
+
+[ -n "$SSH_CLIENT" ] && PS1="${fg[8]}$(hostname|cut -b-2)"
+export PS1=" ${PS1} ${fg[11]}──── ${nofg}"
 
 # command line editing
 set -o vi
@@ -76,7 +80,7 @@ mcd () {
 
 # perform 'ls' right after entering a directory
 function cd() {
-    builtin cd "$@" && ls -CF
+    builtin cd "$@" && ls -CF --color
 }
 ## }}}
 
@@ -94,6 +98,7 @@ alias mv="mv -i"
 # Alias to avoid some "RAAAAAAAAAH !!"
 alias :q="quit"
 alias cd..="cd .."
+alias fu="sudo $(fc -n -l -1)"
 alias fuck="sudo $(fc -n -l -1)"
 
 # Make some output colorfull
