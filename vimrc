@@ -225,12 +225,13 @@ set statusline=
 set ruler
 
 " put everything I need in the ruler
-set rulerformat=%-50(%=%M%H%R\ %t\ (%{&enc})%<%4(%)%Y:%{&tw}%9(%l,%c%V%)%4(%)%P%)
+set rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
+
 
 set list
-set listchars=tab:\|\ ,trail:⋅,nbsp:˽
+set listchars=tab:│\ ,trail:⋅,nbsp:˽
 
-set fillchars=vert:\|,fold:─
+set fillchars=vert:│,fold:-
 " }}}
 
 "  > Mapping ===================================================================
