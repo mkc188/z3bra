@@ -14,10 +14,8 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-PS1="\n"
-
-[ -n "$SSH_CLIENT" ] && PS1="${fg[8]}$(hostname|cut -b-2)"
-export PS1=" ${PS1} ${fg[11]}──── ${nofg}"
+PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fg[8]}$(hostname|cut -b-2) "
+export PS1=" ${PS1}${fg[11]}──── ${nofg}"
 
 # command line editing
 set -o vi
