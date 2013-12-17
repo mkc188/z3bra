@@ -19,6 +19,9 @@ function wm() {
     # set WM name
     xsetroot -name $1
 
+    # watch mail directory
+    wendy -C -d ~/var/mail/INBOX/new/ -t 1 -e espeak -p 30 'new mail incoming' &
+
     # Compositing
     # enable RGBA module for GTK
     export GTK_MODULES=rgba
@@ -33,10 +36,12 @@ function wm() {
 [[ -z $1 ]] && wm cwm
 
 case $1 in
-    rage)       exec wine ~/var/games/rage/Rage.exe;;
-    defrag)     exec /opt/quake3/iodfengine.x86_64;;
-    quakelive)  exec qlprism;;
-    teeworlds)  exec teeworlds;;
-    sauerbraten)  exec sauerbraten-client;;
+    rage)           exec wine ~/var/games/rage/Rage.exe;;
+    steam)          exec steam;;
+    defrag)         exec /opt/quake3/iodfengine.x86_64;;
+    crysis-2)       exec wine ~/var/games/crysis-2/bin32/Crysis2.exe;;
+    quakelive)      exec qlprism;;
+    teeworlds)      exec teeworlds;;
+    sauerbraten)    exec sauerbraten-client;;
     *) wm $1;;
 esac
