@@ -14,6 +14,12 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.epiknet.org";
+    chatnet = "ep";
+    port = "6667";
+    autoconnect = "no";
+  },
+  {
     address = "irc.blinkenshell.org";
     chatnet = "bl";
     port = "6697";
@@ -23,6 +29,12 @@ servers = (
   {
     address = "irc.unixhub.net";
     chatnet = "uh";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.iotek.org";
+    chatnet = "io";
     port = "6667";
     autoconnect = "yes";
   }
@@ -52,8 +64,10 @@ chatnets = {
   uh = {
     type = "IRC";
     nick = "z3bra";
-    autosendcmd = "/msg nickserv IDENTIFY z3bra password; /unquery nickserv";
+    autosendcmd = "/msg nickserv IDENTIFY password; /unquery nickserv";
   };
+  io = { type = "IRC"; };
+  ep = { type = "IRC"; };
 };
 # }}}
 
@@ -68,6 +82,7 @@ channels = (
   { name = "#arch-fr-off"; chatnet = "fn"; autojoin = "Yes"; },
   { name = "#archlinux-newbie"; chatnet = "fn"; autojoin = "No"; },
   { name = "#blinkenshell"; chatnet = "bl"; autojoin = "Yes"; },
+  { name = "#wizards"; chatnet = "io"; autojoin = "Yes"; },
   { name = "#unixhub"; chatnet = "uh"; autojoin = "Yes"; }
 );
 # }}}
@@ -122,7 +137,7 @@ aliases = {
   Q = "QUIT";
   QU = "QUERY";
   UQ = "UNQUERY";
-  HL = "lastlog -hilight";
+  HL = "lastlog -hilight -new";
   OP = "msg ChanServ OP $C";
   DEOP = "msg ChanServ DEOP $C";
 };
@@ -265,6 +280,14 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 # }}}
@@ -276,11 +299,15 @@ settings = {
     real_name = "z3bra";
     user_name = "z-brah";
     nick = "z3bra";
-    timestamp_format = "%H.%M";
+    timestamp_format = "  %H:%M";
     quit_message = "int random() { return 3; /*number randomly chosen with a dice roll*/ }";
   };
 
-  "fe-text" = { scrollback_time = "48h"; actlist_sort = "refnum"; };
+  "fe-text" = {
+    scrollback_time = "48h";
+    actlist_sort = "refnum";
+    indent = "8";
+  };
 
   "fe-common/core" = {
     autolog = "yes";
@@ -288,7 +315,7 @@ settings = {
     theme = "default";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES INVITES DCC DCCMSGS HILIGHT";
-    use_status_window = "no";
+    use_status_window = "yes";
     expand_escapes = "yes";
   };
   "perl/core/scripts" = {
@@ -316,12 +343,7 @@ ignores = ( );
 windows = {
   1 = {
     items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#vim-fr";
-        tag = "freenode";
-      }
+      { immortal = "yes"; name = "[st]"; level = "ALL"; sticky = "yes"; }
     );
   };
   2 = {
@@ -329,8 +351,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#archlinux-fr";
-        tag = "freenode";
+        name = "#vim-fr";
+        tag = "fn";
       }
     );
   };
@@ -339,8 +361,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#arch-fr-off";
-        tag = "freenode";
+        name = "#archlinux-fr";
+        tag = "fn";
       }
     );
   };
@@ -349,8 +371,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#unixhub";
-        tag = "unixhub";
+        name = "#arch-fr-off";
+        tag = "fn";
       }
     );
   };
@@ -359,8 +381,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#defrag-france";
-        tag = "quakeNet";
+        name = "#unixhub";
+        tag = "uh";
       }
     );
   };
@@ -369,8 +391,28 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#defrag-france";
+        tag = "qn";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#blinkenshell";
-        tag = "blinkenshell";
+        tag = "bl";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#wizards";
+        tag = "io";
       }
     );
   };
