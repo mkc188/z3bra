@@ -111,6 +111,7 @@ nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 vnoremap <C-a> :call Incr()<CR>
 inoremap <Tab> <C-R>=CleverTab()<CR>
 nmap <Leader>cc :call ToggleCCompiler(tcc)<CR>
+nmap <leader>d :call Date()<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
@@ -118,7 +119,8 @@ command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.
 " AUTOCOMMANDS {{{
 au FileType             make set noet
 au Filetype             php set ft=php.html
-au Filetype             html ab </ </<C-x><C-o>
+au Filetype             html ab -- &mdash;
+au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         .Xresources !xrdb %
 
@@ -174,6 +176,32 @@ fu! ToggleCCompiler(cc)
     endif
     set makeprg
 endfu
+
+" insert current date preceded by &mdash at the end of the current line
+fu! Date()
+    norm mz
+    exe append(line("."), "&mdash; ".strftime("%d %B, %Y"))
+    norm 'zJ
+endfu
+
+" escape every HTML char in the line/selection
+fu! EscapeHTML()
+    silent! s/</\&lt;/g
+    silent! s/>/\&gt;/g
+    silent! s/"/\&quot;/g
+endfu
+
+" insert the TOhtml version of the selection
+fu! CodeHTML(newft)
+    let oldft = &ft         " remember current filetype
+    let ft = a:newft        " filetype to be used
+    '<,'>TOhtml             " convert the selection to HTML
+    /^<pre/+1,/^<\/pre>/-1d " get the code in between <pre> tags
+    bd!                     " remove the HTML temporary buffer
+    norm gvp                " copy that in place of the old text
+    let ft = oldft          " recall the saved filetype
+endf
+
 " }}}
 "
 " vim: fdm=marker
