@@ -47,6 +47,11 @@ bind 4MS-k      bigresizeup
 bind 4MS-l      bigresizeright
 
 # POSITION
+bind 4-y        corner_tl
+bind 4-u        corner_tr
+bind 4-n        corner_bl
+bind 4-comma    corner_br
+
 bind 4-s        htile
 bind 4-v        vtile
 bind 4-h        moveleft
@@ -61,8 +66,8 @@ bind 4S-l       bigmoveright
 # CONTROL
 bind 4-a        label
 bind 4-Escape   delete
-bind 4-n        cycle
-bind 4-p        rcycle
+#bind 4-n        cycle
+#bind 4-p        rcycle
 
 # Group control
 bind M-g            grouptoggle
