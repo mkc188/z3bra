@@ -9,6 +9,9 @@ nvidia-settings -l --config=$HOME/.config/nvidia
 # Set wallpaper
 hsetroot -fill ~/usr/img/bg/sunrise.jpg
 
+# Set bindings
+xbindkeys
+
 # default cursor
 xsetroot -cursor_name left_ptr &
 
@@ -27,21 +30,26 @@ function wm() {
     export GTK_MODULES=rgba
 
     compton -cb -o0
-    xbindkeys
 
     # spawn window manager
     exec $1
 }
 
+function run() {
+    # Use a dumb WM on purpose
+    ~/bin/tinywm &
+
+    # start specified app
+    exec $@
+}
+
 [[ -z $1 ]] && wm cwm
 
 case $1 in
-    rage)           exec wine ~/var/games/rage/Rage.exe;;
-    steam)          exec steam;;
-    defrag)         exec /opt/quake3/iodfengine.x86_64;;
-    crysis-2)       exec wine ~/var/games/crysis-2/bin32/Crysis2.exe;;
-    quakelive)      exec qlprism;;
-    teeworlds)      exec teeworlds;;
-    sauerbraten)    exec sauerbraten-client;;
+    rage)           run wine ~/var/games/rage/Rage.exe;;
+    steam)          run steam;;
+    defrag)         run /opt/quake3/iodfengine.x86_64;;
+    teeworlds)      run teeworlds;;
+    sauerbraten)    run sauerbraten-client;;
     *) wm $1;;
 esac
