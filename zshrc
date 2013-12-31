@@ -37,6 +37,7 @@ alias mv='mv -i'
 
 # Alias to avoid some 'RAAAAAAAAAH !!'
 alias :q='quit'
+alias :h='vim +h'
 alias fu='sudo $(fc -n -l -1)'
 
 # Network/System monitoring
