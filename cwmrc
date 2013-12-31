@@ -8,11 +8,12 @@ sticky yes
 command term            urxvt
 command internet        surf http://duckduckgo.com/lite
 command "--------"      clear
-command rage            "xinit rage -- :1"
-command defrag          "xinit defrag -- :1"
-command quakelive       "xinit quakelive -- :1"
-command teeworlds       "xinit teeworlds -- :1"
-command sauerbraten     "xinit sauerbraten -- :1"
+command mumble          mumble
+command "--------"      clear
+command rage            "xinit rage -- :1 vt07"
+command defrag          "xinit defrag -- :1 vt07"
+command quakelive       "xinit quakelive -- :1 vt07"
+command steam           "xinit steam -- :1 vt07"
 
 # do not manage these
 ignore xclock

@@ -109,7 +109,6 @@ alias ll="ls -alhF --color=auto"
 alias l="ls -CF --color=auto"
 
 ## Applications
-export EDITOR="vim"
 alias v="vim"
 alias sv="sudo vim"
 
