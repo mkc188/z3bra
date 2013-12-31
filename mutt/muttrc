@@ -37,10 +37,10 @@ set status_format = "%> (%f -- %lb) %u/%m %?t?t:%t ?%?d?d:%d ?%?p?p:%p?"
 set status_on_top = no
 
 ## --- Sidebar ---
-set sidebar_visible = yes                       # why not !
+set sidebar_visible = no                        # can be toggled
 set sidebar_width = 32                          # column size
 set sidebar_delim = "▎"                         # separator
-set sidebar_format = " %B %! %> %?N?(%N)?%S  "  # content
+set sidebar_format = " %B %! %> %?N?%N? "       # content
 set sidebar_folderindent = no                   # respect indent
 set sidebar_sort = no                           # sort alphabeticaly
 set sidebar_shortpath = yes                     # fix first char column

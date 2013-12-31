@@ -1,8 +1,8 @@
 " ==============================================================================
 "
-" Maintainer : Willy 'z3bra' Goiffon
+" Maintainer : z3bra
 "
-" vim: fdm=marker:tw=80:cc=81:noai:et
+" vim: fdm=marker:
 "
 " Section    :
 "   > General 
@@ -28,17 +28,11 @@ set nocompatible
 " Define <leader> key
 let mapleader = "!"
 
-" How many lines Vim use for history
-set history=100
-
 " Re-read file if changed outside
 set autoread
 
 " Automatically save before commands like :next and :make
 set autowrite
-
-" How long should we highlight a match ? (bracket, parenthesis, etc..)
-set mat=1
 
 filetype on
 filetype indent on
@@ -47,54 +41,29 @@ filetype indent on
 "  > Interface =================================================================
 " {{{
 
-" Show (partial) command in status line.
-set showcmd
-
-" Enable code indentation
-set autoindent
-
 " Show matching brackets.
 "set showmatch
 
 " Search options
 set ignorecase          " Ignore case in search
 set smartcase           " Do smart case matching
-set incsearch           " Incremental search
-set magic               " Use magic for regular expressions
-
-" Disable mouse usage (all modes)
-set mouse=
-
-" Show the line number on the left (or not)
-set nonumber
 
 " Make <BACKSPACE> do what it should do
-set backspace=indent,eol,start
+set backspace=2
 
 " Define the offset with the cursor when moving vertically
 set so=7
 
 " Turn on the WildMenu (for cmdline completion)
 set wildmenu
-
-" Files to ignore with it
 set wildignore=*.o,*~
-
-" Height of the cmdline window
-set cmdheight=1
-
-" Do not redraw while executing macros
-set lazyredraw
 
 " Suffixes that vim should ignore
 set suffixes=.jpg,.png,.gif,.bak,~,.swpi,.swo,.o.info,.g,.dvi,.bbl,
             \.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyo
 
-" Disable annoying error events
-set noerrorbells
-set novisualbell
+" Disable visual bell
 set t_vb=
-set tm=500
 " }}}
 
 "  > Colors & more =============================================================
@@ -103,54 +72,32 @@ set tm=500
 " Enable syntax
 syntax on
 
-" Use 256 colors
-" set t_Co=256
-
 " Theme & colors
 colorscheme shblah
 
-" Improve color for dark bkgd (set by the theme)
-" set background=light
-
-" Improve display
-set ttyfast
-
-" Use unix as standard filetype
-set ffs=unix,dos,mac
-
 " Use UTF-8 for file/term encoding
 set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,iso-8859-1,default
-set termencoding=utf-8
-
-" If a tag file is present
-let FILETAG=expand("tags")
-if filereadable(FILETAG)
-    exe 'set tags=' . FILETAG
-endif
+set fileencodings=utf-8,iso-8859-1,latin1,default
+call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 " }}}
 
 "  > Files =====================================================================
 " {{{
 
 " Turn of backup (don't forget to push on git !!)
-set nobackup
 set nowb
-set noswapfile
+
+" generate with ctags -R -f ~/.vim/systags /usr/include /usr/local/include
+set tags+=~/.vim/systags
 
 " improve vim path
-set path=.,,inc,src,/usr/include
+set path=.,,inc,src,/usr/include,/usr/local/include
 " }}}
 
 "  > Text formatting ===========================================================
 " {{{
 
 set expandtab       " convert tabs into space
-set smarttab        " Be smart !
-
-set modeline        " Enable EOF file options
-
 set tabstop=8       " tab = 8 spaces
 set shiftwidth=4    " indentation is 4 spaces
 set softtabstop=4   " Do your best, but I want 4 spaces
@@ -159,33 +106,20 @@ set lbr             " enable line break
 set sbr=\\          " line break indicator
 set tw=0            " text width
 
-set ai              " auto indent
-set si              " smart indent
-set wrap            " wrap lines
+set si              " smart indent (also toggle autoident on)
 
 " Open vsplits on the right
 set splitright
-
-" 2 Column to view fold
-setlocal foldcolumn=0
-
-" Underline the cursor row in the current window
-au VimEnter,WinEnter,BufWinEnter * set cursorline nocursorcolumn
-au WinLeave * set nocursorline nocursorcolumn
 
 " Define how to fold files in general
 set foldmethod=syntax
 
 " Quickly switch between textwidth 0 and whatever you want
-" map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
-map <leader>w :call ToggleTW(80)<CR>
+map <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
 " }}}
 
 "  > Moving within file, buffers, windows & co. ================================
 " {{{
-
-" matchit actually comes with vim...
-silent! runtime macros/matchit.vim
 
 " Treat broken lines as multiple lines with j/k
 map j gj
@@ -204,14 +138,9 @@ map <C-l> <C-W>l
 " Managing tabs
 map <leader>tn :tabnew
 map <leader>to :tabonly<CR>
-map <leader>tc :tabclose<CR>
-map <leader>tm :tabmove
 
 " Open a tab with the current buffer in it
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Remember info about open buffers on close
-set viminfo^=%
 " }}}
 
 "  > Status line ===============================================================
@@ -227,10 +156,7 @@ set ruler
 " put everything I need in the ruler
 set rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
-
-set list
-set listchars=tab:│\ ,trail:⋅,nbsp:˽
-
+set list lcs=tab:│\ ,trail:⋅,nbsp:~
 set fillchars=vert:│,fold:-
 " }}}
 
@@ -250,7 +176,7 @@ vnoremap = =gv
 " toggle paste mode
 set pastetoggle=<F11>
 
-" easily change the working directory
+" easily change the working directory to the one of the current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " open the file correcponding to the source/header actually openned.
@@ -261,11 +187,8 @@ nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 " increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
 
-" quick write (like somewhere within ZZ and ZQ...)
-nnoremap ZW :w<CR>
-
-" toggle between gcc and make
-nmap <Leader>cc :call ToggleCCompiler()<CR>
+" toggle between tcc and make
+nmap <Leader>cc :call ToggleCCompiler(tcc)<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
@@ -278,15 +201,12 @@ command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.
 au FileType             make set noet
 au Filetype             php set ft=php.html
 au Filetype             html ab </ </<C-x><C-o>
-au Filetype             mail set tw=80 cc=81 fdm=marker
+au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         .Xresources !xrdb %
-au BufRead,BufNewFile   *.tab setfiletype chords
-au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
 
 
 " Filetype completion
 set omnifunc=syntaxcomplete#Complete
-
 autocmd FileType c          set omnifunc=ccomplete#Complete
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
@@ -296,21 +216,6 @@ autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
 
 "  > Functions =================================================================
 " {{{
-
-" Change textwidth
-fu! ToggleTW(num)
-   if (&textwidth != a:num)
-       let &textwidth = a:num
-       let &colorcolumn = a:num+1
-       setlocal wrap linebreak nolist
-       echo "Text Width: ".a:num
-   else
-       let &textwidth = 0
-       let &colorcolumn = 0
-       setlocal nowrap
-       echo "Text Width: none"
-   endif
-endfu
 
 " Increment a column of number
 fu! Incr()
@@ -323,18 +228,18 @@ fu! Incr()
 endfu
 
 " Display a tips
-fu! ViewTips()
-    " Note that this require the 'fortune' program to be installed on
-    " your system, as well as the 'vimtweets' fortune file.
-    "   $ wget http://bfontaine.net/fortunes/vimtweets
-    "   $ strfile vimtweets vimtweets.dat
-    "   # mv vimtweets* /usr/share/fortune/
-    if filereadable('/usr/bin/fortune')
-        if filereadable('/usr/share/fortune/vimtweets')
-            echomsg system('/usr/bin/fortune vimtweets')
-        endif
-    endif
-endfu
+"fu! ViewTips()
+"    " Note that this require the 'fortune' program to be installed on
+"    " your system, as well as the 'vimtweets' fortune file.
+"    "   $ wget http://bfontaine.net/fortunes/vimtweets
+"    "   $ strfile vimtweets vimtweets.dat
+"    "   # mv vimtweets* /usr/share/fortune/
+"    if filereadable('/usr/bin/fortune')
+"        if filereadable('/usr/share/fortune/vimtweets')
+"            echomsg system('/usr/bin/fortune vimtweets')
+"        endif
+"    endif
+"endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
@@ -347,12 +252,14 @@ endfu
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Toggle between make and gcc for compiling with :make
-fu! ToggleCCompiler()
+fu! ToggleCCompiler(cc)
     if &makeprg =~ '^make*$'
-        set makeprg=gcc\ -o\ %<.out\ %\ -Wall
+        set makeprg=a:cc\ -o\ %<.out\ %\ -Wall
     else
         set makeprg=make
     endif
+
+    set makeprg
 endfu
 " }}}
 
@@ -360,4 +267,4 @@ endfu
 " {{{
 
 " Echo a vim tips on Vim startup
-autocmd VimEnter *  call ViewTips()
+"autocmd VimEnter *  call ViewTips()
