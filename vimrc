@@ -1,102 +1,57 @@
-" ==============================================================================
 "
-" Maintainer : z3bra
-"
-" vim: fdm=marker:
-"
-" Section    :
-"   > General 
-"   > Interface
-"   > Colors & more
-"   > Files
-"   > Text Formatting
-"   > Moving within file, buffers, windows & co.
-"   > Status line
-"   > Mapping
-"   > Filetype commands
-"   > Functions
-"   > Misc
-"
-" ==============================================================================
+" ╻ ╻╻┏┳┓┏━┓┏━╸   ┏━╸╻╻  ┏━╸
+" ┃┏┛┃┃┃┃┣┳┛┃     ┣╸ ┃┃  ┣╸
+" ┗┛ ╹╹ ╹╹┗╸┗━╸   ╹  ╹┗━╸┗━╸
+"                       -- by z3bra
 
-"  > General ===================================================================
-" {{{
-"
-" Use Vim default instead of 100% vi compatibility
-set nocompatible
+" GENERAL {{{
+let mapleader = "!" " Define <leader> key
 
-" Define <leader> key
-let mapleader = "!"
-
-" Re-read file if changed outside
-set autoread
-
-" Automatically save before commands like :next and :make
-set autowrite
+set autoread " Re-read file if changed outside
+set autowrite " Automatically save before commands like :next and :make
 
 filetype on
 filetype indent on
 " }}}
-
-"  > Interface =================================================================
-" {{{
-
-" Show matching brackets.
-"set showmatch
-
-" Search options
+" BEHAVIOR {{{
 set ignorecase          " Ignore case in search
 set smartcase           " Do smart case matching
 
-" Make <BACKSPACE> do what it should do
-set backspace=2
+set backspace=2 " Make <BACKSPACE> do what it should do
 
-" Define the offset with the cursor when moving vertically
-set so=7
+set so=7 " Define the offset with the cursor when moving vertically
+set t_vb= " Disable visual bell
 
-" Turn on the WildMenu (for cmdline completion)
-set wildmenu
+set wildmenu " Turn on the WildMenu (for cmdline completion)
 set wildignore=*.o,*~
 
 " Suffixes that vim should ignore
 set suffixes=.jpg,.png,.gif,.bak,~,.swpi,.swo,.o.info,.g,.dvi,.bbl,
             \.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyo
 
-" Disable visual bell
-set t_vb=
+set nowb " Turn off backup
+set tags+=~/.vim/systags " used for omnicompletion
+set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
 " }}}
+" DISPLAY {{{
+syntax on " Enable syntax
+colorscheme shblah " Theme & colors
 
-"  > Colors & more =============================================================
-" {{{
-
-" Enable syntax
-syntax on
-
-" Theme & colors
-colorscheme shblah
-
-" Use UTF-8 for file/term encoding
-set encoding=utf-8
+set encoding=utf-8 " Use UTF-8 for file/term encoding
 set fileencodings=utf-8,iso-8859-1,latin1,default
+
 call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
+
+set laststatus=0 " disable statusline
+
+" use ruler instead (less intrusive)
+set ruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
+
+set list lcs=tab:│\ ,trail:⋅,nbsp:~
+set fillchars=vert:│,fold:-
 " }}}
-
-"  > Files =====================================================================
-" {{{
-
-" Turn of backup (don't forget to push on git !!)
-set nowb
-
-" generate with ctags -R -f ~/.vim/systags /usr/include /usr/local/include
-set tags+=~/.vim/systags
-
-" improve vim path
-set path=.,,inc,src,/usr/include,/usr/local/include
-" }}}
-
-"  > Text formatting ===========================================================
-" {{{
-
+" FORMATTING {{{
+set si              " smart indent (also toggle autoident on)
 set expandtab       " convert tabs into space
 set tabstop=8       " tab = 8 spaces
 set shiftwidth=4    " indentation is 4 spaces
@@ -104,23 +59,14 @@ set softtabstop=4   " Do your best, but I want 4 spaces
 
 set lbr             " enable line break
 set sbr=\\          " line break indicator
-set tw=0            " text width
 
-set si              " smart indent (also toggle autoident on)
+set splitright " Open vsplits on the right
+set foldmethod=syntax " Define how to fold files in general
 
-" Open vsplits on the right
-set splitright
-
-" Define how to fold files in general
-set foldmethod=syntax
-
-" Quickly switch between textwidth 0 and whatever you want
+" Quickly switch between textwidth 0 and 80
 map <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
 " }}}
-
-"  > Moving within file, buffers, windows & co. ================================
-" {{{
-
+" MAPPING {{{
 " Treat broken lines as multiple lines with j/k
 map j gj
 map k gk
@@ -141,27 +87,6 @@ map <leader>to :tabonly<CR>
 
 " Open a tab with the current buffer in it
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-" }}}
-
-"  > Status line ===============================================================
-" {{{
-
-" disable statusline
-set laststatus=0
-set statusline=
-
-" use ruler instead (less intrusive)
-set ruler
-
-" put everything I need in the ruler
-set rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
-
-set list lcs=tab:│\ ,trail:⋅,nbsp:~
-set fillchars=vert:│,fold:-
-" }}}
-
-"  > Mapping ===================================================================
-" {{{
 
 " So that Y behave like C and D
 nmap Y y$
@@ -173,8 +98,7 @@ vnoremap > >gv
 vnoremap < <gv
 vnoremap = =gv
 
-" toggle paste mode
-set pastetoggle=<F11>
+set pastetoggle=<F11> " toggle paste mode
 
 " easily change the working directory to the one of the current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -184,20 +108,14 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " You must set your path correctly so that :find will find it.
 nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 
-" increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
-
-" toggle between tcc and make
+inoremap <Tab> <C-R>=CleverTab()<CR>
 nmap <Leader>cc :call ToggleCCompiler(tcc)<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
-
-"  > Filetypes commands ========================================================
-" {{{
-
-" Special commands
+" AUTOCOMMANDS {{{
 au FileType             make set noet
 au Filetype             php set ft=php.html
 au Filetype             html ab </ </<C-x><C-o>
@@ -205,18 +123,14 @@ au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         .Xresources !xrdb %
 
 
-" Filetype completion
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType c          set omnifunc=ccomplete#Complete
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+au FileType c          set omnifunc=ccomplete#Complete
+au FileType html       set omnifunc=htmlcomplete#CompleteTags
+au FileType css        set omnifunc=csscomplete#CompleteCSS
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+au FileType php        set omnifunc=phpcomplete#CompletePHP
 " }}}
-
-"  > Functions =================================================================
-" {{{
-
+" FUNCTIONS {{{
 " Increment a column of number
 fu! Incr()
     let a = line('.') - line("'<")
@@ -228,18 +142,19 @@ fu! Incr()
 endfu
 
 " Display a tips
-"fu! ViewTips()
-"    " Note that this require the 'fortune' program to be installed on
-"    " your system, as well as the 'vimtweets' fortune file.
-"    "   $ wget http://bfontaine.net/fortunes/vimtweets
-"    "   $ strfile vimtweets vimtweets.dat
-"    "   # mv vimtweets* /usr/share/fortune/
-"    if filereadable('/usr/bin/fortune')
-"        if filereadable('/usr/share/fortune/vimtweets')
-"            echomsg system('/usr/bin/fortune vimtweets')
-"        endif
-"    endif
-"endfu
+fu! ViewTips()
+    " Note that this require the 'fortune' program to be installed on
+    " your system, as well as the 'vimtweets' fortune file.
+    "   $ wget http://bfontaine.net/fortunes/vimtweets
+    "   $ strfile vimtweets vimtweets.dat
+    "   # mv vimtweets* /usr/share/fortune/
+    if filereadable('/usr/bin/fortune')
+        if filereadable('/usr/share/fortune/vimtweets')
+            echomsg system('/usr/bin/fortune vimtweets')
+        endif
+    endif
+endfu
+autocmd VimEnter *  call ViewTips()
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
@@ -249,7 +164,6 @@ fu! CleverTab()
         return "\<C-N>"
     endif
 endfu
-inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Toggle between make and gcc for compiling with :make
 fu! ToggleCCompiler(cc)
@@ -258,13 +172,8 @@ fu! ToggleCCompiler(cc)
     else
         set makeprg=make
     endif
-
     set makeprg
 endfu
 " }}}
-
-"  > Misc ======================================================================
-" {{{
-
-" Echo a vim tips on Vim startup
-"autocmd VimEnter *  call ViewTips()
+"
+" vim: fdm=marker
