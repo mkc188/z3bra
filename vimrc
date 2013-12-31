@@ -45,7 +45,7 @@ call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 set laststatus=0 " disable statusline
 
 " use ruler instead (less intrusive)
-set ruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
+set noruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
 set list lcs=tab:│\ ,trail:⋅,nbsp:~
 set fillchars=vert:│,fold:-
@@ -111,7 +111,9 @@ nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 vnoremap <C-a> :call Incr()<CR>
 inoremap <Tab> <C-R>=CleverTab()<CR>
 nmap <Leader>cc :call ToggleCCompiler(tcc)<CR>
-nmap <leader>d :call Date()<CR>
+nmap <leader>d  :call Date()<CR>
+nmap <leader>n  :echomsg line('.')<CR>
+nmap <leader>m  G:echomsg line('.')<CR>``
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
