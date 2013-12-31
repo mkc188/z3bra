@@ -1,14 +1,6 @@
 ## CONFIGURATION FILE FOR Z SHELL :: ENVIRONMENT {{{
 
 # Improve the PATH
-export PATH=$PATH:$HOME/bin:.
-
-# Remote MPD server
-export MPD_HOST='gavroche'
-
-# Mails, anyone ?
-export MAIL=$HOME/var/mail/INBOX
-
 ## }}}
 
 ## CONFIGURATION FILE FOR Z SHELL :: MAIN {{{
@@ -24,7 +16,7 @@ PROMPT="
 %{$fg_bold[yellow]%} »  "
 RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
 
-[[ -z $TMUX ]] && [[ $TERM != "screen-256color" ]] && exec tmux
+#[[ -z $TMUX ]] && [[ $TERM != "screen-256color" ]] && exec tmux
 
 # vi-like key bindings
 bindkey -v
@@ -70,7 +62,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 ## Edition
-export EDITOR='vim'
 alias v='vim'
 alias sv='sudo vim'
 
@@ -84,8 +75,6 @@ alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 # BTPD
 alias btc="btcli -d ~/var/btp"
 
-# desktop recording
-alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
 
 # HANDY RICKY SCRIPT
 alias rick="curl -s -L 'http://bit.ly/10hA8iC' | bash"
@@ -135,6 +124,15 @@ gifify() {
     echo "proper usage: gif-ify <input_movie.mov> <output_file.gif>"
     echo "You DO need to include extensions."
   fi
+}
+
+rec() {
+    GEOM=$(xwininfo -root |grep geom|awk '{print $2}'|cut -d+ -f1)
+    OUTP=$1
+
+    test -z "$OUTP" && OUTP=out.webm
+
+    ffmpeg -y -f x11grab -s $GEOM -r 25 -i :0.0 $OUTP
 }
 
 # spawn a new main tmux session or attach to it if it exists
