@@ -38,8 +38,8 @@ let g:colors_name="shblah"
     highlight Special      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
     highlight SpecialKey   term=NONE cterm=NONE ctermfg=2    ctermbg=NONE
     highlight Statement    term=NONE cterm=bold ctermfg=7    ctermbg=NONE
-    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
-    highlight StatusLineNC term=NONE cterm=NONE ctermfg=6    ctermbg=NONE
+    highlight StatusLine   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+    " highlight StatusLineNC term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
     highlight Todo         term=NONE cterm=NONE ctermfg=0    ctermbg=1
     highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
@@ -49,6 +49,7 @@ let g:colors_name="shblah"
     "
     " General highlighting group links.
     "
+    highlight! link StatusLineNC    StatusLine
     highlight! link Title           Normal
     highlight! link LineNr          NonText
     highlight! link TabLine         StatusLineNC
