@@ -10,24 +10,11 @@ let mapleader = "!" " Define <leader> key
 set autoread " Re-read file if changed outside
 set autowrite " Automatically save before commands like :next and :make
 
-filetype on
-filetype indent on
+filetype indent on " enable indentation per language
 " }}}
 " BEHAVIOR {{{
-set ignorecase          " Ignore case in search
-set smartcase           " Do smart case matching
-
+set scrolloff=7 " Define the offset with the cursor when moving vertically
 set backspace=2 " Make <BACKSPACE> do what it should do
-
-set so=7 " Define the offset with the cursor when moving vertically
-set t_vb= " Disable visual bell
-
-set wildmenu " Turn on the WildMenu (for cmdline completion)
-set wildignore=*.o,*~
-
-" Suffixes that vim should ignore
-set suffixes=.jpg,.png,.gif,.bak,~,.swpi,.swo,.o.info,.g,.dvi,.bbl,
-            \.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyo
 
 set nowb " Turn off backup
 set tags+=~/.vim/systags " used for omnicompletion
@@ -37,34 +24,28 @@ set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
 syntax on " Enable syntax
 colorscheme shblah " Theme & colors
 
-set encoding=utf-8 " Use UTF-8 for file/term encoding
-set fileencodings=utf-8,iso-8859-1,latin1,default
+set encoding=utf-8  " Use UTF-8 for file/term encoding
+set wildmenu        " Use the wildmenu
 
 call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 
 set laststatus=0 " disable statusline
-
-" use ruler instead (less intrusive)
 set ruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
 set list lcs=tab:│\ ,trail:⋅,nbsp:~
 set fillchars=vert:│,fold:-
 " }}}
 " FORMATTING {{{
-set si              " smart indent (also toggle autoident on)
-set expandtab       " convert tabs into space
-set tabstop=8       " tab = 8 spaces
-set shiftwidth=4    " indentation is 4 spaces
-set softtabstop=4   " Do your best, but I want 4 spaces
+set smartindent         " smart indent (also toggle autoident on)
+set expandtab           " convert tabs into space
+set shiftwidth=4        " indentation is 4 spaces
+set softtabstop=4       " Do your best, but I want 4 spaces
 
-set lbr             " enable line break
-set sbr=\\          " line break indicator
+set lbr                 " enable line break
+set sbr=+++             " line break indicator
 
-set splitright " Open vsplits on the right
-set foldmethod=syntax " Define how to fold files in general
-
-" Quickly switch between textwidth 0 and 80
-map <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
+set splitright          " Open vsplits on the right
+set foldmethod=syntax   " Define how to fold files in general
 " }}}
 " MAPPING {{{
 " Treat broken lines as multiple lines with j/k
@@ -75,62 +56,35 @@ map k gk
 nmap n nzz
 nmap N Nzz
 
-" Smart moving between windows r
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Managing tabs
-map <leader>tn :tabnew
-map <leader>to :tabonly<CR>
-
-" Open a tab with the current buffer in it
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" So that Y behave like C and D
-nmap Y y$
-
 " Keep selection when using indentation
-vmap <Tab> >gv
-vmap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
-vnoremap = =gv
-
-set pastetoggle=<F11> " toggle paste mode
-
-" easily change the working directory to the one of the current file
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" open the file correcponding to the source/header actually openned.
-" it replace .c with .h in the file name, eg. file.cpp -> file.hpp
-" You must set your path correctly so that :find will find it.
-nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
 
 vnoremap <C-a> :call Incr()<CR>
 inoremap <Tab> <C-R>=CleverTab()<CR>
-nmap <Leader>cc :call ToggleCCompiler(tcc)<CR>
-nmap <leader>d :call Date()<CR>
+
+nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>h :find %:t:s,.c,.ga,:s,.h,.c,:s,.ga,.h,<CR>
+map      <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
+nmap     <leader>m :call ToggleCCompiler()<CR>
+nmap     <leader>d mz:exe append(line("."), strftime("%d %B, %Y"))<CR>'zJ
+
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 " AUTOCOMMANDS {{{
 au FileType             make set noet
-au Filetype             php set ft=php.html
 au Filetype             html ab -- &mdash;
 au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         .Xresources !xrdb %
-
+au VimEnter             * call ViewTips()
 
 set omnifunc=syntaxcomplete#Complete
 au FileType c          set omnifunc=ccomplete#Complete
 au FileType html       set omnifunc=htmlcomplete#CompleteTags
 au FileType css        set omnifunc=csscomplete#CompleteCSS
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-au FileType php        set omnifunc=phpcomplete#CompletePHP
 " }}}
 " FUNCTIONS {{{
 " Increment a column of number
@@ -156,7 +110,6 @@ fu! ViewTips()
         endif
     endif
 endfu
-autocmd VimEnter *  call ViewTips()
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
@@ -167,21 +120,14 @@ fu! CleverTab()
     endif
 endfu
 
-" Toggle between make and gcc for compiling with :make
-fu! ToggleCCompiler(cc)
+" Toggle between make and cc for compiling with :make
+fu! ToggleCCompiler()
     if &makeprg =~ '^make*$'
-        set makeprg=a:cc\ -o\ %<.out\ %\ -Wall
+        set makeprg=cc\ -o\ %<.out\ %\ -Wall
     else
         set makeprg=make
     endif
     set makeprg
-endfu
-
-" insert current date preceded by &mdash at the end of the current line
-fu! Date()
-    norm mz
-    exe append(line("."), "&mdash; ".strftime("%d %B, %Y"))
-    norm 'zJ
 endfu
 
 " escape every HTML char in the line/selection
@@ -199,7 +145,7 @@ fu! CodeHTML(newft)
     /^<pre/+1,/^<\/pre>/-1d " get the code in between <pre> tags
     bd!                     " remove the HTML temporary buffer
     norm gvp                " copy that in place of the old text
-    let ft = oldft          " recall the saved filetype
+    let ft = &oldft          " recall the saved filetype
 endf
 
 " }}}
