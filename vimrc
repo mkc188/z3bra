@@ -30,7 +30,7 @@ set wildmenu        " Use the wildmenu
 call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 
 set laststatus=0 " disable statusline
-set ruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
+set noruler rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
 set list lcs=tab:│\ ,trail:⋅,nbsp:~
 set fillchars=vert:│,fold:-
@@ -42,7 +42,7 @@ set shiftwidth=4        " indentation is 4 spaces
 set softtabstop=4       " Do your best, but I want 4 spaces
 
 set lbr                 " enable line break
-set sbr=+++             " line break indicator
+set sbr=>               " line break indicator
 
 set splitright          " Open vsplits on the right
 set foldmethod=syntax   " Define how to fold files in general
@@ -66,9 +66,11 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>h :find %:t:s,.c,.ga,:s,.h,.c,:s,.ga,.h,<CR>
 map      <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
-nmap     <leader>m :call ToggleCCompiler()<CR>
+nmap     <leader>c :call ToggleCCompiler()<CR>
 nmap     <leader>d mz:exe append(line("."), strftime("%d %B, %Y"))<CR>'zJ
-
+nmap     <leader>l  :echomsg line('.')<CR>
+nmap     <leader>s  G:echomsg line('.')<CR>``
+nmap     <leader>f  :echomsg expand('%:p')<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
