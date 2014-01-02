@@ -37,7 +37,6 @@ alias mv='mv -i'
 
 # Alias to avoid some 'RAAAAAAAAAH !!'
 alias :q='quit'
-alias :h='vim +h'
 alias fu='sudo $(fc -n -l -1)'
 
 # Network/System monitoring
@@ -149,6 +148,10 @@ rec() {
 #         tmux attach-session -t $SESSION_NAME
 #     fi
 # }
+
+:h () {
+    vim +"h $1" +only +'map q ZQ'
+}
 
 # auto-cd into a created directory
 mcd () {
