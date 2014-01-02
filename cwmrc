@@ -11,9 +11,8 @@ command "--------"      clear
 command mumble          mumble
 command "--------"      clear
 command rage            "xinit rage -- :1 vt07"
-command defrag          "xinit defrag -- :1 vt07"
-command quakelive       "xinit quakelive -- :1 vt07"
-command steam           "xinit steam -- :1 vt07"
+command defrag          /opt/quake3/iodfengine.x86_64
+command steam           steam
 
 # do not manage these
 ignore xclock
