@@ -85,6 +85,7 @@ au VimEnter             * call ViewTips()
 
 set omnifunc=syntaxcomplete#Complete
 au FileType c          set omnifunc=ccomplete#Complete
+au FileType cpp        set omnifunc=ccomplete#Complete
 au FileType html       set omnifunc=htmlcomplete#CompleteTags
 au FileType css        set omnifunc=csscomplete#CompleteCSS
 " }}}
