@@ -1,0 +1,15 @@
+double_buffer yes
+alignment tr
+background no
+use_xft yes
+xftfont Archivo Narrow
+gap_x 16
+gap_y 8
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+update_interval 30
+
+TEXT
+${time %H:%M}
