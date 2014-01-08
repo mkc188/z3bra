@@ -5,7 +5,7 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-URxvt*background:[90]#221a17
+URxvt*background:#221a17
 URxvt*foreground:#b3b4b1
 
 *color0:    #221a17
@@ -35,7 +35,7 @@ URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             81x20
-URxvt*depth:                32
+!URxvt*depth:                32
 URxvt*font:                 -*-tamsyn-medium-*-*--14-*-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*boldFont:             -*-tamsyn-medium-*-*--14-*-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*scrollBar:            false
