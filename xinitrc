@@ -20,7 +20,7 @@ xsetroot -cursor_name left_ptr &
 
 function wm() {
     # Load X resources
-    xrdb -load ~/.Xresources
+    xrdb -load ~/etc/Xresources
 
     # set WM name
     xsetroot -name $1
