@@ -5,19 +5,19 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-URxvt*background:[90]#221a17
+URxvt*background:#1d1d1d
 URxvt*foreground:#b3b4b1
 
-*color0:    #221a17
+*color0:    #1d1d1d
 *color1:    #784742
 *color2:    #427363
 *color3:    #665847
 *color4:    #6a708b
 *color5:    #7a378b
 *color6:    #52707b
-*color7:    #b3b4b1
+*color7:    #b3b3b3
 
-*color8:    #5c4c4c
+*color8:    #4c4c4c
 *color9:    #d43f10
 *color10:   #cef318
 *color11:   #ede265
@@ -35,13 +35,13 @@ URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             81x20
-URxvt*depth:                32
+!URxvt*depth:                32
 URxvt*font:                 -*-tamsyn-medium-*-*--14-*-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*boldFont:             -*-tamsyn-medium-*-*--14-*-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*cursorColor:          #5c4c4c
-URxvt*internalBorder:       2
+URxvt*internalBorder:       0
 URxvt*perl-ext-common:      default,url-select,keyboard-select
 URxvt.url-select.launcher:  /usr/bin/dwb
 URxvt.url-select.underline: true
@@ -77,11 +77,16 @@ xterm*jumpScroll:        true
 xterm*multiScroll:       true
 xterm*saveLines:         512
 
-xclock*background:      #efefe5
+xclock*background:      #1d1d1d
 xclock*face:            Archivo Narrow-16
-xclock*foreground:      #4a708b
-xclock*analog:          false
-xclock*geometry:        +1280+860
+xclock*foreground:      #cef318
+xclock*hourColor:       #ffffff
+xclock*minuteColor:     #ffffff
+xclock*secondColor:     #ffffff
+xclock*majorColor:      #ffffff
+xclock*minorColor:      #1d1d1d
+xclock*analog:          true
+xclock*geometry:        128x128+1292+752
 xclock*strftime:        %a %d/%m   %H:%M
-xclock*update:          30
+xclock*update:          1
 
