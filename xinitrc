@@ -7,7 +7,10 @@
 nvidia-settings -l --config=$HOME/.config/nvidia
 
 # Set wallpaper
-hsetroot -fill ~/usr/img/bg/sunrise.jpg
+hsetroot -tile ~/usr/img/bg/stripes.png
+
+# girl just wanna have fun
+xantfarm -num 16 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
 
 # Set bindings
 xbindkeys
@@ -17,7 +20,7 @@ xsetroot -cursor_name left_ptr &
 
 function wm() {
     # Load X resources
-    xrdb -load ~/.Xresources &
+    xrdb -load ~/.Xresources
 
     # set WM name
     xsetroot -name $1
@@ -29,10 +32,11 @@ function wm() {
     # enable RGBA module for GTK
     export GTK_MODULES=rgba
 
-    compton -cb -o0
+    #compton -cb -o0
 
     # spawn window manager
-    exec $1
+    $1 &
+    exec xclock
 }
 
 function run() {
@@ -43,7 +47,7 @@ function run() {
     exec $@
 }
 
-[[ -z $1 ]] && wm cwm
+[[ -z $1 ]] && wm 2bwm
 
 case $1 in
     rage)           run wine ~/var/games/rage/Rage.exe;;
