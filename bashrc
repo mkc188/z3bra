@@ -14,8 +14,8 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fg[8]}$(hostname|cut -b-2) "
-export PS1=" ${PS1}${fg[11]}──── ${nofg}"
+PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fg[10]}(${fg[8]}$(hostname|cut -b-2)${fg[10]})"
+export PS1="\n${fg[10]}─${PS1}${fg[10]}──── ${nofg}"
 
 # command line editing
 set -o vi
@@ -114,7 +114,7 @@ alias l="ls -CF --color=auto"
 
 ## Applications
 alias v="vim"
-alias sv="sudo vim"
+alias sv="EDITOR=vim sudo -e"
 
 alias vol="alsamixer"
 
@@ -125,8 +125,9 @@ alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 # BTPD
 alias btc="btcli -d ~/var/btp"
 
-# desktop recording
+# desktop stuff
 alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+alias wmg="echo 'group'`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2`|toilet -ffuture --gay"
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
