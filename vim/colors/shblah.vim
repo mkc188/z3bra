@@ -22,9 +22,9 @@ let g:colors_name="shblah"
     highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
     highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
     highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
-    highlight DiffAdd      term=NONE cterm=NONE ctermfg=NONE ctermbg=2
-    highlight DiffChange   term=NONE cterm=NONE ctermfg=NONE ctermbg=4
-    highlight DiffDelete   term=NONE cterm=NONE ctermfg=NONE ctermbg=1
+    highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+    highlight DiffChange   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+    highlight DiffDelete   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
     highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
@@ -49,6 +49,9 @@ let g:colors_name="shblah"
     "
     " General highlighting group links.
     "
+    highlight! link diffAdded       DiffAdd
+    highlight! link diffRemoved     DiffDelete
+    highlight! link diffChanged     DiffChange
     highlight! link StatusLineNC    StatusLine
     highlight! link Title           Normal
     highlight! link LineNr          NonText

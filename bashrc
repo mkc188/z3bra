@@ -36,6 +36,12 @@ function status()   { sudo systemctl status $@;  }
 function enable()   { sudo systemctl enable $@;  }
 function disable()  { sudo systemctl disable $@; }
 
+function sprunge() {
+    test -z $1 && FILE='-' || FILE=$1
+
+    curl -sF "sprunge=<${FILE}" http://sprunge.us
+}
+
 function thumbify() {
     if [ -f $1 ]; then
         cp $1 thumb-$1
