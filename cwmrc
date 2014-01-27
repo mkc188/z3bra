@@ -99,7 +99,6 @@ bind CM-q       quit
 
 
 # Applications
-bind 4-Return   terminal
 bind 4-exclam   exec
 bind 4-colon    ssh
 bind 4S-slash   search
