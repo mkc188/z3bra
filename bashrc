@@ -24,9 +24,13 @@ case $HOSTNAME in
     *)                      fd=${fg[15]} ;;
 esac
 
-PS1=''
-#PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
-export PS1="\n${fd}─${PS1}${fd}──── ${nofg}"
+MIN=1
+MAX=15
+RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
+fd=${fg[$RANDOM_COLOR]}
+
+PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
+export PS1="\n ${fd}─${PS1}${fd}──── ${nofg}"
 
 # command line editing
 set -o vi
