@@ -132,8 +132,10 @@ alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 alias btc="btcli -d ~/var/btp"
 
 # desktop stuff
-alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
-alias wmg="echo 'group'`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2`|toilet -ffuture --gay"
+if test -z "$DISPLAY"; then
+    alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+    alias wmg="echo 'group'`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2`|toilet -ffuture --gay"
+fi
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
