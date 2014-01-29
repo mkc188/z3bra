@@ -14,8 +14,19 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fg[10]}(${fg[8]}$(hostname|cut -b-2)${fg[10]})"
-export PS1="\n${fg[10]}─${PS1}${fg[10]}──── ${nofg}"
+case $HOSTNAME in
+    'cosette')              fd=${fg[10]} ;;
+    'gavroche')             fd=${fg[12]} ;;
+    'javert')               fd=${fg[11]} ;;
+    'triton')               fd=${fg[8]}  ;;
+    'EMIS030')              fd=${fg[14]} ;;
+    'ks395925.kimsufi.com') fd=${fg[13]} ;;
+    *)                      fd=${fg[15]} ;;
+esac
+
+PS1=''
+#PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
+export PS1="\n${fd}─${PS1}${fd}──── ${nofg}"
 
 # command line editing
 set -o vi
