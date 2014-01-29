@@ -86,7 +86,6 @@ xclock*secondColor:     #ffffff
 xclock*majorColor:      #ffffff
 xclock*minorColor:      #1d1d1d
 xclock*analog:          true
-xclock*geometry:        128x128+1292+752
+xclock*geometry:        120x120+1310+770
 xclock*strftime:        %a %d/%m   %H:%M
 xclock*update:          1
-
