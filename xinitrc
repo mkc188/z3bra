@@ -10,7 +10,7 @@ nvidia-settings -l --config=$HOME/.config/nvidia
 hsetroot -tile ~/usr/img/bg/stripes.png
 
 # girl just wanna have fun
-xantfarm -num 16 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
+xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
 
 # Set bindings
 xbindkeys
