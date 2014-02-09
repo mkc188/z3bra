@@ -4,13 +4,14 @@
 #
 
 # load nvidia config
-nvidia-settings -l --config=$HOME/.config/nvidia
+nvidia-settings -l --config=$HOME/.nvidia
 
 # Set wallpaper
-hsetroot -tile ~/usr/img/bg/stripes.png
+#hsetroot -tile ~/usr/img/bg/stripes.png
+xsetroot -solid '#111111'
 
 # girl just wanna have fun
-xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
+#xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
 
 # Set bindings
 xbindkeys
@@ -26,7 +27,7 @@ function wm() {
     xsetroot -name $1
 
     # watch mail directory
-    wendy -C -d ~/var/mail/INBOX/new/ -t 1 -e espeak -p 30 'new mail incoming' &
+    #wendy -C -d ~/var/mail/INBOX/new/ -t 1 -e espeak -p 30 'new mail incoming' &
 
     # Compositing
     # enable RGBA module for GTK
@@ -35,8 +36,7 @@ function wm() {
     #compton -cb -o0
 
     # spawn window manager
-    $1 &
-    exec xclock
+    exec $1
 }
 
 function run() {
