@@ -2,8 +2,14 @@
 
 TMPFILE=/tmp/dotfiles.list
 
-OK="[$(tput setaf 3)OK$(tput sgr0)]"
-NOPE="[$(tput setaf 1)FAIL$(tput sgr0)]"
+R=`tput setaf 1`
+G=`tput setaf 2`
+B=`tput setaf 6`
+N=`tput sgr0`
+b=`tput bold`
+
+OK="[${G} OK ${N}]"
+NOPE="[${R}FAIL${N}]"
 
 cat <<EOF > $TMPFILE
 ##
@@ -24,22 +30,20 @@ EOF
 echo "listing the whole directory"
 ls $PWD >> $TMPFILE
 
-$EDITOR $TMPFILE
+test -z "$EDITOR" && vi $TMPFILE || $EDITOR $TMPFILE
 
 echo "simulating..."
-for f in $(grep -v '^#' $TMPFILE); do
-  echo "$f -> ~/.$f"
+for f in `grep -v '^#' $TMPFILE`; do
+  echo "~/.$f -> ${B}${PWD}/$f${N}"
 done
 
-echo "attempting to link config file to ~ ..."
+echo "attempting to link config file"
+echo
 read -p "Hit <Enter> to continue, <Ctrl-C> to abort..."
-for f in $(grep -v '^#' $TMPFILE); do
-  ln -s $PWD/$f ~/.$f
-  if [ -L ~/.$f ] ; then
-    echo "$OK   -> $f"
-  else
-    echo "$NOPE -> $f"
-  fi
+for f in `grep -v '^#' $TMPFILE`; do
+  ln -s $PWD/$f ~/.$f 2>/dev/null
+  echo -n "${f} ... "
+  test -L ~/.$f && echo $OK || echo $NOPE
 done
 
 echo "removing temporary files"
