@@ -16,7 +16,10 @@ filetype indent on " enable indentation per language
 set scrolloff=7 " Define the offset with the cursor when moving vertically
 set backspace=2 " Make <BACKSPACE> do what it should do
 
-set nowb " Turn off backup
+" create a backup of existing files, delete afterwards
+set writebackup
+set nobackup
+
 set tags+=~/.vim/systags " used for omnicompletion
 set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
 " }}}
