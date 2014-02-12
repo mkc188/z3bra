@@ -7,8 +7,7 @@
 nvidia-settings -l --config=$HOME/.nvidia
 
 # Set wallpaper
-#hsetroot -tile ~/usr/img/bg/stripes.png
-xsetroot -solid '#111111'
+hsetroot -tile ~/usr/img/bg/tile.png
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
