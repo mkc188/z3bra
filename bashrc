@@ -105,6 +105,16 @@ mcd () {
 function cd() {
     builtin cd "$@" && ls -CF --color
 }
+
+function build() {
+    test -d ~/usr/ports/$1 || prtmk
+    cd ~/usr/ports/$1
+    pkgmk -d
+}
+
+function ddg() {
+    elinks "http://duckduckgo.com/lite?q=${*// /+}"
+}
 ## }}}
 
 ## ALIASES {{{
@@ -145,6 +155,12 @@ alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
+
+# crux specific
+alias deptree='prt-get deptree'
+alias install='prt-get depinst'
+alias update='prt-get update'
+alias pkgup='pkgadd -u'
 
 # desktop stuff
 if test -n "$DISPLAY"; then
