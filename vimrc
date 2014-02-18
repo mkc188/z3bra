@@ -17,7 +17,8 @@ set scrolloff=7 " Define the offset with the cursor when moving vertically
 set backspace=2 " Make <BACKSPACE> do what it should do
 
 " create a backup of existing files, delete afterwards
-set writebackup
+set noswapfile
+set nowritebackup
 set nobackup
 
 set tags+=~/.vim/systags " used for omnicompletion
@@ -152,7 +153,7 @@ fu! CodeHTML(newft)
     bd!                     " remove the HTML temporary buffer
     norm gvp                " copy that in place of the old text
     let ft = &oldft          " recall the saved filetype
-endf
+endfu
 
 " }}}
 "
