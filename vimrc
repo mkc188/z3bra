@@ -59,6 +59,8 @@ map k gk
 nmap n nzz
 nmap N Nzz
 
+nmap <Space> :nohl<CR>
+
 " Keep selection when using indentation
 vnoremap > >gv
 vnoremap < <gv
