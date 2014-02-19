@@ -26,7 +26,7 @@ function wm() {
     xsetroot -name $1
 
     # watch mail directory
-    #wendy -C -d ~/var/mail/INBOX/new/ -t 1 -e espeak -p 30 'new mail incoming' &
+    wendy -C -f ~/var/mail/INBOX/new/ -t 500 -e beep
 
     # Compositing
     # enable RGBA module for GTK
