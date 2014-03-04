@@ -109,7 +109,7 @@ function cd() {
 function build() {
     test -d ~/usr/ports/$1 || prtmk
     cd ~/usr/ports/$1
-    pkgmk -d
+    fakeroot pkgmk -d
 }
 
 function ddg() {
@@ -165,7 +165,7 @@ alias pkgup='pkgadd -u'
 # desktop stuff
 if test -n "$DISPLAY"; then
     alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
-    alias wmg="echo 'group'`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2`|toilet -ffuture --gay"
+    alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
 fi
 
 # HANDY RICKY SCRIPT
