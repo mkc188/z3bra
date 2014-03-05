@@ -84,7 +84,7 @@ xclock*foreground:      #cef318
 xclock*hourColor:       #ffffff
 xclock*minuteColor:     #ffffff
 xclock*secondColor:     #ffffff
-xclock*majorColor:      #ffffff
+xclock*majorColor:      #1d1d1d
 xclock*minorColor:      #1d1d1d
 xclock*analog:          true
 xclock*geometry:        120x120+1310+770
