@@ -15,7 +15,7 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
 nofg='\[\e[0m\]'
 
 case $HOSTNAME in
-    'cosette')              fd=${fg[10]} ;;
+    'cosette')              fd=${fg[6]} ;;
     'gavroche')             fd=${fg[12]} ;;
     'javert')               fd=${fg[11]} ;;
     'triton')               fd=${fg[8]}  ;;
@@ -24,11 +24,12 @@ case $HOSTNAME in
     *)                      fd=${fg[15]} ;;
 esac
 
-MIN=1
-MAX=15
-RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
-fd=${fg[$RANDOM_COLOR]}
+#MIN=1
+#MAX=15
+#RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
+#fd=${fg[$RANDOM_COLOR]}
 
+PS1=''
 PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
 export PS1="${fd}─${PS1}${fd}──── ${nofg}"
 
@@ -40,16 +41,15 @@ complete -cf sudo
 complete -cf man
 complete -cf killall
 complete -cf pkill
+complete -cf fakeroot
 # }}}
 
 ## FUNCTIONS {{{
 
-function start()    { sudo systemctl start $@;   }
-function stop()     { sudo systemctl stop $@;    }
-function restart()  { sudo systemctl restart $@; }
-function status()   { sudo systemctl status $@;  }
-function enable()   { sudo systemctl enable $@;  }
-function disable()  { sudo systemctl disable $@; }
+function start()    { for s in $@; do /etc/rc.d/$s start; done   }
+function stop()     { for s in $@; do /etc/rc.d/$s stop; done    }
+function restart()  { for s in $@; do /etc/rc.d/$s restart; done }
+function status()   { for s in $@; do /etc/rc.d/$s status; done  }
 
 function sprunge() {
     test -z $1 && FILE='-' || FILE=$1
