@@ -22,9 +22,9 @@ let g:colors_name="shblah"
     highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
     highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
     highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
-    highlight DiffAdd      term=NONE cterm=NONE ctermfg=NONE ctermbg=2
-    highlight DiffChange   term=NONE cterm=NONE ctermfg=NONE ctermbg=4
-    highlight DiffDelete   term=NONE cterm=NONE ctermfg=NONE ctermbg=1
+    highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+    highlight DiffChange   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+    highlight DiffDelete   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
     highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
@@ -38,10 +38,10 @@ let g:colors_name="shblah"
     highlight Special      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
     highlight SpecialKey   term=NONE cterm=NONE ctermfg=2    ctermbg=NONE
     highlight Statement    term=NONE cterm=bold ctermfg=7    ctermbg=NONE
-    highlight StatusLine   term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
-    highlight StatusLineNC term=NONE cterm=NONE ctermfg=6    ctermbg=NONE
+    highlight StatusLine   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+    " highlight StatusLineNC term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
-    highlight Todo         term=NONE cterm=NONE ctermfg=0    ctermbg=11
+    highlight Todo         term=NONE cterm=NONE ctermfg=0    ctermbg=1
     highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
     highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
     highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=3
@@ -49,6 +49,10 @@ let g:colors_name="shblah"
     "
     " General highlighting group links.
     "
+    highlight! link diffAdded       DiffAdd
+    highlight! link diffRemoved     DiffDelete
+    highlight! link diffChanged     DiffChange
+    highlight! link StatusLineNC    StatusLine
     highlight! link Title           Normal
     highlight! link LineNr          NonText
     highlight! link TabLine         StatusLineNC

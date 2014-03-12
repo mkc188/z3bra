@@ -14,8 +14,24 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fg[8]}$(hostname|cut -b-2) "
-export PS1=" ${PS1}${fg[11]}──── ${nofg}"
+case $HOSTNAME in
+    'cosette')              fd=${fg[6]} ;;
+    'gavroche')             fd=${fg[12]} ;;
+    'javert')               fd=${fg[11]} ;;
+    'triton')               fd=${fg[8]}  ;;
+    'EMIS030')              fd=${fg[14]} ;;
+    'ks395925.kimsufi.com') fd=${fg[13]} ;;
+    *)                      fd=${fg[15]} ;;
+esac
+
+#MIN=1
+#MAX=15
+#RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
+#fd=${fg[$RANDOM_COLOR]}
+
+PS1=''
+PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
+export PS1="${fd}─${PS1}${fd}──── ${nofg}"
 
 # command line editing
 set -o vi
@@ -25,16 +41,21 @@ complete -cf sudo
 complete -cf man
 complete -cf killall
 complete -cf pkill
+complete -cf fakeroot
 # }}}
 
 ## FUNCTIONS {{{
 
-function start()    { sudo systemctl start $@;   }
-function stop()     { sudo systemctl stop $@;    }
-function restart()  { sudo systemctl restart $@; }
-function status()   { sudo systemctl status $@;  }
-function enable()   { sudo systemctl enable $@;  }
-function disable()  { sudo systemctl disable $@; }
+function start()    { for s in $@; do /etc/rc.d/$s start; done   }
+function stop()     { for s in $@; do /etc/rc.d/$s stop; done    }
+function restart()  { for s in $@; do /etc/rc.d/$s restart; done }
+function status()   { for s in $@; do /etc/rc.d/$s status; done  }
+
+function sprunge() {
+    test -z $1 && FILE='-' || FILE=$1
+
+    curl -sF "sprunge=<${FILE}" http://sprunge.us
+}
 
 function thumbify() {
     if [ -f $1 ]; then
@@ -76,6 +97,10 @@ say () {
     mplayer -really-quiet "${uri}$*"
 }
 
+:h () {
+    vim +"h $1" +only +'map q ZQ'
+}
+
 # auto-cd into a created directory
 mcd () {
     mkdir $@ && cd $_
@@ -84,6 +109,16 @@ mcd () {
 # perform 'ls' right after entering a directory
 function cd() {
     builtin cd "$@" && ls -CF --color
+}
+
+function build() {
+    test -d ~/usr/ports/$1 || prtmk
+    cd ~/usr/ports/$1
+    fakeroot pkgmk -d
+}
+
+function ddg() {
+    elinks "http://duckduckgo.com/lite?q=${*// /+}"
 }
 ## }}}
 
@@ -114,9 +149,8 @@ alias ll="ls -alhF --color=auto"
 alias l="ls -CF --color=auto"
 
 ## Applications
-export EDITOR="vim"
 alias v="vim"
-alias sv="sudo vim"
+alias sv="EDITOR=vim sudo -e"
 
 alias vol="alsamixer"
 
@@ -127,8 +161,18 @@ alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
 # BTPD
 alias btc="btcli -d ~/var/btp"
 
-# desktop recording
-alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+# crux specific
+alias deptree='prt-get deptree'
+alias install='prt-get depinst'
+alias update='prt-get update'
+alias pkgup='pkgadd -u'
+
+# desktop stuff
+if test -n "$DISPLAY"; then
+    alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
+    alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
+    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -noborder -ontop"
+fi
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"

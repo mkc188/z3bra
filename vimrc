@@ -1,192 +1,57 @@
-" ==============================================================================
 "
-" Maintainer : Willy 'z3bra' Goiffon
-"
-" vim: fdm=marker:tw=80:cc=81:noai:et
-"
-" Section    :
-"   > General 
-"   > Interface
-"   > Colors & more
-"   > Files
-"   > Text Formatting
-"   > Moving within file, buffers, windows & co.
-"   > Status line
-"   > Mapping
-"   > Filetype commands
-"   > Functions
-"   > Misc
-"
-" ==============================================================================
+" ╻ ╻╻┏┳┓┏━┓┏━╸   ┏━╸╻╻  ┏━╸
+" ┃┏┛┃┃┃┃┣┳┛┃     ┣╸ ┃┃  ┣╸
+" ┗┛ ╹╹ ╹╹┗╸┗━╸   ╹  ╹┗━╸┗━╸
+"                       -- by z3bra
 
-"  > General ===================================================================
-" {{{
-"
-" Use Vim default instead of 100% vi compatibility
-set nocompatible
+" GENERAL {{{
+let mapleader = "!" " Define <leader> key
 
-" Define <leader> key
-let mapleader = "!"
+set autoread " Re-read file if changed outside
+set autowrite " Automatically save before commands like :next and :make
 
-" How many lines Vim use for history
-set history=100
-
-" Re-read file if changed outside
-set autoread
-
-" Automatically save before commands like :next and :make
-set autowrite
-
-" How long should we highlight a match ? (bracket, parenthesis, etc..)
-set mat=1
-
-filetype on
-filetype indent on
+filetype indent on " enable indentation per language
 " }}}
+" BEHAVIOR {{{
+set scrolloff=7 " Define the offset with the cursor when moving vertically
+set backspace=2 " Make <BACKSPACE> do what it should do
 
-"  > Interface =================================================================
-" {{{
-
-" Show (partial) command in status line.
-set showcmd
-
-" Enable code indentation
-set autoindent
-
-" Show matching brackets.
-"set showmatch
-
-" Search options
-set ignorecase          " Ignore case in search
-set smartcase           " Do smart case matching
-set incsearch           " Incremental search
-set magic               " Use magic for regular expressions
-
-" Disable mouse usage (all modes)
-set mouse=
-
-" Show the line number on the left (or not)
-set nonumber
-
-" Make <BACKSPACE> do what it should do
-set backspace=indent,eol,start
-
-" Define the offset with the cursor when moving vertically
-set so=7
-
-" Turn on the WildMenu (for cmdline completion)
-set wildmenu
-
-" Files to ignore with it
-set wildignore=*.o,*~
-
-" Height of the cmdline window
-set cmdheight=1
-
-" Do not redraw while executing macros
-set lazyredraw
-
-" Suffixes that vim should ignore
-set suffixes=.jpg,.png,.gif,.bak,~,.swpi,.swo,.o.info,.g,.dvi,.bbl,
-            \.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyo
-
-" Disable annoying error events
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-" }}}
-
-"  > Colors & more =============================================================
-" {{{
-
-" Enable syntax
-syntax on
-
-" Use 256 colors
-" set t_Co=256
-
-" Theme & colors
-colorscheme shblah
-
-" Improve color for dark bkgd (set by the theme)
-" set background=light
-
-" Improve display
-set ttyfast
-
-" Use unix as standard filetype
-set ffs=unix,dos,mac
-
-" Use UTF-8 for file/term encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,iso-8859-1,default
-set termencoding=utf-8
-
-" If a tag file is present
-let FILETAG=expand("tags")
-if filereadable(FILETAG)
-    exe 'set tags=' . FILETAG
-endif
-" }}}
-
-"  > Files =====================================================================
-" {{{
-
-" Turn of backup (don't forget to push on git !!)
-set nobackup
-set nowb
+" create a backup of existing files, delete afterwards
 set noswapfile
+set nowritebackup
+set nobackup
 
-" improve vim path
-set path=.,,inc,src,/usr/include
+set tags+=~/.vim/systags " used for omnicompletion
+set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
 " }}}
+" DISPLAY {{{
+syntax on " Enable syntax
+colorscheme shblah " Theme & colors
 
-"  > Text formatting ===========================================================
-" {{{
+set encoding=utf-8  " Use UTF-8 for file/term encoding
+set wildmenu        " Use the wildmenu
 
-set expandtab       " convert tabs into space
-set smarttab        " Be smart !
+call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 
-set modeline        " Enable EOF file options
+set statusline=─
+set laststatus=0 noruler " rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
-set tabstop=8       " tab = 8 spaces
-set shiftwidth=4    " indentation is 4 spaces
-set softtabstop=4   " Do your best, but I want 4 spaces
-
-set lbr             " enable line break
-set sbr=\\          " line break indicator
-set tw=0            " text width
-
-set ai              " auto indent
-set si              " smart indent
-set wrap            " wrap lines
-
-" Open vsplits on the right
-set splitright
-
-" 2 Column to view fold
-setlocal foldcolumn=0
-
-" Underline the cursor row in the current window
-au VimEnter,WinEnter,BufWinEnter * set cursorline nocursorcolumn
-au WinLeave * set nocursorline nocursorcolumn
-
-" Define how to fold files in general
-set foldmethod=syntax
-
-" Quickly switch between textwidth 0 and whatever you want
-" map <leader>w :let &textwidth = &tw == 0 ? 72 : 0<CR>
-map <leader>w :call ToggleTW(80)<CR>
+set list lcs=tab:│\ ,trail:⋅,nbsp:~
+set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " }}}
+" FORMATTING {{{
+set smartindent         " smart indent (also toggle autoident on)
+set expandtab           " convert tabs into space
+set shiftwidth=4        " indentation is 4 spaces
+set softtabstop=4       " Do your best, but I want 4 spaces
 
-"  > Moving within file, buffers, windows & co. ================================
-" {{{
+set lbr                 " enable line break
+set sbr=>               " line break indicator
 
-" matchit actually comes with vim...
-silent! runtime macros/matchit.vim
-
+set splitright          " Open vsplits on the right
+set foldmethod=syntax   " Define how to fold files in general
+" }}}
+" MAPPING {{{
 " Treat broken lines as multiple lines with j/k
 map j gj
 map k gk
@@ -195,123 +60,42 @@ map k gk
 nmap n nzz
 nmap N Nzz
 
-" Smart moving between windows r
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Managing tabs
-map <leader>tn :tabnew
-map <leader>to :tabonly<CR>
-map <leader>tc :tabclose<CR>
-map <leader>tm :tabmove
-
-" Open a tab with the current buffer in it
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Remember info about open buffers on close
-set viminfo^=%
-" }}}
-
-"  > Status line ===============================================================
-" {{{
-
-" disable statusline
-set laststatus=0
-set statusline=
-
-" use ruler instead (less intrusive)
-set ruler
-
-" put everything I need in the ruler
-set rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
-
-
-set list
-set listchars=tab:│\ ,trail:⋅,nbsp:˽
-
-set fillchars=vert:│,fold:-
-" }}}
-
-"  > Mapping ===================================================================
-" {{{
-
-" So that Y behave like C and D
-nmap Y y$
+nmap <Space> :nohl<CR>
 
 " Keep selection when using indentation
-vmap <Tab> >gv
-vmap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
-vnoremap = =gv
 
-" toggle paste mode
-set pastetoggle=<F11>
-
-" easily change the working directory
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" open the file correcponding to the source/header actually openned.
-" it replace .c with .h in the file name, eg. file.cpp -> file.hpp
-" You must set your path correctly so that :find will find it.
-nnoremap <leader>ss :find %:t:s,.c,.foo,:s,.h,.c,:s,.foo,.h,<CR>
-
-" increment numbers in a column
 vnoremap <C-a> :call Incr()<CR>
+inoremap <Tab> <C-R>=CleverTab()<CR>
 
-" quick write (like somewhere within ZZ and ZQ...)
-nnoremap ZW :w<CR>
-
-" toggle between gcc and make
-nmap <Leader>cc :call ToggleCCompiler()<CR>
+nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>h :find %:t:s,.c,.ga,:s,.h,.c,:s,.ga,.h,<CR>
+map      <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
+nmap     <leader>c :call ToggleCCompiler()<CR>
+nmap     <leader>d mz:exe append(line("."), strftime("%d %B, %Y"))<CR>'zJ
+nmap     <leader>l :echomsg line('.')<CR>
+nmap     <leader>s :echomsg line('$')<CR>
+nmap     <leader>f :echomsg expand('%:p')<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
-
-"  > Filetypes commands ========================================================
-" {{{
-
-" Special commands
+" AUTOCOMMANDS {{{
 au FileType             make set noet
-au Filetype             php set ft=php.html
-au Filetype             html ab </ </<C-x><C-o>
-au Filetype             mail set tw=80 cc=81 fdm=marker
-au BufWritePost         .Xresources !xrdb %
-au BufRead,BufNewFile   *.tab setfiletype chords
-au BufEnter             *baseq3/*.cfg,wolfcam-ql/*.cfg let quake_is_quake3=1
+au Filetype             html ab -- &mdash;
+au Filetype             html ab </ </<C-X><C-o>
+au Filetype             mail set tw=80 fdm=marker
+au BufWritePost         Xresources !xrdb %
+au VimEnter             * call ViewTips()
 
-
-" Filetype completion
 set omnifunc=syntaxcomplete#Complete
-
-autocmd FileType c          set omnifunc=ccomplete#Complete
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+au FileType c          set omnifunc=ccomplete#Complete
+au FileType cpp        set omnifunc=ccomplete#Complete
+au FileType html       set omnifunc=htmlcomplete#CompleteTags
+au FileType css        set omnifunc=csscomplete#CompleteCSS
 " }}}
-
-"  > Functions =================================================================
-" {{{
-
-" Change textwidth
-fu! ToggleTW(num)
-   if (&textwidth != a:num)
-       let &textwidth = a:num
-       let &colorcolumn = a:num+1
-       setlocal wrap linebreak nolist
-       echo "Text Width: ".a:num
-   else
-       let &textwidth = 0
-       let &colorcolumn = 0
-       setlocal nowrap
-       echo "Text Width: none"
-   endif
-endfu
-
+" FUNCTIONS {{{
 " Increment a column of number
 fu! Incr()
     let a = line('.') - line("'<")
@@ -344,20 +128,35 @@ fu! CleverTab()
         return "\<C-N>"
     endif
 endfu
-inoremap <Tab> <C-R>=CleverTab()<CR>
 
-" Toggle between make and gcc for compiling with :make
+" Toggle between make and cc for compiling with :make
 fu! ToggleCCompiler()
     if &makeprg =~ '^make*$'
-        set makeprg=gcc\ -o\ %<.out\ %\ -Wall
+        set makeprg=cc\ -o\ %<.out\ %\ -Wall
     else
         set makeprg=make
     endif
+    set makeprg
 endfu
+
+" escape every HTML char in the line/selection
+fu! EscapeHTML()
+    silent! s/</\&lt;/g
+    silent! s/>/\&gt;/g
+    silent! s/"/\&quot;/g
+endfu
+
+" insert the TOhtml version of the selection
+fu! CodeHTML(newft)
+    let oldft = &ft         " remember current filetype
+    let ft = a:newft        " filetype to be used
+    '<,'>TOhtml             " convert the selection to HTML
+    /^<pre/+1,/^<\/pre>/-1d " get the code in between <pre> tags
+    bd!                     " remove the HTML temporary buffer
+    norm gvp                " copy that in place of the old text
+    let ft = &oldft          " recall the saved filetype
+endfu
+
 " }}}
-
-"  > Misc ======================================================================
-" {{{
-
-" Echo a vim tips on Vim startup
-autocmd VimEnter *  call ViewTips()
+"
+" vim: fdm=marker

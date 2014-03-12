@@ -5,19 +5,19 @@
 ! ==============================================================
 
 ! Terminal colors (dark) ---------------------------------------
-URxvt*background:[90]#221a17
+URxvt*background:#1d1d1d
 URxvt*foreground:#b3b4b1
 
-*color0:    #222222
+*color0:    #1d1d1d
 *color1:    #784742
 *color2:    #427363
 *color3:    #665847
 *color4:    #6a708b
 *color5:    #7a378b
 *color6:    #52707b
-*color7:    #b3b4b1
+*color7:    #b3b3b3
 
-*color8:    #5c4c4c
+*color8:    #4c4c4c
 *color9:    #d43f10
 *color10:   #cef318
 *color11:   #ede265
@@ -26,21 +26,25 @@ URxvt*foreground:#b3b4b1
 *color14:   #49d4dd
 *color15:   #ffffff
 
+*highlightColor:            #665847
+*highlightTextColor:        #ffffff
+
 ! URxvt (rxvt-unicode) -----------------------------------------
 
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
-URxvt*geometry:             81x20
-URxvt*depth:                32
-URxvt*font:                 -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
-URxvt*boldFont:             -misc-tamsyn-medium-*-*--14-101-*-*-*-*-*,-*-stlarch-medium-r-*--10-*-*-*-*-*
+URxvt*geometry:             80x24
+!URxvt*depth:                32
+URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1
+URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*cursorColor:          #5c4c4c
-URxvt*internalBorder:       2
+URxvt*internalBorder:       20
 URxvt*perl-ext-common:      default,url-select,keyboard-select
 URxvt.url-select.launcher:  /usr/bin/dwb
+!URxvt.url-select.launcher:  /usr/bin/urxvt -e elinks
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
@@ -74,11 +78,15 @@ xterm*jumpScroll:        true
 xterm*multiScroll:       true
 xterm*saveLines:         512
 
-xclock*background:      #efefe5
+xclock*background:      #1d1d1d
 xclock*face:            Archivo Narrow-16
-xclock*foreground:      #4a708b
-xclock*analog:          false
-xclock*geometry:        +1280+860
+xclock*foreground:      #cef318
+xclock*hourColor:       #ffffff
+xclock*minuteColor:     #ffffff
+xclock*secondColor:     #ffffff
+xclock*majorColor:      #1d1d1d
+xclock*minorColor:      #1d1d1d
+xclock*analog:          true
+xclock*geometry:        120x120+1790+950
 xclock*strftime:        %a %d/%m   %H:%M
-xclock*update:          30
-
+xclock*update:          1

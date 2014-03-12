@@ -3,32 +3,38 @@ servers = (
   # {{{
   {
     address = "irc.quakenet.org";
-    chatnet = "quakenet";
+    chatnet = "qn";
     port = "6667";
     autoconnect = "yes";
   },
   {
     address = "irc.freenode.org";
-    chatnet = "freenode";
+    chatnet = "fn";
     port = "6667";
     autoconnect = "yes";
   },
   {
+    address = "irc.epiknet.org";
+    chatnet = "ep";
+    port = "6667";
+    autoconnect = "no";
+  },
+  {
     address = "irc.blinkenshell.org";
-    chatnet = "blinkenshell";
+    chatnet = "bl";
     port = "6697";
     use_ssl = "yes";
     autoconnect = "yes";
   },
   {
-    address = "irc.gamesurge.net";
-    chatnet = "gamesurge";
+    address = "irc.unixhub.net";
+    chatnet = "uh";
     port = "6667";
-    autoconnect = "no";
+    autoconnect = "yes";
   },
   {
-    address = "irc.unixhub.net";
-    chatnet = "unixhub";
+    address = "irc.iotek.org";
+    chatnet = "io";
     port = "6667";
     autoconnect = "yes";
   }
@@ -38,7 +44,7 @@ servers = (
 ## COMMANDS
 chatnets = {
   # {{{
-  freenode = {
+  fn = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -46,8 +52,8 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg NickServ IDENTIFY password; /unquery NickServ";
   };
-  blinkenshell = { type = "IRC"; };
-  quakeNet = {
+  bl = { type = "IRC"; };
+  qn = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -55,34 +61,29 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
-  unixhub = {
+  uh = {
     type = "IRC";
     nick = "z3bra";
-    autosendcmd = "/msg nickserv AUTH z3bra password; /unquery nickserv";
+    autosendcmd = "/msg nickserv IDENTIFY password; /unquery nickserv";
   };
-  gamesurge = { type = "IRC"; };
+  io = { type = "IRC"; };
+  ep = { type = "IRC"; };
 };
 # }}}
 
 ## CHANNELS
 channels = (
   # {{{
-  { name = "#defrag-france"; chatnet = "quakenet"; autojoin = "Yes"; },
-  { name = "#pndc"; chatnet = "freenode"; autojoin = "No"; },
-  { name = "#vim-fr"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "No"; },
-  { name = "#archlinux-fr"; chatnet = "freenode"; autojoin = "Yes"; },
-  { 
-    name = "#archlinux-newbie";
-    chatnet = "freenode";
-    autojoin = "No";
-  },
-  { 
-    name = "#blinkenshell";
-    chatnet = "blinkenshell";
-    autojoin = "Yes";
-  },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
+  { name = "#defrag-france"; chatnet = "qn"; autojoin = "Yes"; },
+  { name = "#pndc"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#vim-fr"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#archlinux"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#archlinux-fr"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#arch-fr-off"; chatnet = "fn"; autojoin = "Yes"; },
+  { name = "#archlinux-newbie"; chatnet = "fn"; autojoin = "No"; },
+  { name = "#blinkenshell"; chatnet = "bl"; autojoin = "Yes"; },
+  { name = "#wizards"; chatnet = "io"; autojoin = "Yes"; },
+  { name = "#unixhub"; chatnet = "uh"; autojoin = "Yes"; }
 );
 # }}}
 
@@ -136,7 +137,9 @@ aliases = {
   Q = "QUIT";
   QU = "QUERY";
   UQ = "UNQUERY";
-  HL = "lastlog -hilight";
+  HL = "lastlog -hilight -new";
+  OP = "msg ChanServ OP $C";
+  DEOP = "msg ChanServ DEOP $C";
 };
 # }}}
 
@@ -296,11 +299,15 @@ settings = {
     real_name = "z3bra";
     user_name = "z-brah";
     nick = "z3bra";
-    timestamp_format = "%H.%M";
+    timestamp_format = "  %H:%M";
     quit_message = "int random() { return 3; /*number randomly chosen with a dice roll*/ }";
   };
 
-  "fe-text" = { scrollback_time = "48h"; actlist_sort = "refnum"; };
+  "fe-text" = {
+    scrollback_time = "48h";
+    actlist_sort = "refnum";
+    indent = "8";
+  };
 
   "fe-common/core" = {
     autolog = "yes";
@@ -308,7 +315,7 @@ settings = {
     theme = "default";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES INVITES DCC DCCMSGS HILIGHT";
-    use_status_window = "no";
+    use_status_window = "yes";
     expand_escapes = "yes";
   };
   "perl/core/scripts" = {
@@ -336,12 +343,7 @@ ignores = ( );
 windows = {
   1 = {
     items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#vim-fr";
-        tag = "freenode";
-      }
+      { immortal = "yes"; name = "[st]"; level = "ALL"; sticky = "yes"; }
     );
   };
   2 = {
@@ -349,8 +351,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#archlinux-fr";
-        tag = "freenode";
+        name = "#vim-fr";
+        tag = "fn";
       }
     );
   };
@@ -359,8 +361,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#unixhub";
-        tag = "unixhub";
+        name = "#archlinux-fr";
+        tag = "fn";
       }
     );
   };
@@ -369,8 +371,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#defrag-france";
-        tag = "quakeNet";
+        name = "#arch-fr-off";
+        tag = "fn";
       }
     );
   };
@@ -379,8 +381,38 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "#unixhub";
+        tag = "uh";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#defrag-france";
+        tag = "qn";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#blinkenshell";
-        tag = "blinkenshell";
+        tag = "bl";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#wizards";
+        tag = "io";
       }
     );
   };

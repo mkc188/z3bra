@@ -7,11 +7,11 @@
 hsetroot -fill ~/usr/img/bg/lego.jpg
 
 # default cursor
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr
 
 function wm() {
     # Load X resources
-    xrdb -load ~/.Xresources &
+    xrdb -load ~/etc/Xresources
 
     # set WM name
     xsetroot -name $1
@@ -24,9 +24,21 @@ function wm() {
     xbindkeys
 
     # spawn window manager
-    exec $1
+    $1 &
+    exec xclock
 }
 
-[[ -z $1 ]] && wm 2bwm
+function run() {
+    # start specified app
+    exec $@
+}
 
-wm $1
+test -z $1 && wm 2bwm
+
+case $1 in
+    steam)          run steam;;
+    defrag)         run ioquake3;;
+    teeworlds)      run teeworlds;;
+    sauerbraten)    run sauerbraten-client;;
+    *) wm $1;;
+esac
