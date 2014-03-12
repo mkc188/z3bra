@@ -3,11 +3,8 @@
 # ~/.xinitrc
 #
 
-# load nvidia config
-nvidia-settings -l --config=$HOME/.config/nvidia
-
 # Set wallpaper
-hsetroot -fill ~/usr/img/bg/sunrise.jpg
+hsetroot -fill ~/usr/img/bg/lego.jpg
 
 # default cursor
 xsetroot -cursor_name left_ptr &
@@ -19,24 +16,17 @@ function wm() {
     # set WM name
     xsetroot -name $1
 
-    # Compositing
     # enable RGBA module for GTK
     export GTK_MODULES=rgba
 
-    compton -cb -o0
+    (while :; do ~/bin/bar/status.sh -F9 -H3 -Lc -Rmb; sleep 15; done)|bar -bpf &
+
     xbindkeys
 
     # spawn window manager
     exec $1
 }
 
-[[ -z $1 ]] && wm cwm
+[[ -z $1 ]] && wm 2bwm
 
-case $1 in
-    rage)       exec wine ~/var/games/rage/Rage.exe;;
-    defrag)     exec /opt/quake3/iodfengine.x86_64;;
-    quakelive)  exec qlprism;;
-    teeworlds)  exec teeworlds;;
-    sauerbraten)  exec sauerbraten-client;;
-    *) wm $1;;
-esac
+wm $1

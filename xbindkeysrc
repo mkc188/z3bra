@@ -1,16 +1,14 @@
 # -- X11 custom binds ------------------------------------------- {{{ --
 # -- Application launchers ---------------------------------- {{{ --
- "urxvt"
- Mod4 + space
-# 
- "dwb"
- Mod4 + w
-# 
-# "gmrun"
-# Alt + F2
-# 
-# "~/.qlprism/qlprism.sh"
-# Mod4 + q
+#
+"urxvt"
+  Mod4 + Return
+
+"dmenu_run"
+  Mod4 + exclam
+
+"dwb"
+  Mod4 + w
 # ----------------------------------------------------------- }}} --
 
 # -- Volume management -------------------------------------- {{{ --

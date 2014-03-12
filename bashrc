@@ -71,6 +71,11 @@ function ttycolors() {
     fi
 }
 
+say () {
+    uri='http://translate.google.com/translate_tts?tl=en&q='
+    mplayer -really-quiet "${uri}$*"
+}
+
 # auto-cd into a created directory
 mcd () {
     mkdir $@ && cd $_
@@ -96,8 +101,8 @@ alias mv="mv -i"
 # Alias to avoid some "RAAAAAAAAAH !!"
 alias :q="quit"
 alias cd..="cd .."
-alias fu="sudo $(fc -n -l -1)"
-alias fuck="sudo $(fc -n -l -1)"
+alias fu='sudo `fc -n -l -1`'
+alias fuck='sudo `fc -n -l -1`'
 
 # Make some output colorfull
 alias ls="ls --color=auto"
