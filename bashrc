@@ -106,6 +106,12 @@ function cd() {
     builtin cd "$@" && ls -CF --color
 }
 
+function build() {
+    test -d ~/usr/ports/$1 || prtmk
+    cd ~/usr/ports/$1
+    fakeroot pkgmk -d
+}
+
 function ddg() {
     elinks "http://duckduckgo.com/lite?q=${*// /+}"
 }
@@ -159,7 +165,8 @@ alias pkgup='pkgadd -u'
 # desktop stuff
 if test -n "$DISPLAY"; then
     alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
-    alias wmg="echo 'group'`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2`|toilet -ffuture --gay"
+    alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
+    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -noborder -ontop"
 fi
 
 # HANDY RICKY SCRIPT
