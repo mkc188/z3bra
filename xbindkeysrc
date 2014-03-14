@@ -18,6 +18,17 @@ XF86AudioLowerVolume
 XF86AudioMute
 # ----------------------------------------------------------- }}} --
 
+# -- Gamma management --------------------------------------- {{{ --
+"~/bin/gamma.sh up 0.25"
+    Control + Prior
+
+"~/bin/gamma.sh down 0.25"
+    Control + Next
+
+"~/bin/gamma.sh reset"
+    Control + Home
+# ----------------------------------------------------------- }}} --
+
 # -- mpc -h gavroche remote control ------------------------------------- {{{ --
 "mpc -h gavroche toggle"
 XF86AudioPlay
