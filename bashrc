@@ -19,7 +19,7 @@ case $HOSTNAME in
     'gavroche')             fd=${fg[12]} ;;
     'javert')               fd=${fg[11]} ;;
     'triton')               fd=${fg[8]}  ;;
-    'EMIS030')              fd=${fg[14]} ;;
+    'EMIS030')              fd=${fg[1]} ;;
     'ks395925.kimsufi.com') fd=${fg[13]} ;;
     *)                      fd=${fg[15]} ;;
 esac
