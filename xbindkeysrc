@@ -18,6 +18,15 @@
 
 "amixer set Master toggle"
     XF86AudioMute
+
+"~/bin/popup volumebar"
+    XF86AudioRaiseVolume
+
+"~/bin/popup volumebar"
+    XF86AudioLowerVolume
+
+"~/bin/popup volumebar"
+    XF86AudioMute
 # ----------------------------------------------------------- }}} --
 
 # -- Gamma management --------------------------------------- {{{ --
