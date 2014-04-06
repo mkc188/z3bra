@@ -15,3 +15,7 @@ elinks/*
 
 vim/.netrwhist
 vim/spell/*
+vim/systags
+vim/undo
+
+irssi/*.autosave

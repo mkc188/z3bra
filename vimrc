@@ -7,6 +7,8 @@
 " GENERAL {{{
 let mapleader = "!" " Define <leader> key
 
+set mouse= " noppest nope I've ever noped
+
 set autoread " Re-read file if changed outside
 set autowrite " Automatically save before commands like :next and :make
 
@@ -20,6 +22,8 @@ set backspace=2 " Make <BACKSPACE> do what it should do
 set noswapfile
 set nowritebackup
 set nobackup
+set undofile
+set undodir=$HOME/.vim/undo
 
 set tags+=~/.vim/systags " used for omnicompletion
 set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path

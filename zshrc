@@ -14,7 +14,8 @@ autoload -U colors && colors
 # set the prompt
 PROMPT="
 %{$fg_bold[yellow]%} »  "
-RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
+#RPROMPT="%{$fg[black]%}%M:%{$fg_bold[yellow]%}%~%{$reset_color%}   "
+RPROMPT="%{$fg[red]%}%(?  ━)%{$reset_color%}"
 
 #[[ -z $TMUX ]] && [[ $TERM != "screen-256color" ]] && exec tmux
 

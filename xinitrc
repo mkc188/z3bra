@@ -1,10 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 #
 # ~/.xinitrc
 #
 
 # Set wallpaper
-hsetroot -fill ~/usr/img/bg/lego.jpg
+#hsetroot -solid \#333333
+hsetroot -tile ~/usr/img/bg/default.jpg
+
+# girl just wanna have fun
+#xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
+
+# Set bindings
+xbindkeys
 
 # default cursor
 xsetroot -cursor_name left_ptr
@@ -16,16 +23,21 @@ function wm() {
     # set WM name
     xsetroot -name $1
 
+    # watch mail directory for new mails
+    # wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
+
+    # Compositing
+    xcompmgr || compton &
+
     # enable RGBA module for GTK
-    export GTK_MODULES=rgba
+    # export GTK_MODULES=rgba
 
-    (while :; do ~/bin/bar/status.sh -F9 -H3 -Lc -Rmb; sleep 15; done)|bar -bpf &
+    font='-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1'
 
-    xbindkeys
+    while :; do date '+%H:%M'; sleep 60; done | 
+        bar -f $font -B\#00000000 -b -g 30x10+1406+4 &
 
-    # spawn window manager
-    $1 &
-    exec xclock
+    exec $1
 }
 
 function run() {

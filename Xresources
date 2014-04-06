@@ -36,8 +36,8 @@ URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             80x24
 !URxvt*depth:                32
-URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1
-URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1
+URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*cursorColor:          #5c4c4c
