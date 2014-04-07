@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # ~/.xinitrc
 #
@@ -7,6 +7,7 @@
 nvidia-settings -l --config=$HOME/.nvidia
 
 # Set wallpaper
+#hsetroot -solid \#333333
 hsetroot -tile ~/usr/img/bg/default.jpg
 
 # girl just wanna have fun
@@ -26,17 +27,20 @@ function wm() {
     xsetroot -name $1
 
     # watch mail directory for new mails
-    wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
+    # wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
 
     # Compositing
+    xcompmgr &
+
     # enable RGBA module for GTK
-    export GTK_MODULES=rgba
+    # export GTK_MODULES=rgba
 
-    #compton -cb -o0
+    font='-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1'
 
-    # spawn window manager
-    $1 &
-    exec xclock
+    while :; do date '+%H:%M'; sleep 60; done | 
+        bar -f $font -B\#00000000 -b -g 30x10+1406+4 &
+
+    exec $1
 }
 
 function run() {

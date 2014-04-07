@@ -25,7 +25,7 @@ servers = (
     chatnet = "unixhub";
     port = "6697";
     use_ssl = "yes";
-    autoconnect = "no";
+    autoconnect = "yes";
   },
   {
     address = "irc.blinkenshell.org";
@@ -80,7 +80,7 @@ chatnets = {
 channels = (
   # {{{
   { name = "#defrag-france"; chatnet = "qnet"; autojoin = "Yes"; },
-  { name = "#nixers"; chatnet = "iotek"; autojoin = "No"; },
+  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
   { name = "#vim-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#archlinux-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#blinkenshell"; chatnet = "blink"; autojoin = "Yes"; },
