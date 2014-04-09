@@ -306,7 +306,7 @@ settings = {
     nick = "z3bra";
     timestamp_format = "  %H:%M (%d/%m)";
     quit_message = "int random() { return 3; /*number randomly chosen with a dice roll*/ }";
-    part_message = "I see dead memory. All the time.";
+    part_message = "a round zebra is just a black & white watermelon";
   };
 
   "fe-text" = {
@@ -374,8 +374,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#unixhub";
-        tag = "unixhub";
+        name = "#nixers";
+        tag = "iotek";
       }
     );
   };
@@ -404,22 +404,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#iotek";
-        tag = "iotek";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
         name = "#crux";
         tag = "fnode";
       }
     );
   };
-  8 = {
+  7 = {
     items = (
       {
         type = "CHANNEL";
@@ -429,13 +419,13 @@ windows = {
       }
     );
   };
-  9 = {
+  8 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#trompette";
-        tag = "fnode";
+        name = "#blinkenshell";
+        tag = "blink";
       }
     );
   };
