@@ -90,7 +90,7 @@ au FileType             make set noet
 au Filetype             html ab -- &mdash;
 au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
-au BufWritePost         Xresources !xrdb %
+au BufWritePost         *Xresources !xrdb %
 au VimEnter             * call ViewTips()
 
 set omnifunc=syntaxcomplete#Complete
