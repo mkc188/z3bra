@@ -65,11 +65,11 @@ sprunge() {
 
 thumbify() {
     if [ -f $1 ]; then
-        cp $1 thumb-$1
+        cp $1 thumb/$1
         if [ $2 ]; then
-            mogrify -resize $2 thumb-$1
+            mogrify -resize $2 thumb/$1
         else
-            mogrify -resize 250x250 thumb-$1
+            mogrify -resize 250x250 thumb/$1
         fi
     else
         echo "$1: not a regular file"
