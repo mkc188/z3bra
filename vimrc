@@ -25,6 +25,8 @@ set nobackup
 set undofile
 set undodir=$HOME/.vim/undo
 
+set virtualedit=block " make visual blocks easier to understand
+
 set tags+=~/.vim/systags " used for omnicompletion
 set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
 " }}}
