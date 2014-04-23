@@ -374,7 +374,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#nixers";
-        tag = "iotek";
+        tag = "nixers";
       }
     );
   };
