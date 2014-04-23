@@ -161,7 +161,7 @@ alias vol="alsamixer"
 
 # TMUX / DTACH
 alias t='tmux'
-alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
+alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
