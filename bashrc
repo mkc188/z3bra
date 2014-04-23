@@ -52,17 +52,10 @@ cusage() {
     echo "$total%"
 }
 
-if test -x /usr/bin/systemctl; then
-    start()    { systemctl start $@; done   }
-    stop()     { systemctl stop $@; done    }
-    restart()  { systemctl restart $@; done }
-    status()   { systemctl status $@; done  }
-else
-    start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
-    stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
-    restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
-    status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
-fi
+start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
+stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
+restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
+status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
 
 sprunge() {
     test -z $1 && FILE='-' || FILE=$1
@@ -168,7 +161,7 @@ alias vol="alsamixer"
 
 # TMUX / DTACH
 alias t='tmux'
-alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
+alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
