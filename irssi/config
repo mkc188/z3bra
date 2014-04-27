@@ -21,8 +21,8 @@ servers = (
     autoconnect = "no";
   },
   {
-    address = "irc.unixhub.net";
-    chatnet = "unixhub";
+    address = "irc.nixers.net";
+    chatnet = "nixers";
     port = "6697";
     use_ssl = "yes";
     autoconnect = "yes";
@@ -65,7 +65,7 @@ chatnets = {
     nick = "z3bra";
     autosendcmd = "/msg Q@Cserve.quakenet.org AUTH z3bra passw0rd; /unquery Q@Cserve.quakenet.org";
   };
-  unixhub = {
+  nixers = {
     type = "IRC";
     nick = "z3bra";
     autosendcmd = "/msg nickserv IDENTIFY password; /unquery nickserv";
@@ -80,7 +80,7 @@ chatnets = {
 channels = (
   # {{{
   { name = "#defrag-france"; chatnet = "qnet"; autojoin = "Yes"; },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "Yes"; },
+  { name = "#nixers"; chatnet = "nixers"; autojoin = "Yes"; },
   { name = "#vim-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#archlinux-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#blinkenshell"; chatnet = "blink"; autojoin = "Yes"; },
@@ -306,7 +306,6 @@ settings = {
     nick = "z3bra";
     timestamp_format = "  %H:%M (%d/%m)";
     quit_message = "int random() { return 3; /*number randomly chosen with a dice roll*/ }";
-    part_message = "a round zebra is just a black & white watermelon";
   };
 
   "fe-text" = {
