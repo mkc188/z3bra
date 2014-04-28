@@ -35,10 +35,15 @@ function wm() {
     # enable RGBA module for GTK
     # export GTK_MODULES=rgba
 
-    $1 &
+    #$1 &
 
-    font='-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1'
-    exec ~/bin/mkbar | bar -f $font -B\#00000000 -b -g 200x10+1236+4
+    font='-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*'
+    font="${font},-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
+    while :; do
+        ~/bin/mkbar
+    done | bar -f "$font" -B\#00000000 -b -g 800x20+320+2 &
+
+    exec $1
 
 }
 
