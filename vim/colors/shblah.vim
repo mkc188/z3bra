@@ -1,6 +1,11 @@
+" ┏━┓╻ ╻┏┓ ╻  ┏━┓╻ ╻   ╻ ╻╻┏┳┓
+" ┗━┓┣━┫┣┻┓┃  ┣━┫┣━┫   ┃┏┛┃┃┃┃
+" ┗━┛╹ ╹┗━┛┗━╸╹ ╹╹ ╹ ╹ ┗┛ ╹╹ ╹
+"                           -- by z3bra
+" =====================================
 "
-" Terminal setup.
-"
+" A 16 colors scheme that use your terminal colors
+
 set background=dark
 if version > 580
     highlight clear
@@ -10,55 +15,47 @@ if version > 580
 endif
 let g:colors_name="shblah"
 
-"
-" Highlighting definitions.
-"
+" Actual colours and styles.
+highlight ColorColumn  term=NONE cterm=NONE ctermfg=NONE ctermbg=3
+highlight Comment      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
+highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+highlight DiffChange   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+highlight DiffDelete   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
+highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
+highlight Identifier   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
+highlight IncSearch    term=NONE cterm=bold ctermfg=5    ctermbg=5
+highlight NonText      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight Normal       term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
+highlight Pmenu        term=NONE cterm=NONE ctermfg=0    ctermbg=7
+highlight PreProc      term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+highlight Search       term=NONE cterm=bold ctermfg=7    ctermbg=5
+highlight Special      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+highlight SpecialKey   term=NONE cterm=NONE ctermfg=2    ctermbg=NONE
+highlight Statement    term=NONE cterm=bold ctermfg=7    ctermbg=NONE
+highlight StatusLine   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+" highlight StatusLineNC term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
+highlight TabLineSel   term=NONE cterm=bold ctermfg=7    ctermbg=NONE
+highlight Todo         term=NONE cterm=bold ctermfg=7    ctermbg=1
+highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
+highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
+highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=3
 
-    "
-    " Actual colours and styles.
-    "
-    highlight ColorColumn  term=NONE cterm=NONE ctermfg=NONE ctermbg=3
-    highlight Comment      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
-    highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
-    highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
-    highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
-    highlight DiffChange   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
-    highlight DiffDelete   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
-    highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
-    highlight Identifier   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
-    highlight IncSearch    term=NONE cterm=bold ctermfg=5    ctermbg=5
-    highlight NonText      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight Normal       term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
-    highlight Pmenu        term=NONE cterm=NONE ctermfg=0    ctermbg=7
-    highlight PreProc      term=NONE cterm=bold ctermfg=3    ctermbg=NONE
-    highlight Search       term=NONE cterm=bold ctermfg=7    ctermbg=5
-    highlight Special      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
-    highlight SpecialKey   term=NONE cterm=NONE ctermfg=2    ctermbg=NONE
-    highlight Statement    term=NONE cterm=bold ctermfg=7    ctermbg=NONE
-    highlight StatusLine   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    " highlight StatusLineNC term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
-    highlight TabLineSel   term=NONE cterm=bold ctermfg=7    ctermbg=NONE
-    highlight Todo         term=NONE cterm=bold ctermfg=7    ctermbg=1
-    highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
-    highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-    highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=3
-
-    "
-    " General highlighting group links.
-    "
-    highlight! link diffAdded       DiffAdd
-    highlight! link diffRemoved     DiffDelete
-    highlight! link diffChanged     DiffChange
-    highlight! link StatusLineNC    StatusLine
-    highlight! link Title           Normal
-    highlight! link LineNr          NonText
-    highlight! link TabLine         StatusLineNC
-    highlight! link TabLineFill     StatusLineNC
-    highlight! link VimHiGroup      VimGroup
+" General highlighting group links.
+highlight! link diffAdded       DiffAdd
+highlight! link diffRemoved     DiffDelete
+highlight! link diffChanged     DiffChange
+highlight! link StatusLineNC    StatusLine
+highlight! link Title           Normal
+highlight! link LineNr          NonText
+highlight! link TabLine         StatusLineNC
+highlight! link TabLineFill     StatusLineNC
+highlight! link VimHiGroup      VimGroup
 
 " Test the actual colorscheme
 syn match Comment      "\"__Comment.*"
