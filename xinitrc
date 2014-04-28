@@ -8,7 +8,7 @@ nvidia-settings -l --config=$HOME/.nvidia
 
 # Set wallpaper
 #hsetroot -solid \#333333
-hsetroot -tile ~/usr/img/bg/default.jpg
+hsetroot -tile ~/usr/img/bg/default.jpg -brightness -0.2
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
