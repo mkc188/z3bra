@@ -34,14 +34,11 @@ complete -cf fakeroot
 
 ## FUNCTIONS {{{
 
-<<<<<<< HEAD
-=======
 monit() {
     test $# -lt 1 && exit 1
     ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
 }
 
->>>>>>> 4f0bf42e8e687b2d85624234a2a83df60a044343
 musage() {
     mem_total=$(free -m |sed -n '2p'| awk '{print $2}')
     mem_used=$(free -m |sed -n '3p'|awk '{print $3}')
