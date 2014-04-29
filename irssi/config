@@ -35,11 +35,18 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.iotek.org";
+    chatnet = "iotek";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "yes";
+  },
+  {
     address = "irc.oftc.net";
     chatnet = "oftc";
     port = "6697";
     use_ssl = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 # }}}
