@@ -34,6 +34,11 @@ complete -cf fakeroot
 
 ## FUNCTIONS {{{
 
+monit() {
+    test $# -lt 1 && exit 1
+    ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
+}
+
 musage() {
     mem_total=$(free -m |sed -n '2p'| awk '{print $2}')
     mem_used=$(free -m |sed -n '3p'|awk '{print $3}')
@@ -52,17 +57,10 @@ cusage() {
     echo "$total%"
 }
 
-if test -x /usr/bin/systemctl; then
-    start()    { systemctl start $@; done   }
-    stop()     { systemctl stop $@; done    }
-    restart()  { systemctl restart $@; done }
-    status()   { systemctl status $@; done  }
-else
-    start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
-    stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
-    restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
-    status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
-fi
+start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
+stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
+restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
+status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
 
 sprunge() {
     test -z $1 && FILE='-' || FILE=$1
@@ -168,7 +166,7 @@ alias vol="alsamixer"
 
 # TMUX / DTACH
 alias t='tmux'
-alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
+alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
@@ -184,7 +182,7 @@ if test -n "$DISPLAY"; then
     alias winsize="xwininfo -id \`xprop|grep 'window id'|cut -d\  -f7\`"
     alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
     alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
-    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -noborder -ontop"
+    alias cam="mpv -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
 fi
 
 # HANDY RICKY SCRIPT

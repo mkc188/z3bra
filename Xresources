@@ -56,23 +56,42 @@ URxvt.colorUL:              #a28c64
 
 ! XTerm ---------------------------------------------------------
 
-xterm*background:#222222
-xterm*foreground:#e8e9ca
+xterm*background:#ffffff
+xterm*foreground:#1d1d1d
+
+xterm*color0:    #1d1d1d
+xterm*color1:    #784742
+xterm*color2:    #427363
+xterm*color3:    #665847
+xterm*color4:    #6a708b
+xterm*color5:    #7a378b
+xterm*color6:    #52707b
+xterm*color7:    #b3b3b3
+
+xterm*color8:    #4c4c4c
+xterm*color9:    #d43f10
+xterm*color10:   #cef318
+xterm*color11:   #ede265
+xterm*color12:   #6ac0fd
+xterm*color13:   #ef79ae
+xterm*color14:   #49d4dd
+xterm*color15:   #1d1d1d
+
 xterm*scrollBar:         false
-xterm*faceName:          tamsyn
-xterm*faceSize:          8
+xterm*faceName:          gohufont
+xterm*faceSize:          14
 xterm*boldMode:          false
 xterm*cutNewline:        false
 xterm*on4Clicks:         group
 xterm*on5Clicks:         page
-xterm*internalBorder:    8
+xterm*internalBorder:    2
 xterm*metaSendsEscape:   true
 xterm*colorBD:           #ffffff
 xterm*colorBDMode:       true
 xterm*cursorBlink:       false
 xterm*cursorColor:       #e8e9ca
 xterm*veryBoldColors:    14
-xterm*loginShell:        true
+xterm*loginShell:        false
 xterm*charClass:         33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
 xterm*jumpScroll:        true
 xterm*multiScroll:       true
