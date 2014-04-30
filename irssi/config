@@ -84,10 +84,11 @@ channels = (
   { name = "#vim-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#archlinux-fr"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#blinkenshell"; chatnet = "blink"; autojoin = "Yes"; },
-  { name = "#iotek"; chatnet = "iotek"; autojoin = "Yes"; },
+  { name = "#iotek"; chatnet = "iotek"; autojoin = "No"; },
   { name = "#crux"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#frenchfags"; chatnet = "fnode"; autojoin = "Yes"; },
-  { name = "#2f30"; chatnet = "fnode"; autojoin = "Yes"; }
+  { name = "#2f30"; chatnet = "fnode"; autojoin = "Yes"; },
+  { name = "#morpheus"; chatnet = "oftc"; autojoin = "Yes"; }
 );
 # }}}
 
@@ -374,7 +375,7 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#nixers";
-        tag = "iotek";
+        tag = "nixers";
       }
     );
   };
