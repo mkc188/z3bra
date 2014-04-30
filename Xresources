@@ -52,7 +52,7 @@ URxvt.keysym.M-v:           perl:keyboard-select:activate
 ! Colored man pages
 URxvt.colorIT:              #cacaca
 URxvt.colorBD:              #eee685
-URxvt.colorUL:              #a28c64
+URxvt.colorUL:              #d45f10
 
 ! XTerm ---------------------------------------------------------
 
