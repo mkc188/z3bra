@@ -5,7 +5,7 @@
 
 # Set wallpaper
 #hsetroot -solid \#333333
-hsetroot -tile ~/usr/img/bg/default.jpg
+hsetroot -tile ~/usr/img/bg/default.jpg -brightness -0.2
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
@@ -32,12 +32,16 @@ function wm() {
     # enable RGBA module for GTK
     # export GTK_MODULES=rgba
 
-    font='-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1'
+    #$1 &
 
-    while :; do date '+%H:%M'; sleep 60; done | 
-        bar -f $font -B\#00000000 -b -g 30x10+1406+4 &
+    font='-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*'
+    font="${font},-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
+    while :; do
+        ~/bin/mkbar
+    done | bar -f "$font" -B\#00000000 -b -g 800x20+320+2 &
 
     exec $1
+
 }
 
 function run() {

@@ -14,27 +14,15 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-case $HOSTNAME in
-    'cosette')              fd=${fg[6]} ;;
-    'gavroche')             fd=${fg[12]} ;;
-    'javert')               fd=${fg[11]} ;;
-    'triton')               fd=${fg[8]}  ;;
-    'EMIS030')              fd=${fg[1]} ;;
-    'ks395925.kimsufi.com') fd=${fg[13]} ;;
-    *)                      fd=${fg[15]} ;;
-esac
-
 #MIN=1
 #MAX=15
 #RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
 #fd=${fg[$RANDOM_COLOR]}
+fd=${fg[15]}
 
 PS1=''
-PS1='';[ -n "$SSH_CLIENT" ] && PS1="${fd}(${fg[8]}$(hostname|cut -b-2)${fd})"
-export PS1="${fd}─${PS1}${fd}──── ${nofg}"
-
-# command line editing
-set -o vi
+test -n "$SSH_CLIENT" && PS1="${fg[8]} $(hostname|cut -b-1) ${fd}"
+export PS1="${fd}─$PS1──${nofg} "
 
 # use auto-completion after those words
 complete -cf sudo
@@ -46,31 +34,54 @@ complete -cf fakeroot
 
 ## FUNCTIONS {{{
 
-function start()    { for s in $@; do /etc/rc.d/$s start; done   }
-function stop()     { for s in $@; do /etc/rc.d/$s stop; done    }
-function restart()  { for s in $@; do /etc/rc.d/$s restart; done }
-function status()   { for s in $@; do /etc/rc.d/$s status; done  }
+monit() {
+    test $# -lt 1 && exit 1
+    ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
+}
 
-function sprunge() {
+musage() {
+    mem_total=$(free -m |sed -n '2p'| awk '{print $2}')
+    mem_used=$(free -m |sed -n '3p'|awk '{print $3}')
+
+    echo "$((${mem_total} / ${mem_used}))%"
+}
+
+cusage() {
+    total="0"
+    perc=`ps --no-header -eo pcpu | grep -v '0.0'`
+
+    for p in $perc; do 
+        total=`echo $total + $p | bc`;
+    done
+
+    echo "$total%"
+}
+
+start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
+stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
+restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
+status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
+
+sprunge() {
     test -z $1 && FILE='-' || FILE=$1
 
     curl -sF "sprunge=<${FILE}" http://sprunge.us
 }
 
-function thumbify() {
+thumbify() {
     if [ -f $1 ]; then
-        cp $1 thumb-$1
+        cp $1 thumb/$1
         if [ $2 ]; then
-            mogrify -resize $2 thumb-$1
+            mogrify -resize $2 thumb/$1
         else
-            mogrify -resize 250x250 thumb-$1
+            mogrify -resize 250x250 thumb/$1
         fi
     else
         echo "$1: not a regular file"
     fi
 }
 
-function ttycolors() {
+ttycolors() {
     if [ "$TERM" = "linux" ]; then
         echo -en "\e]P0222222" #black    -> also the background
         echo -en "\e]P18b3e2f" #darkred
@@ -107,17 +118,17 @@ mcd () {
 }
 
 # perform 'ls' right after entering a directory
-function cd() {
+cd() {
     builtin cd "$@" && ls -CF --color
 }
 
-function build() {
+build() {
     test -d ~/usr/ports/$1 || prtmk
     cd ~/usr/ports/$1
     fakeroot pkgmk -d
 }
 
-function ddg() {
+ddg() {
     elinks "http://duckduckgo.com/lite?q=${*// /+}"
 }
 ## }}}
@@ -148,6 +159,10 @@ alias grep="grep --color=auto"
 alias ll="ls -alhF --color=auto"
 alias l="ls -CF --color=auto"
 
+# job control
+alias mtop="ps --no-header -eo pmem,size,vsize,comm | sort -nr | sed 10q"
+alias ctop="ps --no-header -eo pcpu,comm | sort -nr | sed 10q"
+
 ## Applications
 alias v="vim"
 alias sv="EDITOR=vim sudo -e"
@@ -156,7 +171,7 @@ alias vol="alsamixer"
 
 # TMUX / DTACH
 alias t='tmux'
-alias d='dtach -A ~/tmp/irssi.sk /usr/bin/irssi'
+alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
 
 # BTPD
 alias btc="btcli -d ~/var/btp"
@@ -169,9 +184,10 @@ alias pkgup='pkgadd -u'
 
 # desktop stuff
 if test -n "$DISPLAY"; then
+    alias winsize="xwininfo -id \`xprop|grep 'window id'|cut -d\  -f7\`"
     alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0 output.mkv"
     alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
-    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -noborder -ontop"
+    alias cam="mpv -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
 fi
 
 # HANDY RICKY SCRIPT
