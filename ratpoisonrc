@@ -1,29 +1,21 @@
 # ~/.ratpoisonrc
 
-unmanage rdesktop
-
 # options
 startup_message off
 
 # ratpoison
-set border 28
-set padding 16 36 16 16
+set border 2
+set padding 20 20 20 20
 set fgcolor #ffffff
-set bgcolor #222222
-set font "tamsyn"
+set bgcolor #333333
+set font "gohufont"
 set winname name
 set winfmt %s%8t
 set inputwidth 256
 set bargravity nw
 set barborder 0
 set barinpadding 0
-set barpadding 0 0
-
-# aliases
-alias ls       exec ratpoison -c "echo $(~/bin/rpls)"
-alias showroot exec ratpoison -c 'select -' -c 'only'
-alias sshot    exec ~/bin/instagram ratpoison-$(date +%Y-%m-%d).jpg
-alias getvol   exec ratpoison -c "echo vol. $(amixer sget Master | tail -1 | awk '{print $5}')"
+set barpadding 4 2
 
 # hooks
 addhook switchgroup only
@@ -31,9 +23,16 @@ addhook switchgroup select -
 addhook switchgroup next
 
 # workspaces
-gnew   DEV
-gnewbg WEB
-gnewbg MEH
+gnew   g1
+gnewbg g2
+gnewbg g3
+gnewbg g4
+gnewbg g5
+gnewbg g6
+gnewbg g7
+gnewbg g8
+gnewbg g9
+gnewbg g10
 gmerge default
 gdelete default
 
@@ -54,6 +53,13 @@ definekey top s-Right nextscreen
 definekey top M-F1 exec ratpoison -c "gselect 1"
 definekey top M-F2 exec ratpoison -c "gselect 2"
 definekey top M-F3 exec ratpoison -c "gselect 3"
+definekey top M-F4 exec ratpoison -c "gselect 4"
+definekey top M-F5 exec ratpoison -c "gselect 5"
+definekey top M-F6 exec ratpoison -c "gselect 6"
+definekey top M-F7 exec ratpoison -c "gselect 7"
+definekey top M-F8 exec ratpoison -c "gselect 8"
+definekey top M-F9 exec ratpoison -c "gselect 9"
+definekey top M-F10 exec ratpoison -c "gselect 10"
 definekey top M-p  exec ratpoison -c "gprev"
 definekey top M-n  exec ratpoison -c "gnext"
 
@@ -82,9 +88,6 @@ definekey top s-u undo
 definekey top C-s-r redo
 definekey top s-Escape delete
 
-# display root script
-definekey top s-d exec ratpoison -c "showroot" -c "ls"
-
 # windows
 definekey top M-Tab next
 definekey top s-p prev
@@ -96,17 +99,6 @@ definekey top s-Down exec ratpoison -c "frestore $(ratpoison -c 'getenv rl1')"
 
 # applications
 definekey top s-t time
-definekey top s-w windows
-definekey top XF86HomePage exec dwb
-definekey top XF86Calculator exec urxvt
-definekey top s-Return exec urxvt
-definekey top Print sshot
-definekey top XF86Mail exec urxvt -e mutt
-
-# media keys
-definekey top XF86AudioMute exec amixer set Master toggle; ratpoison -c "echo vol. -- $(amixer sget Master | tail -1 | awk '{print $7}')"
-definekey top XF86AudioRaiseVolume exec amixer set Master 1%+ unmute; ratpoison -c getvol
-definekey top XF86AudioLowerVolume exec amixer set Master 1%- unmute; ratpoison -c getvol
 
 # banish cursor
 exec ratpoison -c "banish"
