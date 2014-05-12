@@ -20,7 +20,7 @@ sxhkd -c ~/.sxhkdrc >/dev/null 2> ~/var/log/sxhkd.log &
 # default cursor
 xsetroot -cursor_name left_ptr
 
-function wm() {
+wm() {
     # Load X resources
     xrdb -load ~/etc/Xresources
 
@@ -36,13 +36,14 @@ function wm() {
     # enable RGBA module for GTK
     # export GTK_MODULES=rgba
 
-    #$1 &
+    # get screen size
+    IFS='x' read w h <<< "$(xrandr | awk '/\*/ {print $1}')"
 
     font='-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*'
     font="${font},-*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
     while :; do
         ~/bin/mkbar
-    done | bar -f "$font" -B\#00000000 -b -g 800x20+320+2 &
+    done | bar -f "$font" -B\#00000000 -b -g $((w - 20))x20+10+2 &
 
     exec $1
 
