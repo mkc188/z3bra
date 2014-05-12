@@ -30,6 +30,8 @@ complete -cf man
 complete -cf killall
 complete -cf pkill
 complete -cf fakeroot
+complete -cf respawn
+complete -cf pgrep
 # }}}
 
 ## FUNCTIONS {{{
@@ -61,6 +63,10 @@ start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
 stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
 restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
 status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
+
+respawn() {
+    test -n "$@" && pkill "$@" && "$@"
+}
 
 sprunge() {
     test -z $1 && FILE='-' || FILE=$1

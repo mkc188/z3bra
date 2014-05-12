@@ -1,0 +1,8 @@
+set editing-mode vi
+
+# clear screen with control-L
+c-l: clear-screen
+
+# smart command history
+"\e[A": history-search-backward
+"\e[B": history-search-forward

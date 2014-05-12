@@ -11,7 +11,8 @@ b=`tput bold`
 OK="[${G} OK ${N}]"
 NOPE="[${R}FAIL${N}]"
 
-cat <<EOF > $TMPFILE
+listfiles() {
+    cat <<EOF > $TMPFILE
 ##
 ## Here is an auto-generated file for linking
 ## config file to your $home directory
@@ -27,27 +28,43 @@ cat <<EOF > $TMPFILE
 ##
 EOF
 
-echo "listing the whole directory"
-ls $PWD >> $TMPFILE
+    echo "listing the whole directory"
+    ls $PWD >> $TMPFILE
 
+    # Remove this script from the file list
+    sed -i "/`basename $0`/d" $TMPFILE
+}
+
+config() {
+# Edit the temporary file
 test -z "$EDITOR" && vi $TMPFILE || $EDITOR $TMPFILE
+}
 
-echo "simulating..."
+simulate() {
+# Print what's going to happen
+echo "the following files will be linked:"
 for f in `grep -v '^#' $TMPFILE`; do
   echo "~/.$f -> ${B}${PWD}/$f${N}"
 done
+}
 
-echo "attempting to link config file"
-echo
-read -p "Hit <Enter> to continue, <Ctrl-C> to abort..."
-for f in `grep -v '^#' $TMPFILE`; do
-  ln -s $PWD/$f ~/.$f 2>/dev/null
-  echo -n "${f} ... "
-  test -L ~/.$f && echo $OK || echo $NOPE
-done
+link() {
+    read -p "hit ^C to abort..."
+    for f in `grep -v '^#' $TMPFILE`; do
+      echo -n "${f} ... "
+      ln -s $PWD/$f ~/.$f 2>/dev/null && echo $OK || echo $NOPE
+    done
+}
 
-echo "removing temporary files"
-rm $TMPFILE
+clean() {
+    echo "removing temporary files"
+    rm $TMPFILE
+}
 
-echo "finished."
+test -f $TMPFILE || listfiles
+config
+simulate
+link
+clean
 
+exit 0

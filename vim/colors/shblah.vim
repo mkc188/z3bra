@@ -22,8 +22,9 @@ highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
 highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
 highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
 highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
-highlight DiffChange   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
-highlight DiffDelete   term=NONE cterm=bold ctermfg=1    ctermbg=NONE
+highlight DiffChange   term=NONE cterm=bold ctermfg=NONE ctermbg=NONE
+highlight DiffDelete   term=NONE cterm=bold ctermfg=7    ctermbg=1
+highlight DiffText     term=NONE cterm=bold ctermfg=7    ctermbg=4
 highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
@@ -64,6 +65,7 @@ syn match Cursor       "\"__Cursor.*"
 syn match CursorLine   "\"__CursorLine.*"
 syn match DiffAdd      "\"__DiffAdd.*"
 syn match DiffChange   "\"__DiffChange.*"
+syn match DiffText     "\"__DiffText.*"
 syn match DiffDelete   "\"__DiffDelete.*"
 syn match Folded       "\"__Folded.*"
 syn match Function     "\"__Function.*"
@@ -90,7 +92,8 @@ syn match Visual       "\"__Visual.*"
 "__Cursor               char under the cursor?
 "__CursorLine           Line where the cursor is
 "__DiffAdd              +line added from file.orig
-"__DiffChange           changed from file.org
+"__DiffChange           line changed from file.orig
+"__DiffText             actual changes on this line
 "__DiffDelete           -line removed from file.orig
 "__Folded               +--- 1 line : Folded line ---
 "__Function             function sblah()
