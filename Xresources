@@ -34,7 +34,7 @@ URxvt*foreground:#b3b4b1
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
-URxvt*geometry:             80x24
+URxvt*geometry:             68x20
 !URxvt*depth:                32
 URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -53,6 +53,14 @@ URxvt.keysym.M-v:           perl:keyboard-select:activate
 URxvt.colorIT:              #cacaca
 URxvt.colorBD:              #ede265
 URxvt.colorUL:              #ffffff
+
+! Terminal used for presentations
+catpoint*background:        [0]#000000
+catpoint*foreground:        #ffffff
+catpoint*depth:             32
+catpoint*font:              -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+catpoint*boldFont:          -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+catpoint*geometry:             80x24
 
 ! XTerm ---------------------------------------------------------
 
