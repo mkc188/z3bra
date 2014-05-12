@@ -84,6 +84,10 @@ nmap     <leader>l :echomsg line('.')<CR>
 nmap     <leader>s :echomsg line('$')<CR>
 nmap     <leader>f :echomsg expand('%:p')<CR>
 
+" Underline the current line with either a specific char
+nmap     <leader>= yyp:s/./=/g<CR>
+nmap     <leader>- yyp:s/./-/g<CR>
+
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
