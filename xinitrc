@@ -14,7 +14,8 @@ hsetroot -tile ~/usr/img/bg/default.jpg -brightness -0.2
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
 
 # Set bindings
-xbindkeys
+#xbindkeys
+sxhkd -c ~/.sxhkdrc >/dev/null 2> ~/var/log/sxhkd.log &
 
 # default cursor
 xsetroot -cursor_name left_ptr
