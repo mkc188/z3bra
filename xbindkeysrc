@@ -1,71 +1,30 @@
-# -- Application launchers ---------------------------------- {{{ --
-"urxvt"
-    Mod4 + Return
-#
-"dwb"
-    Mod4 + w
-#
-"~/bin/menu.sh"
-    Menu
-# ----------------------------------------------------------- }}} --
+mod4 + Return
+    urxvt
 
-# -- Volume management -------------------------------------- {{{ --
-"amixer set Master 5%+ unmute"
-    XF86AudioRaiseVolume
+mod4 + w
+    dwb
 
-"amixer set Master 5%- unmute"
-    XF86AudioLowerVolume
+Menu
+    ~/bin/menu
 
-"amixer set Master toggle"
-    XF86AudioMute
+XF86Audio{Raise,Lower}Volume
+    amixer set Master 5%{+,-} unmute; \
+    ~/bin/popup volumebar
 
-"~/bin/popup volumebar"
-    XF86AudioRaiseVolume
+XF86AudioMute
+    amixer set Master toggle; \
+    ~/bin/popup volumebar
 
-"~/bin/popup volumebar"
-    XF86AudioLowerVolume
+control + {Prior,Next,Home}
+    ~/bin/gamma.sh {up 0.25,down 0.25, reset}
 
-"~/bin/popup volumebar"
-    XF86AudioMute
-# ----------------------------------------------------------- }}} --
+XF86Audio{Play,Stop,Prev,Next,Mute}
+    mpc -h gavroche {toggle,stop,prev,next,pause}
 
-# -- Gamma management --------------------------------------- {{{ --
-"~/bin/gamma.sh up 0.25"
-    Control + Prior
+control + XF86Audio{Raise,Lower}Volume
+    mpc -h gavroche volume {+,-}10
 
-"~/bin/gamma.sh down 0.25"
-    Control + Next
-
-"~/bin/gamma.sh reset"
-    Control + Home
-# ----------------------------------------------------------- }}} --
-
-# -- mpc -h gavroche remote control ------------------------------------- {{{ --
-"mpc -h gavroche toggle"
-    XF86AudioPlay
-
-"mpc -h gavroche stop"
-    XF86AudioStop
-
-"mpc -h gavroche prev"
-    XF86AudioPrev
-
-"mpc -h gavroche next"
-    XF86AudioNext
-
-"mpc -h gavroche volume +10"
-    control + XF86AudioRaiseVolume
-
-"mpc -h gavroche volume -10"
-    control + XF86AudioLowerVolume
-
-"mpc -h gavroche pause"
-    XF86AudioMute
-# ----------------------------------------------------------- }}} --
-
-# -- Desktop control ---------------------------------------- {{{ --
-"xtrlock"
-    control + mod1 + l
-# ----------------------------------------------------------- }}} --
+control + mod1 + l
+    xtrlock
 
 # vim: set foldmethod=marker syntax=conf:
