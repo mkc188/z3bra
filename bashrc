@@ -174,6 +174,7 @@ alias v="vim"
 alias sv="EDITOR=vim sudo -e"
 
 alias vol="alsamixer"
+alias yg="youtube-dl -q -x -o '%(title).%(ext)'"
 
 # TMUX / DTACH
 alias t='tmux'

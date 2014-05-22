@@ -1,1 +1,33 @@
-/home/z3bra/etc/xbindkeysrc
+{mod4 + Return,XF86Calculator}
+    urxvt
+
+{mod4 + w,XF86HomePage}
+    dwb
+
+XF86Mail
+    urxvt -e mail
+
+Menu
+    ~/bin/menu
+
+XF86Audio{Raise,Lower}Volume
+    amixer set Master 5%{+,-} unmute; \
+    ~/bin/popup volumebar
+
+XF86AudioMute
+    amixer set Master toggle; \
+    ~/bin/popup volumebar
+
+control + {Prior,Next,Home}
+    ~/bin/gamma.sh {up 0.25,down 0.25, reset}
+
+XF86Audio{Play,Stop,Prev,Next,Mute}
+    mpc -h gavroche {toggle,stop,prev,next,pause}
+
+control + XF86Audio{Raise,Lower}Volume
+    mpc -h gavroche volume {+,-}10
+
+alt + l
+    xtrlock
+
+# vim: set foldmethod=marker syntax=conf:
