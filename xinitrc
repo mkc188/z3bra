@@ -12,7 +12,7 @@ hsetroot -tile ~/usr/img/bg/default.jpg
 
 # Set bindings
 #xbindkeys
-sxhkd -c ~/.sxhkdrc >/dev/null 2> ~/var/log/sxhkd.log &
+sxhkd -c ~/etc/sxhkdrc >/dev/null 2> ~/var/log/sxhkd.log &
 
 # default cursor
 xsetroot -cursor_name left_ptr
