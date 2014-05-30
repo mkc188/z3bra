@@ -74,6 +74,24 @@ sprunge() {
     curl -sF "sprunge=<${FILE}" http://sprunge.us
 }
 
+setwall() {
+    bgdir="$HOME/usr/img/bg"
+
+    test -z "$1" && return
+
+    # get screen dir
+    IFS='x ' read sw sh <<< `xrandr | awk '/*/ {print $1}'`
+
+    # get image dimensions (needs two lines because of IFS, no idea why)
+    IFS=' ' isize=`identify $1 | awk '{print $3}'`
+    IFS='x ' read iw ih <<< `echo $isize`
+
+    test $iw -lt $sw && mode='tile' || mode='fill'
+
+    ln -sf $1 ${bgdir}/default
+    hsetroot -${mode} ${bgdir}/default
+}
+
 thumbify() {
     if [ -f $1 ]; then
         cp $1 thumb/$1
@@ -155,10 +173,10 @@ alias :q="quit"
 alias cd..="cd .."
 alias fu='sudo `fc -n -l -1`'
 alias fuck='sudo `fc -n -l -1`'
+alias sv="EDITOR=vim sudo -e"
 
 # Make some output colorfull
 alias ls="ls --color=auto"
-
 alias grep="grep --color=auto"
 
 # some more ls aliases
@@ -169,23 +187,20 @@ alias l="ls -CF --color=auto"
 alias mtop="ps --no-header -eo pmem,size,vsize,comm | sort -nr | sed 10q"
 alias ctop="ps --no-header -eo pcpu,comm | sort -nr | sed 10q"
 
-## Applications
+# command shortner
+alias g='grep'
 alias v="vim"
-alias sv="EDITOR=vim sudo -e"
-
+alias t='tmux'
+alias btc="btcli -d ~/var/btp"
+alias csv='column -t -s\;'
 alias vol="alsamixer"
 alias yg="youtube-dl -q -x -o '%(title).%(ext)'"
 
-# TMUX / DTACH
-alias t='tmux'
+# reattach IRC session
 alias d='dtach -A ~/tmp/irssi.sk -e  irssi'
-
-# BTPD
-alias btc="btcli -d ~/var/btp"
 
 # crux specific
 alias deptree='prt-get deptree'
-alias install='prt-get depinst'
 alias update='prt-get update'
 alias pkgup='pkgadd -u'
 
@@ -198,7 +213,7 @@ if test -n "$DISPLAY"; then
 fi
 
 # HANDY RICKY SCRIPT
-alias rick="echo 'curl -L \'http://bit.ly/10hA8iC\' | bash'"
+alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
 alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
 # }}}
 
