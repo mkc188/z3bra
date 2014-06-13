@@ -37,7 +37,7 @@ colorscheme shblah " Theme & colors
 set encoding=utf-8  " Use UTF-8 for file/term encoding
 set wildmenu        " Use the wildmenu
 
-call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
+"call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 
 set statusline=─
 set laststatus=0 noruler " rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
@@ -93,7 +93,7 @@ command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.
 " }}}
 " AUTOCOMMANDS {{{
 au FileType             make set noet
-au Filetype             html ab -- &mdash;
+au Filetype             html ab --- &mdash;
 au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         *Xresources !xrdb %
