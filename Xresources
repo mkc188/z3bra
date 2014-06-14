@@ -4,30 +4,11 @@
 ! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ==============================================================
 
-! Terminal colors (dark) ---------------------------------------
-URxvt*background:#1d1d1d
-URxvt*foreground:#b3b4b1
-
-*color0:    #1d1d1d
-*color1:    #784742
-*color2:    #427363
-*color3:    #665847
-*color4:    #6a708b
-*color5:    #7a378b
-*color6:    #52707b
-*color7:    #b3b3b3
-
-*color8:    #4c4c4c
-*color9:    #d43f10
-*color10:   #cef318
-*color11:   #ede265
-*color12:   #6ac0fd
-*color13:   #ef79ae
-*color14:   #49d4dd
-*color15:   #ffffff
-
-*highlightColor:            #665847
-*highlightTextColor:        #ffffff
+! will throw an error, but it's required for the file to work on multiple
+! systems
+#include "/home/wgoiffon/etc/theme/bow"
+#include "/home/z3bra/etc/theme/bow"
+!#include "/home/z3bra/etc/theme/flashy"
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
@@ -35,12 +16,12 @@ URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             80x20
-!URxvt*depth:                32
-URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+!URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+!URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*font:                 -*-tamsyn-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-tamsyn-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
-URxvt*cursorColor:          #5c4c4c
 URxvt*internalBorder:       20
 URxvt*perl-ext-common:      default,url-select,keyboard-select
 URxvt.url-select.launcher:  /usr/bin/dwb
@@ -49,45 +30,40 @@ URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
 
-! Colored man pages
-URxvt.colorIT:              #cacaca
-URxvt.colorBD:              #ede265
-URxvt.colorUL:              #ffffff
-
 ! Terminal used for presentations
 catpoint*background:        [0]#000000
 catpoint*foreground:        #ffffff
 catpoint*depth:             32
-catpoint*font:              -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-catpoint*boldFont:          -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+catpoint*font:              -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1
+catpoint*boldFont:          -*-gohufont-medium-*-*--14-*-*-*-*-*-iso10646-1
 catpoint*geometry:             80x24
 
 ! XTerm ---------------------------------------------------------
 
-xterm*background:#ffffff
-xterm*foreground:#1d1d1d
-
-xterm*color0:    #1d1d1d
-xterm*color1:    #784742
-xterm*color2:    #427363
-xterm*color3:    #665847
-xterm*color4:    #6a708b
-xterm*color5:    #7a378b
-xterm*color6:    #52707b
-xterm*color7:    #b3b3b3
-
-xterm*color8:    #4c4c4c
-xterm*color9:    #d43f10
-xterm*color10:   #cef318
-xterm*color11:   #ede265
-xterm*color12:   #6ac0fd
-xterm*color13:   #ef79ae
-xterm*color14:   #49d4dd
-xterm*color15:   #1d1d1d
+!xterm*background:#ffffff
+!xterm*foreground:#1d1d1d
+!
+!xterm*color0:    #1d1d1d
+!xterm*color1:    #784742
+!xterm*color2:    #427363
+!xterm*color3:    #665847
+!xterm*color4:    #6a708b
+!xterm*color5:    #7a378b
+!xterm*color6:    #52707b
+!xterm*color7:    #b3b3b3
+!
+!xterm*color8:    #4c4c4c
+!xterm*color9:    #d43f10
+!xterm*color10:   #cef318
+!xterm*color11:   #ede265
+!xterm*color12:   #6ac0fd
+!xterm*color13:   #ef79ae
+!xterm*color14:   #49d4dd
+!xterm*color15:   #1d1d1d
 
 xterm*scrollBar:         false
-xterm*faceName:          gohufont
-xterm*faceSize:          14
+xterm*faceName:          dina
+xterm*faceSize:          10
 xterm*boldMode:          false
 xterm*cutNewline:        false
 xterm*on4Clicks:         group
