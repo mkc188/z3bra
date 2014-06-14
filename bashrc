@@ -74,24 +74,6 @@ sprunge() {
     curl -sF "sprunge=<${FILE}" http://sprunge.us
 }
 
-setwall() {
-    bgdir="$HOME/usr/img/bg"
-
-    test -z "$1" && return
-
-    # get screen dir
-    IFS='x ' read sw sh <<< `xrandr | awk '/*/ {print $1}'`
-
-    # get image dimensions (needs two lines because of IFS, no idea why)
-    IFS=' ' isize=`identify $1 | awk '{print $3}'`
-    IFS='x ' read iw ih <<< `echo $isize`
-
-    test $iw -lt $sw && mode='tile' || mode='fill'
-
-    ln -sf $1 ${bgdir}/default
-    hsetroot -${mode} ${bgdir}/default
-}
-
 thumbify() {
     if [ -f $1 ]; then
         cp $1 thumb/$1
