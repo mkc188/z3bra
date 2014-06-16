@@ -27,9 +27,6 @@ wm() {
     # watch mail directory for new mails
     # wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
 
-    # Compositing
-    xcompmgr || compton &
-
     # enable RGBA module for GTK
     # export GTK_MODULES=rgba
 
@@ -42,8 +39,9 @@ wm() {
         ~/bin/mkbar
     done | bar -f "$font" -B\#00000000 -b -g $((w - 20))x20+10+2 &
 
-    exec $1
+    $@ &
 
+    exec xcompmgr
 }
 
 function run() {
