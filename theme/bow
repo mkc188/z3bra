@@ -1,5 +1,5 @@
 *background:#eeeeee
-*foreground:#1d1d1d
+*foreground:#888888
 
 *color0:    #eeeeee
 *color1:    #666666
@@ -11,13 +11,13 @@
 *color7:    #888888
 
 *color8:    #bbbbbb
-*color9:    #222222
-*color10:   #222222
-*color11:   #222222
-*color12:   #222222
-*color13:   #222222
-*color14:   #222222
-*color15:   #000000
+*color9:    #6688bb
+*color10:   #6688bb
+*color11:   #6688bb
+*color12:   #6688bb
+*color13:   #6688bb
+*color14:   #6688bb
+*color15:   #111111
 
 URxvt*highlightColor:       #aaaaaa
 URxvt*highlightTextColor:   #000000

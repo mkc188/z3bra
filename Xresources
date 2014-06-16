@@ -4,9 +4,9 @@
 ! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ==============================================================
 
-! will throw an error, but it's required for the file to work on multiple
+! will throw an error, but it is required for the file to work on multiple
 ! systems
-#include "/home/wgoiffon/etc/theme/bow"
+!#include "/home/wgoiffon/etc/theme/bow"
 #include "/home/z3bra/etc/theme/bow"
 !#include "/home/z3bra/etc/theme/flashy"
 
@@ -18,8 +18,8 @@ URxvt*saveLines:            1024
 URxvt*geometry:             80x20
 !URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 !URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*font:                 -*-tamsyn-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-tamsyn-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-gohufont-medium-*-*--13-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*internalBorder:       20
