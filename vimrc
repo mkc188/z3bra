@@ -42,7 +42,7 @@ set wildmenu        " Use the wildmenu
 set statusline=─
 set laststatus=0 noruler " rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
-set list lcs=tab:│\ ,trail:⋅,nbsp:~
+set list lcs=tab:│\ ,trail:⋯,nbsp:~
 set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " }}}
 " FORMATTING {{{
