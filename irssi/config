@@ -267,7 +267,6 @@ statusbar = {
       };
       disabled = "yes";
     };
-    void_topic = { placement = "top"; position = "0"; };
     void_status = {
       placement = "top";
       items = { line_top = { }; };
@@ -328,12 +327,17 @@ settings = {
     completion_char = ",";
   };
   "perl/core/scripts" = {
-    awl_display_key = "%K$H $C $S";
-    awl_display_key_active = "$H %Y$C $S";
+    awl_display_key = "%K$H$C $S";
+    awl_display_key_active = "$H%Y$C $S";
     # awl_sort = "refnum";
     # awl_hide_data = "0";
     awl_placement = "top";
     awl_separator = "\\ ";
+    awl_block = "-10";
+    awl_columns = "1";
+    awl_height_adjust = "2";
+    awl_maxlines = "-2";
+    awl_prefer_name = "on";
   };
 };
 # }}}
@@ -426,6 +430,16 @@ windows = {
         chat_type = "IRC";
         name = "#blinkenshell";
         tag = "blink";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#morpheus";
+        tag = "oftc";
       }
     );
   };

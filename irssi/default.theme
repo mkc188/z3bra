@@ -225,7 +225,7 @@ abstracts = {
   #line_bottom   = "         %K ";
   #prompt = "%K$Z %Y> ";
   #prompt        = "         %K└─ ";
-  prompt        = "%W > %n";
+  prompt = "%W > %n";
 
   sb = "$*";
 
@@ -285,7 +285,7 @@ formats = {
     chanmode_change = "%K      %y>%K {channick $1}";
     server_chanmode_change = "%K       %y> %K: %n {channick $1}";
 
-    whois        = "%K       %K  %nwhos is $0 ? %K─────";
+    whois = "%K       %K  %nwhos is $0 ? %K─────";
     end_of_whois = "%K       %K  %nend of whois %K─────";
 
     own_action = "{action %Y$0}$1";
@@ -293,7 +293,7 @@ formats = {
     action_private_query = "{action %Y$0}$2";
     action_public = "{action %Y$0}$1";
 
-    topic =      "{msgnick %c$[-8]0}%Ntopic %W'$*'";
+    topic = "{msgnick %c$[-8]0}%Ntopic %W'$*'";
     topic_info = "{msgnick %c$[-8]C}%Nset by $0 %K($1)";
   };
   # }}}
