@@ -39,14 +39,14 @@ servers = (
     chatnet = "iotek";
     port = "6697";
     use_ssl = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "irc.oftc.net";
     chatnet = "oftc";
     port = "6697";
     use_ssl = "yes";
-    autoconnect = "no";
+    autoconnect = "yes";
   }
 );
 # }}}
@@ -346,7 +346,7 @@ hilights = (
 # }}}
 
 logs = { };
-ignores = ( );
+ignores = ( { mask = "bosko"; level = "ALL"; } );
 
 windows = {
   1 = {
