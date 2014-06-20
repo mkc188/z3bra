@@ -285,14 +285,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      placement = "top";
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 # }}}
@@ -333,7 +325,7 @@ settings = {
     # awl_hide_data = "0";
     awl_placement = "top";
     awl_separator = "\\ ";
-    awl_block = "-10";
+    awl_block = "-7";
     awl_columns = "1";
     awl_height_adjust = "2";
     awl_maxlines = "-2";
