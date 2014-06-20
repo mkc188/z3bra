@@ -264,7 +264,7 @@ formats = {
 
     own_msg = "{msgnick $[-8]0}$1";
     own_msg_channel = "{msgnick $[-8]0}{msgchannel $1}}$2";
-    own_msg_private_query = "  $1";
+    own_msg_private_query = "$1";
 
     pubmsg_me = "{msgnick $[-8]0}%Y$1";
     pubmsg_me_channel = "{msgnick $[-8]0}{msgchannel $1}}$2";
