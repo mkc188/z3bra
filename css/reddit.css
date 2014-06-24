@@ -225,10 +225,7 @@ img#header-img { /* Logo */
 #sr-header-area li a:hover { color: #2288cc !important; }
 #sr-header-area li.selected a { color: #2288cc !important; }
 
-#sr-header-area .dropdown { /* Hide "My Subreddits" */
-    display: none !important;
-}
-
+body.messages-page #sr-header-area { display: none !important; }
 
 /*
   _____          _       

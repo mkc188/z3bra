@@ -11,12 +11,12 @@
 *color7:    #888888
 
 *color8:    #bbbbbb
-*color9:    #6688bb
-*color10:   #6688bb
-*color11:   #6688bb
-*color12:   #6688bb
-*color13:   #6688bb
-*color14:   #6688bb
+*color9:    #2288cc
+*color10:   #2288cc
+*color11:   #2288cc
+*color12:   #2288cc
+*color13:   #2288cc
+*color14:   #2288cc
 *color15:   #111111
 
 URxvt*highlightColor:       #aaaaaa
