@@ -1,6 +1,4 @@
-## SERVERS
-servers = (
-  # {{{
+servers = ( # {{{
   {
     address = "irc.quakenet.org";
     chatnet = "qnet";
@@ -50,10 +48,7 @@ servers = (
   }
 );
 # }}}
-
-## COMMANDS
-chatnets = {
-  # {{{
+chatnets = { # {{{
   fnode = {
     type = "IRC";
     nick = "z3bra";
@@ -75,10 +70,7 @@ chatnets = {
   oftc = { type = "IRC"; };
 };
 # }}}
-
-## CHANNELS
-channels = (
-  # {{{
+channels = ( # {{{
   { name = "#defrag-france"; chatnet = "qnet"; autojoin = "Yes"; },
   { name = "#nixers"; chatnet = "nixers"; autojoin = "Yes"; },
   { name = "#vim-fr"; chatnet = "fnode"; autojoin = "Yes"; },
@@ -91,10 +83,7 @@ channels = (
   { name = "#morpheus"; chatnet = "oftc"; autojoin = "Yes"; }
 );
 # }}}
-
-## ALIASES
-aliases = {
-  # {{{
+aliases = { # {{{
   J = "join";
   WJOIN = "join -window";
   WQUERY = "query -window";
@@ -148,10 +137,15 @@ aliases = {
   CHEZWAM = "say http://chezmoicamarche.com";
 };
 # }}}
-
-## STATUSBAR
-statusbar = {
-  # {{{
+keyboard = ( # {{{
+  { key = "meta-A"; id = "change_window"; data = "11"; },
+  { key = "meta-Z"; id = "change_window"; data = "12"; },
+  { key = "meta-E"; id = "change_window"; data = "13"; },
+  { key = "meta-R"; id = "change_window"; data = "14"; },
+  { key = "meta-T"; id = "change_window"; data = "15"; }
+);
+# }}}
+statusbar = { # {{{
   # formats:
   # when using {templates}, the template is shown only if it's argument isn't
   # empty unless no argument is given. for example {sb} is printed always,
@@ -285,13 +279,18 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 # }}}
-
-## FORMAT
-settings = {
-  # {{{
+settings = { # {{{
   core = {
     real_name = "z3bra";
     user_name = "z-brah";
@@ -333,18 +332,11 @@ settings = {
   };
 };
 # }}}
-
-## HILIGHTS
-hilights = (
-  # {{{
+hilights = ( # {{{
   { text = "z3bra"; nick = "yes"; word = "no"; }
 );
 # }}}
-
-logs = { };
-ignores = ( { mask = "bosko"; level = "ALL"; } );
-
-windows = {
+windows = { # {{{
   1 = {
     items = (
       {
@@ -436,4 +428,4 @@ windows = {
     );
   };
 };
-keyboard = ( { key = "et"; id = "command"; data = "usr/bin :)"; } );
+# }}}
