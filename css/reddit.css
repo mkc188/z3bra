@@ -379,8 +379,15 @@ div.side:hover {
     color: #c69195 !important;
 }
 
+.md h1 {
+    visibility: visible !important;
+    font-size: 120% !important;
+    font-weight: bold !important;
+    color: #888 !important;
+}
+
 .md pre code{ /* Code blocks */
-    font-family: "Tewi" !important;
+    font-family: monospace !important;
     display: inline-block !important; /* important */
     white-space: pre-wrap !important; /* allows code to wrap */
     background: #efefef !important;
