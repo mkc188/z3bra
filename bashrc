@@ -117,7 +117,7 @@ say () {
 
 # get a short definition from wikipedia
 wiki () {
-    dig +short "$*".wp.dg.cx
+    dig +short txt "$*".wp.dg.cx
 }
 
 # consult vim's help
