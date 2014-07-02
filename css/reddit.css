@@ -22,7 +22,7 @@ p {
 }
 
 .content { /* fix margin above posts / comments etc */
-    margin-top: 40px !important;
+    margin-top: 70px !important;
 }
 
 .midcol {
@@ -89,7 +89,7 @@ p {
 */
 
 .front-page .content {
-    margin-top: 50px !important;
+    margin-top: 80px !important;
 }
 
 .front-page .tabmenu { /* fix alignment */
@@ -98,17 +98,17 @@ p {
 }
 
 .font-page #header{ /* Bar @ top */
-    top: -105px !important;
+    top: -75px !important;
     background: #efefef !important;
     position: fixed !important;
     height:130px !important;
     width:100%!important;
-    margin: 0 0 -20px 0 !important;
+    margin: 0 0 20px 0 !important;
     border: none !important;
     box-shadow: 0 2px 2px #afafaf !important;
 }
 .front-page #header:hover{
-    top: -55px !important;
+    top: -75px !important;
 }
 
 .front-page { /* Adds room to top of posts for the bar */
@@ -117,7 +117,7 @@ p {
 }
 
 .front-page .side{ /* fix alignment */
-    margin-top: 10px !important;
+    margin-top: 40px !important;
 }
 /* 
   _    _                _           
@@ -144,7 +144,7 @@ p {
 }
 
 #header { /* Bar @ top */
-    top: -105px !important;
+    top: -75px !important;
     background: #efefef !important;
     position: fixed !important;
     height:130px !important;
@@ -284,7 +284,7 @@ div.side { /* Actual Sidebar */
     background: #fafafa !important;
     transition: 0.5s ease all 0.5s!important;
     opacity: 0 !important;
-    top: 25px !important;
+    top: 55px !important;
     right: -325px !important;
     float: left !important;
     position: absolute !important;
