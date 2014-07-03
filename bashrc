@@ -37,7 +37,7 @@ complete -cf pgrep
 ## FUNCTIONS {{{
 
 monit() {
-    test $# -lt 1 && exit 1
+    test $# -lt 1 && return 1
     ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
 }
 
@@ -109,11 +109,18 @@ ttycolors() {
     fi
 }
 
+# my computer is talking
 say () {
     uri='http://translate.google.com/translate_tts?tl=en&q='
-    mplayer -really-quiet "${uri}$*"
+    mpv -really-quiet "${uri}$*"
 }
 
+# get a short definition from wikipedia
+wiki () {
+    dig +short txt "$*".wp.dg.cx
+}
+
+# consult vim's help
 :h () {
     vim +"h $1" +only +'map q ZQ'
 }

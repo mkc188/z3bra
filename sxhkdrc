@@ -12,11 +12,11 @@ Menu
 
 XF86Audio{Raise,Lower}Volume
     amixer set Master 5%{+,-} unmute; \
-    ~/bin/popup volumebar
+    ~/bin/popup -t volume volumebar
 
 XF86AudioMute
     amixer set Master toggle; \
-    ~/bin/popup volumebar
+    ~/bin/popup -t volume volumebar
 
 control + {Prior,Next,Home}
     ~/bin/gamma.sh {up 0.25,down 0.25, reset}

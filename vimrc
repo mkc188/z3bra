@@ -88,6 +88,14 @@ nmap     <leader>f :echomsg expand('%:p')<CR>
 nmap     <leader>= yyp:s/./=/g<CR>
 nmap     <leader>- yyp:s/./-/g<CR>
 
+" comment out lines
+nmap    <leader># I# <ESC>
+nmap    <leader>/ I/* <ESC>A */<ESC>
+
+" same for blocks
+vmap    <leader># :s/^\s*/&# /<CR>
+vmap    <leader>/ <ESC>'<O/*<ESC>'>o */<ESC>:'<,'>s/^\s*/& * /<CR>
+
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
@@ -142,7 +150,7 @@ endfu
 " Toggle between make and cc for compiling with :make
 fu! ToggleCCompiler()
     if &makeprg =~ '^make*$'
-        set makeprg=cc\ -o\ %<.out\ %\ -Wall
+        set makeprg=tcc\ -o\ %<.out\ %\ -Wall
     else
         set makeprg=make
     endif
