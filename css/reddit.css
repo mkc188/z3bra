@@ -16,6 +16,7 @@ p {
 #sr-more-link,
 .trending-subreddits,
 .debuginfo,
+.dropdown,
 .commentarea .title,
 .next-suggestions {
     display: none !important;
@@ -220,6 +221,8 @@ img#header-img { /* Logo */
     border: 0 !important;
     box-shadow: none !important;
 }
+
+span.separator { opacity: 0 !important; }
 
 #sr-header-area li a:link  { color: #888888 !important; }
 #sr-header-area li a:hover { color: #2288cc !important; }
