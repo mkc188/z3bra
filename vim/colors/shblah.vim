@@ -25,6 +25,8 @@ highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
 highlight DiffChange   term=NONE cterm=bold ctermfg=NONE ctermbg=NONE
 highlight DiffDelete   term=NONE cterm=bold ctermfg=7    ctermbg=1
 highlight DiffText     term=NONE cterm=bold ctermfg=7    ctermbg=4
+highlight Directory    term=NONE cterm=bold ctermfg=4    ctermbg=0
+highlight ErrorMsg     term=NONE cterm=bold ctermfg=1    ctermbg=0
 highlight FoldColumn   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Folded       term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Function     term=NONE cterm=bold ctermfg=7    ctermbg=NONE
@@ -44,8 +46,10 @@ highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
 highlight TabLineSel   term=NONE cterm=bold ctermfg=7    ctermbg=NONE
 highlight Todo         term=NONE cterm=bold ctermfg=7    ctermbg=1
 highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
+highlight Underlined   term=underline cterm=underline ctermfg=NONE   ctermbg=NONE
 highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=3
+highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=8
+highlight WarningMsg   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
 
 " General highlighting group links.
 highlight! link diffAdded       DiffAdd
@@ -54,6 +58,8 @@ highlight! link diffChanged     DiffChange
 highlight! link StatusLineNC    StatusLine
 highlight! link Title           Normal
 highlight! link LineNr          NonText
+highlight! link MoreMsg         Normal
+highlight! link Question        DiffChange
 highlight! link TabLine         StatusLineNC
 highlight! link TabLineFill     StatusLineNC
 highlight! link VimHiGroup      VimGroup
@@ -84,6 +90,7 @@ syn match StatusLineNC "\"__StatusLineNC.*"
 syn match String       "\"__String.*"
 syn match Todo         "\"__Todo.*"
 syn match Type         "\"__Type.*"
+syn match Underlined   "\"__Underlined.*"
 syn match VertSplit    "\"__VertSplit.*"
 syn match Visual       "\"__Visual.*"
 
@@ -112,5 +119,6 @@ syn match Visual       "\"__Visual.*"
 "__String               "Hello, World!"
 "__Todo                 TODO: remove todos from source
 "__Type                 int float char void unsigned uint32_t
+"__Underlined           Anything underlined
 "__VertSplit            :vsplit will only show ' | '
 "__Visual               Selected text looks like this

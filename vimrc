@@ -37,12 +37,12 @@ colorscheme shblah " Theme & colors
 set encoding=utf-8  " Use UTF-8 for file/term encoding
 set wildmenu        " Use the wildmenu
 
-call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
+"call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 
 set statusline=─
 set laststatus=0 noruler " rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
-set list lcs=tab:│\ ,trail:⋅,nbsp:~
+set list lcs=tab:│\ ,trail:⋯,nbsp:~
 set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " }}}
 " FORMATTING {{{
@@ -88,12 +88,20 @@ nmap     <leader>f :echomsg expand('%:p')<CR>
 nmap     <leader>= yyp:s/./=/g<CR>
 nmap     <leader>- yyp:s/./-/g<CR>
 
+" comment out lines
+nmap    <leader># I# <ESC>
+nmap    <leader>/ I/* <ESC>A */<ESC>
+
+" same for blocks
+vmap    <leader># :s/^\s*/&# /<CR>
+vmap    <leader>/ <ESC>'<O/*<ESC>'>o */<ESC>:'<,'>s/^\s*/& * /<CR>
+
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
 " }}}
 " AUTOCOMMANDS {{{
 au FileType             make set noet
-au Filetype             html ab -- &mdash;
+au Filetype             html ab --- &mdash;
 au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
 au BufWritePost         *Xresources !xrdb %
@@ -142,7 +150,7 @@ endfu
 " Toggle between make and cc for compiling with :make
 fu! ToggleCCompiler()
     if &makeprg =~ '^make*$'
-        set makeprg=cc\ -o\ %<.out\ %\ -Wall
+        set makeprg=tcc\ -o\ %<.out\ %\ -Wall
     else
         set makeprg=make
     endif

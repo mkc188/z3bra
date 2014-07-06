@@ -1,0 +1,184 @@
+// jmbi's css 
+
+.postbottom{
+    border-top: 1px hidden #f0f0f0 !important;
+}
+
+.post_content {
+    border-top: 1px solid #e7e7e7;
+}
+
+#guesthead{
+       border-top: none !important;
+}
+
+.post_management_buttons > a > input{
+     background-color: #f0f0f0 !important;
+     margin-top: 3px !important;
+}
+
+fieldset {
+    border: 1px solid #d3d3d3;
+}
+
+.membertable{
+        border: none !important;
+        font-size: 14px !important; 
+        color: #666 !important;
+        background: #f5f5f5 !important;
+        border-collapse: collapse !important;
+        border-color: none !important;
+}
+
+body {
+        font-family: Helvetica !important;
+        background-color: #eeeeee !important;
+        color: #666666 !important;
+}
+
+#container {
+        color: #444 !important;
+        font-size: 14px !important;
+}
+
+#header {
+        background-color: #FFFFFF !important;
+}
+
+#infobar {
+        background-color: #2d2e2e;
+        background-color: #e8e8e8 !important;
+        border-bottom: 1px solid #d3d3d3 !important;
+        width: 100%;
+        margin: auto;
+}
+
+#nixerlogo {
+    display: inline;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1px;
+}
+
+#navcontainer {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25px;
+}
+
+#navlinks {
+    display: inline; 
+    float: right; 
+    margin-top: 5px;
+}
+
+a:visited {
+        text-shadow: none !important; 
+        color: #dddddd !important;
+}
+
+a:link {
+        text-shadow: none !important;
+        color: #888888 !important;
+}
+
+
+a:hover {
+        background-color: none !important;
+        color: #2288cc !important;
+}
+
+#sep{
+        color: rgb(206, 206, 206) !important;
+}
+
+.tcat {
+        color: #555 !important;
+        text-shadow: none !important;
+        background: #e8e8e8 !important;
+        border-bottom: 1px solid #d3d3d3 !important;
+}
+
+.trow1 {
+        background: #f5f5f5 !important;
+        border-bottom: 1px solid #d3d3d3 !important;
+}
+
+.trow2 {
+        background: #f5f5f5 !important;
+        border-bottom: 1px solid #d3d3d3 !important;
+}
+
+.posttop {
+        border: none !important;
+}
+
+.thead, .tfoot {
+        background: #e8e8e8 !important;
+    color: #666 !important;
+}
+
+table {
+    font-size: 14px; 
+    color: #666;
+    background-color: #f5f5f5;
+    background: #f5f5f5;
+    border-collapse: collapse;
+    border: 1px solid #d3d3d3;
+    border-color: #d3d3d3;
+}
+
+div.name_topic {
+        background-color: #e8e8e8 !important;
+        border: 1px solid #d3d3d3 !important;
+        color: #666;
+}
+
+hr {
+        border: 0;
+        border-bottom: 1px dashed #d3d3d3;
+        background: #f5f5f5;
+        width: 100%;
+}
+
+input[type="submit"], input[type="button"], input[type="checkbox"] {
+        background-color: #e8e8e8 !important;
+        color: #666 !important;
+        border: 0 !important;
+        outline: none !important;
+}
+
+blockquote {
+        background-color: #e8e8e8 !important; 
+    border: 1px solid #d3d3d3 !important;
+    outline: none !important;
+    max-width: inherit !important;
+}
+
+
+blockquote cite {
+        border-bottom: 1px dashed #d3d3d3 !important; 
+    text-shadow: none !important;
+}
+
+textarea {
+        background-color: #e8e8e8 !important; 
+    border-color: #d3d3d3 !important;
+    border: 1px solid #d3d3d3 !important; 
+    color: #555 !important;
+}
+
+select {
+        background-color: #e8e8e8 !important; 
+    color: #666 !important;
+}
+
+.pagination a:hover {
+        background: none !important;
+}
+
+.subject_new, a.subject_new {
+       color: #2288cc !important;
+}

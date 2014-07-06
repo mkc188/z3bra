@@ -5,7 +5,7 @@
 
 # Set wallpaper
 #hsetroot -solid \#333333
-hsetroot -tile ~/usr/img/bg/default.jpg
+~/bin/setwall ~/usr/img/bg/default.jpg
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
@@ -27,9 +27,6 @@ wm() {
     # watch mail directory for new mails
     # wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
 
-    # Compositing
-    xcompmgr || compton &
-
     # enable RGBA module for GTK
     # export GTK_MODULES=rgba
 
@@ -42,8 +39,9 @@ wm() {
         ~/bin/mkbar
     done | bar -f "$font" -B\#00000000 -b -g $((w - 20))x20+10+2 &
 
-    exec $1
+    $@ &
 
+    exec xcompmgr
 }
 
 function run() {

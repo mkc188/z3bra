@@ -37,7 +37,7 @@ complete -cf pgrep
 ## FUNCTIONS {{{
 
 monit() {
-    test $# -lt 1 && exit 1
+    test $# -lt 1 && return 1
     ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
 }
 
@@ -72,24 +72,6 @@ sprunge() {
     test -z $1 && FILE='-' || FILE=$1
 
     curl -sF "sprunge=<${FILE}" http://sprunge.us
-}
-
-setwall() {
-    bgdir="$HOME/usr/img/bg"
-
-    test -z "$1" && return
-
-    # get screen dir
-    IFS='x ' read sw sh <<< `xrandr | awk '/*/ {print $1}'`
-
-    # get image dimensions (needs two lines because of IFS, no idea why)
-    IFS=' ' isize=`identify $1 | awk '{print $3}'`
-    IFS='x ' read iw ih <<< `echo $isize`
-
-    test $iw -lt $sw && mode='tile' || mode='fill'
-
-    ln -sf $1 ${bgdir}/default
-    hsetroot -${mode} ${bgdir}/default
 }
 
 thumbify() {
@@ -127,11 +109,18 @@ ttycolors() {
     fi
 }
 
+# my computer is talking
 say () {
     uri='http://translate.google.com/translate_tts?tl=en&q='
-    mplayer -really-quiet "${uri}$*"
+    mpv -really-quiet "${uri}$*"
 }
 
+# get a short definition from wikipedia
+wiki () {
+    dig +short txt "$*".wp.dg.cx
+}
+
+# consult vim's help
 :h () {
     vim +"h $1" +only +'map q ZQ'
 }
