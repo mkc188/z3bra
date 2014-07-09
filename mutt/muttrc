@@ -47,10 +47,13 @@ set sidebar_shortpath = yes                     # fix first char column
 
 mailboxes   +INBOX      \
             +--[maillist]-----------------------\
+            +crux       \
             +vim-fr     \
             +--[folders]------------------------\
             +dev        \
             +jobs       \
+            +help       \
+            +blog       \
             +isfen      \
             +stuffs     \
             +paperwork  \
