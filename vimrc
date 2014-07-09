@@ -42,7 +42,7 @@ set wildmenu        " Use the wildmenu
 set statusline=─
 set laststatus=0 noruler " rulerformat=%-28(%=%M%H%R\ %t%<\ %l,%c%V%8(%)%P%)
 
-set list lcs=tab:│\ ,trail:⋯,nbsp:~
+set list lcs=tab:│\ ,nbsp:¬
 set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " }}}
 " FORMATTING {{{
@@ -53,6 +53,7 @@ set softtabstop=4       " Do your best, but I want 4 spaces
 
 set lbr                 " enable line break
 set sbr=>               " line break indicator
+set cinoptions={1s,f1s  " whitesmith C style indentation
 
 set splitright          " Open vsplits on the right
 set foldmethod=syntax   " Define how to fold files in general
