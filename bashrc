@@ -166,7 +166,7 @@ alias sv="EDITOR=vim sudo -e"
 
 # Make some output colorfull
 alias ls="ls --color=auto"
-alias grep="grep --color=auto"
+#alias grep="grep --color=auto"
 
 # some more ls aliases
 alias ll="ls -alhF --color=auto"
