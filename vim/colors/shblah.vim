@@ -48,7 +48,7 @@ highlight Todo         term=NONE cterm=bold ctermfg=7    ctermbg=1
 highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
 highlight Underlined   term=underline cterm=underline ctermfg=NONE   ctermbg=NONE
 highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-highlight Visual       term=NONE cterm=bold ctermfg=7    ctermbg=8
+highlight Visual       term=NONE cterm=bold ctermfg=0    ctermbg=7
 highlight WarningMsg   term=NONE cterm=bold ctermfg=3    ctermbg=NONE
 
 " General highlighting group links.
