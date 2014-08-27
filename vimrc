@@ -36,6 +36,7 @@ colorscheme shblah " Theme & colors
 
 set encoding=utf-8  " Use UTF-8 for file/term encoding
 set wildmenu        " Use the wildmenu
+set modeline        " Use modeline, also
 
 "call matchadd('ColorColumn', '\%81v', 100) " show column 80 ONLY when necessary
 

@@ -19,7 +19,7 @@ URxvt*geometry:             80x20
 !URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 !URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-gohufont-medium-*-*--13-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*internalBorder:       20
