@@ -10,7 +10,7 @@ color status  brightyellow default
 color tree black default
 color normal brightblack default
 color markers red default
-color search black default
+color search black brightblue
 color tilde brightmagenta default
 color sidebar_new brightyellow default
 
