@@ -89,28 +89,6 @@ thumbify() {
     fi
 }
 
-ttycolors() {
-    if [ "$TERM" = "linux" ]; then
-        echo -en "\e]P0222222" #black    -> also the background
-        echo -en "\e]P18b3e2f" #darkred
-        echo -en "\e]P2526f33" #darkgreen
-        echo -en "\e]P38b814c" #brown
-        echo -en "\e]P44a708b" #darkblue
-        echo -en "\e]P57a378b" #darkmagenta
-        echo -en "\e]P6528b8b" #darkcyan
-        echo -en "\e]P7e8e9ca" #lightgray
-        echo -en "\e]P8666666" #darkgray
-        echo -en "\e]P9d75f00" #red
-        echo -en "\e]PA8ea433" #green
-        echo -en "\e]PBeee685" #yellow
-        echo -en "\e]PC9ac0cd" #blue
-        echo -en "\e]PD9f79ee" #magenta
-        echo -en "\e]PE79cdcd" #cyan
-        echo -en "\e]PFffffff" #white   -> also the foreground
-        clear #for background artifacting
-    fi
-}
-
 # my computer is talking
 say () {
     uri='http://translate.google.com/translate_tts?tl=en&q='
