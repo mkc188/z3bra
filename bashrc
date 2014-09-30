@@ -14,15 +14,17 @@ fg=('\[\e[0;30m\]' '\[\e[0;31m\]' '\[\e[0;32m\]' '\[\e[0;33m\]'
     '\[\e[1;34m\]' '\[\e[1;35m\]' '\[\e[1;36m\]' '\[\e[1;37m\]')
 nofg='\[\e[0m\]'
 
-#MIN=1
+PS1=''
+
+#MIN=8
 #MAX=15
 #RANDOM_COLOR=$(( $MIN+(`od -An -N2 -i /dev/random` )%($MAX-$MIN+1) ))
 #fd=${fg[$RANDOM_COLOR]}
-fd=${fg[15]}
 
-PS1=''
-test -n "$SSH_CLIENT" && PS1="${fg[8]} $(hostname|cut -b-1) ${fd}"
-export PS1="${fd}─$PS1──${nofg} "
+test -n "$SSH_CLIENT" && PS1="${fg[8]}$(hostname|cut -b 1-3)"
+
+fd=${fg[15]}
+export PS1="${PS1}${fd}_ ${nofg}"
 
 # use auto-completion after those words
 complete -cf sudo
