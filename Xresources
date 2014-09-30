@@ -7,8 +7,8 @@
 ! will throw an error, but it is required for the file to work on multiple
 ! systems
 !#include "/home/wgoiffon/etc/theme/bow"
-#include "/home/z3bra/etc/theme/bow"
-!#include "/home/z3bra/etc/theme/flashy"
+!#include "/home/z3bra/etc/theme/bow"
+#include "/home/z3bra/etc/theme/flashy"
 
 ! URxvt (rxvt-unicode) -----------------------------------------
 
