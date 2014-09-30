@@ -5,13 +5,11 @@
 
 # Set wallpaper
 #hsetroot -solid \#333333
-~/bin/setwall ~/usr/img/bg/default.jpg
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
 
 # Set bindings
-#xbindkeys
 sxhkd -c ~/etc/sxhkdrc >/dev/null 2> ~/var/log/sxhkd.log &
 
 # default cursor
@@ -44,17 +42,6 @@ wm() {
     exec xcompmgr
 }
 
-function run() {
-    # start specified app
-    exec $@
-}
+test -z "$@" && wm $@
 
-test -z $1 && wm 2bwm
-
-case $1 in
-    steam)          run steam;;
-    defrag)         run ioquake3;;
-    teeworlds)      run teeworlds;;
-    sauerbraten)    run sauerbraten-client;;
-    *) wm $1;;
-esac
+wm 2bwm
