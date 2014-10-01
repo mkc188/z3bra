@@ -188,7 +188,7 @@ alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
 
 ## TWEAKS {{{
 # change tty colors
-ttycolors
+which ttycolors >/dev/null 2>&1 && ttycolors
 # }}}
 
 # vim: fdm=marker:
