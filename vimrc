@@ -77,7 +77,7 @@ vnoremap < <gv
 vnoremap <C-a> :call Incr()<CR>
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
-nnoremap <leader>d :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>g :cd %:p:h<CR>:pwd<CR>
 nnoremap <leader>h :find %:t:s,.c,.ga,:s,.h,.c,:s,.ga,.h,<CR>
 map      <leader>w :let &textwidth = &tw == 0 ? 80 : 0<CR>:set tw<CR>
 nmap     <leader>c :call ToggleCCompiler()<CR>
