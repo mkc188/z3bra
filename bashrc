@@ -47,7 +47,7 @@ musage() {
     mem_total=$(free -m |sed -n '2p'| awk '{print $2}')
     mem_used=$(free -m |sed -n '3p'|awk '{print $3}')
 
-    echo "$((${mem_total} / ${mem_used}))%"
+    echo "$((100 * ${mem_used} / ${mem_total}))%"
 }
 
 cusage() {
