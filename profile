@@ -1,5 +1,5 @@
 export PATH=$PATH:/sbin:/usr/sbin:~/bin:.
-export MAIL=$HOME/var/mail/INBOX
+export MAIL=$HOME/var/mail/inbox
 export PAGER=less
 export EDITOR=vim
 export MPD_HOST=gavroche
