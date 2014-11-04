@@ -49,13 +49,17 @@ mailboxes   +INBOX      \
             +--[maillist]-----------------------\
             +crux       \
             +vim-fr     \
+            +--[robots]-------------------------\
+            +backups    \
             +--[folders]------------------------\
             +dev        \
             +jobs       \
             +help       \
             +blog       \
             +isfen      \
+            +events     \
             +stuffs     \
+            +friends    \
             +accounts   \
             +paperwork  \
             +purchase   \
