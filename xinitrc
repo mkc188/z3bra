@@ -5,7 +5,7 @@
 
 # Set wallpaper
 #hsetroot -solid \#1d1d1d
-hsetroot -tile ~/usr/img/bg/tile/scotland.gif
+hsetroot -tile ~/usr/img/bg/tile/camo.jpg
 
 # girl just wanna have fun
 #xantfarm -num 4 -air '#2c2c2c' -ant '#cdf318' -sand '#665847' &
@@ -32,8 +32,6 @@ wm() {
     icon="-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*"
     font="*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
 
-    export w h icon font
-
     echo | bar -p -B\#ff1d1d1d -g $((w - 20))x32+10+10 & sleep 0.1
     echo | bar -p -B\#ff4c4c4c -g $((w - 26))x26+13+13 & sleep 0.1
 
@@ -43,7 +41,7 @@ wm() {
 
     $@ &
 
-    exec xcompmgr
+    exec xwait
 }
 
 test -z "$@" && wm 2bwm
