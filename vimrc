@@ -49,12 +49,12 @@ set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " FORMATTING {{{
 set smartindent         " smart indent (also toggle autoident on)
 set expandtab           " convert tabs into space
-set shiftwidth=4        " indentation is 4 spaces
-set softtabstop=4       " Do your best, but I want 4 spaces
+set shiftwidth=8        " indentation is 4 spaces
+set softtabstop=8       " Do your best, but I want 4 spaces
 
 set lbr                 " enable line break
 set sbr=>               " line break indicator
-set cinoptions={1s,f1s  " whitesmith C style indentation
+"set cinoptions={1s,f1s  " whitesmith C style indentation
 
 set splitright          " Open vsplits on the right
 set foldmethod=syntax   " Define how to fold files in general
@@ -142,7 +142,9 @@ endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
-    if strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
+    if strpart(getline('.'), 0, col('.'))  =~ '^\t*$'
+        return "\<C-V>\<Tab>"
+    elseif strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
         return "\<Tab>"
     else
         return "\<C-N>"
