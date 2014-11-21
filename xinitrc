@@ -16,7 +16,7 @@ sxhkd -c ~/etc/sxhkdrc >/dev/null 2> /dev/null &
 # default cursor
 xsetroot -cursor_name left_ptr
 
-wm() {
+run() {
     # Load X resources
     xrdb -I$HOME/etc/theme -load ~/etc/Xresources
 
@@ -27,23 +27,22 @@ wm() {
     # wendy -m 256 -f ~/var/mail/INBOX/new/ -t 500 -e beep &
 
     # get screen size
-    IFS='x' read w h <<< "$(xrandr | awk '/\*/ {print $1}')"
+    #IFS='x' read w h <<< "$(xrandr | awk '/\*/ {print $1}')"
 
-    icon="-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*"
-    font="*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
+    #icon="-*-stlarch-medium-*-*--10-*-*-*-*-*-*-*"
+    #font="*-gohufont-medium-*-*--11-*-*-*-*-*-iso10646-1"
 
-    echo | bar -p -B\#ff1d1d1d -g $((w - 20))x32+10+10 & sleep 0.1
-    echo | bar -p -B\#ff4c4c4c -g $((w - 26))x26+13+13 & sleep 0.1
+    #echo | bar -p -B\#ff1d1d1d -g $((w - 20))x32+10+10 & sleep 0.1
+    #echo | bar -p -B\#ff4c4c4c -g $((w - 26))x26+13+13 & sleep 0.1
 
-    while :; do
-        ~/bin/mkbar
-    done | bar -f "$icon,$font" -B\#ff1d1d1d -g $((w - 30))x22+15+15 &
+    #while :; do
+    #    ~/bin/mkbar
+    #done | bar -f "$icon,$font" -B\#ff1d1d1d -g $((w - 30))x22+15+15 &
 
+    gm &
     $@ &
 
     exec xwait
 }
 
-test -z "$@" && wm 2bwm
-
-wm $@
+run swm
