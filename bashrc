@@ -23,8 +23,8 @@ PS1=''
 
 test -n "$SSH_CLIENT" && PS1="${fg[8]}$(hostname|cut -b 1-3)"
 
-fd=${fg[15]}
-export PS1="${PS1}${fd}_ ${nofg}"
+fd=${fg[9]}
+export PS1="${PS1}${fd}% ${nofg}"
 
 # use auto-completion after those words
 complete -cf sudo
@@ -42,29 +42,6 @@ monit() {
     test $# -lt 1 && return 1
     ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
 }
-
-musage() {
-    mem_total=$(free -m |sed -n '2p'| awk '{print $2}')
-    mem_used=$(free -m |sed -n '3p'|awk '{print $3}')
-
-    echo "$((100 * ${mem_used} / ${mem_total}))%"
-}
-
-cusage() {
-    total="0"
-    perc=`ps --no-header -eo pcpu | grep -v '0.0'`
-
-    for p in $perc; do 
-        total=`echo $total + $p | bc`;
-    done
-
-    echo "$total%"
-}
-
-start()    { for s in $@; do sudo /etc/rc.d/$s start; done   }
-stop()     { for s in $@; do sudo /etc/rc.d/$s stop; done    }
-restart()  { for s in $@; do sudo /etc/rc.d/$s restart; done }
-status()   { for s in $@; do sudo /etc/rc.d/$s status; done  }
 
 respawn() {
     test -n "$@" && pkill "$@" && "$@"
@@ -92,7 +69,7 @@ thumbify() {
 # my computer is talking
 say () {
     uri='http://translate.google.com/translate_tts?tl=en&q='
-    mpv -really-quiet "${uri}$*"
+    mplayer -really-quiet "${uri}$*"
 }
 
 # get a short definition from wikipedia
@@ -116,7 +93,7 @@ cd() {
 }
 
 build() {
-    test -d ~/usr/ports/$1 || prtmk
+    test -d ~/usr/ports/$1 || prtmk $1
     cd ~/usr/ports/$1
     fakeroot pkgmk -d
 }
@@ -177,18 +154,20 @@ alias pkgup='pkgadd -u'
 if test -n "$DISPLAY"; then
     alias winsize="xwininfo -id \`xprop|grep 'window id'|cut -d\  -f7\`"
     alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0"
-    alias wmg="echo 'group'\`xprop -root _NET_CURRENT_DESKTOP|cut -d= -f2\`|toilet -ffuture --gay"
-    alias cam="mpv -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
+    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
 fi
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
 alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
+alias radio="mplayer -quiet -nocache http://radio.2f30.org:8000/live.ogg"
 # }}}
 
 ## TWEAKS {{{
 # change tty colors
 which ttycolors >/dev/null 2>&1 && ttycolors
 # }}}
+
+todo
 
 # vim: fdm=marker:
