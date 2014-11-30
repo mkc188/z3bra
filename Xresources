@@ -4,85 +4,19 @@
 ! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ==============================================================
 
-! will throw an error, but it is required for the file to work on multiple
-! systems
-! Do not forget to run xrdb(1) with "-I ~/etc/theme"
-#include "flashy"
-!#include "bow"
-
 ! URxvt (rxvt-unicode) -----------------------------------------
 
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             80x20
-URxvt*font:                 -*-gohufont-medium-*-*--11-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-gohufont-medium-*-*--11-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*font:                 -*-profont-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-profont-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
-URxvt*internalBorder:       20
+URxvt*internalBorder:       4
 URxvt*perl-ext-common:      default,url-select,keyboard-select
 URxvt.url-select.launcher:  /usr/bin/dwb
-!URxvt.url-select.launcher:  /usr/bin/urxvt -e elinks
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
-
-bigfont*font:                 -*-gohufont-medium-*-*--14-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-bigfont*boldFont:             -*-gohufont-medium-*-*--14-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-
-! XTerm ---------------------------------------------------------
-
-!xterm*background:#ffffff
-!xterm*foreground:#1d1d1d
-!
-!xterm*color0:    #1d1d1d
-!xterm*color1:    #784742
-!xterm*color2:    #427363
-!xterm*color3:    #665847
-!xterm*color4:    #6a708b
-!xterm*color5:    #7a378b
-!xterm*color6:    #52707b
-!xterm*color7:    #b3b3b3
-!
-!xterm*color8:    #4c4c4c
-!xterm*color9:    #d43f10
-!xterm*color10:   #cef318
-!xterm*color11:   #ede265
-!xterm*color12:   #6ac0fd
-!xterm*color13:   #ef79ae
-!xterm*color14:   #49d4dd
-!xterm*color15:   #1d1d1d
-
-xterm*scrollBar:         false
-xterm*faceName:          dina
-xterm*faceSize:          10
-xterm*boldMode:          false
-xterm*cutNewline:        false
-xterm*on4Clicks:         group
-xterm*on5Clicks:         page
-xterm*internalBorder:    2
-xterm*metaSendsEscape:   true
-xterm*colorBD:           #ffffff
-xterm*colorBDMode:       true
-xterm*cursorBlink:       false
-xterm*cursorColor:       #e8e9ca
-xterm*veryBoldColors:    14
-xterm*loginShell:        false
-xterm*charClass:         33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
-xterm*jumpScroll:        true
-xterm*multiScroll:       true
-xterm*saveLines:         512
-
-xclock*background:      #1d1d1d
-xclock*face:            Archivo Narrow-16
-xclock*foreground:      #cef318
-xclock*hourColor:       #ffffff
-xclock*minuteColor:     #ffffff
-xclock*secondColor:     #ffffff
-xclock*majorColor:      #1d1d1d
-xclock*minorColor:      #1d1d1d
-xclock*analog:          true
-xclock*geometry:        120x120+1790+950
-xclock*strftime:        %a %d/%m   %H:%M
-xclock*update:          1
