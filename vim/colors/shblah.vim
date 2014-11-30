@@ -17,8 +17,8 @@ let g:colors_name="shblah"
 
 " Actual colours and styles.
 highlight ColorColumn  term=NONE cterm=NONE ctermfg=NONE ctermbg=3
-highlight Comment      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
-highlight Constant     term=NONE cterm=bold ctermfg=2    ctermbg=NONE
+highlight Comment      term=NONE cterm=NONE ctermfg=0    ctermbg=NONE
+highlight Constant     term=NONE cterm=bold ctermfg=1    ctermbg=NONE
 highlight Cursor       term=NONE cterm=bold ctermfg=3    ctermbg=NONE
 highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE
 highlight DiffAdd      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
@@ -36,17 +36,17 @@ highlight IncSearch    term=NONE cterm=bold ctermfg=5    ctermbg=5
 highlight NonText      term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Normal       term=NONE cterm=NONE ctermfg=7    ctermbg=NONE
 highlight Pmenu        term=NONE cterm=NONE ctermfg=0    ctermbg=7
-highlight PreProc      term=NONE cterm=bold ctermfg=3    ctermbg=NONE
+highlight PreProc      term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
 highlight Search       term=NONE cterm=bold ctermfg=7    ctermbg=5
-highlight Special      term=NONE cterm=bold ctermfg=2    ctermbg=NONE
-highlight SpecialKey   term=NONE cterm=NONE ctermfg=2    ctermbg=NONE
+highlight Special      term=NONE cterm=bold ctermfg=1    ctermbg=NONE
+highlight SpecialKey   term=NONE cterm=NONE ctermfg=0    ctermbg=NONE
 highlight Statement    term=NONE cterm=bold ctermfg=7    ctermbg=NONE
 highlight StatusLine   term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 " highlight StatusLineNC term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight String       term=NONE cterm=NONE ctermfg=1    ctermbg=NONE
 highlight TabLineSel   term=NONE cterm=bold ctermfg=7    ctermbg=NONE
 highlight Todo         term=NONE cterm=bold ctermfg=7    ctermbg=1
-highlight Type         term=NONE cterm=NONE ctermfg=3    ctermbg=NONE
+highlight Type         term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Underlined   term=underline cterm=underline ctermfg=NONE   ctermbg=NONE
 highlight VertSplit    term=NONE cterm=bold ctermfg=0    ctermbg=NONE
 highlight Visual       term=NONE cterm=NONE ctermfg=0    ctermbg=7
