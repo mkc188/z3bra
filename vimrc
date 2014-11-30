@@ -48,9 +48,9 @@ set fillchars=vert:│,fold:-,stl:─,stlnc:┈
 " }}}
 " FORMATTING {{{
 set smartindent         " smart indent (also toggle autoident on)
-set expandtab           " convert tabs into space
-set shiftwidth=8        " indentation is 4 spaces
-set softtabstop=8       " Do your best, but I want 4 spaces
+set expandtab           " no tabs for me there
+set shiftwidth=4        " indentation is 4 spaces
+set softtabstop=4       " Do your best, but I want 4 spaces
 
 set lbr                 " enable line break
 set sbr=>               " line break indicator
@@ -85,6 +85,8 @@ nmap     <leader>d mz:exe append(line("."), strftime("%d %B, %Y"))<CR>'zJ
 nmap     <leader>l :echomsg line('.')<CR>
 nmap     <leader>s :echomsg line('$')<CR>
 nmap     <leader>f :echomsg expand('%:p')<CR>
+nmap     <leader>t :set et! et?<CR>
+nmap     <leader>p :set paste! paste?<CR>
 
 " Underline the current line with either a specific char
 nmap     <leader>= yyp:s/./=/g<CR>
@@ -106,7 +108,9 @@ au FileType             make set noet
 au Filetype             html ab --- &mdash;
 au Filetype             html ab </ </<C-X><C-o>
 au Filetype             mail set tw=80 fdm=marker
+au FileType             c set sw=8 ts=8 sts=8 noet
 au BufWritePost         *Xresources !xrdb -I$HOME/etc/theme %
+au BufWritePost         *weird !xrdb -I$HOME/etc/theme ~/etc/Xresources
 au VimEnter             * call ViewTips()
 
 set omnifunc=syntaxcomplete#Complete
@@ -142,9 +146,7 @@ endfu
 
 " Insert <Tab> or i_CTRL_N depending on the context
 fu! CleverTab()
-    if strpart(getline('.'), 0, col('.'))  =~ '^\t*$'
-        return "\<C-V>\<Tab>"
-    elseif strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
+    if strpart(getline('.'), col('.')-2, 1)  =~ '^\s*$'
         return "\<Tab>"
     else
         return "\<C-N>"
@@ -154,7 +156,7 @@ endfu
 " Toggle between make and cc for compiling with :make
 fu! ToggleCCompiler()
     if &makeprg =~ '^make*$'
-        set makeprg=tcc\ -o\ %<.out\ %\ -Wall
+        set makeprg=tcc\ %
     else
         set makeprg=make
     endif
