@@ -16,7 +16,8 @@ URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*internalBorder:       4
 URxvt*perl-ext-common:      default,url-select,keyboard-select
-URxvt.url-select.launcher:  /usr/bin/dwb
+!URxvt.url-select.launcher:  /usr/bin/dwb
+URxvt.url-select.launcher:  /home/z3bra/bin/lnkopen
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
