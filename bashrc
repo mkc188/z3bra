@@ -38,6 +38,12 @@ complete -cf pgrep
 
 ## FUNCTIONS {{{
 
+up() {
+    test -z "$1" && cd .. && return 1
+    for i in $(seq 1 $1); do builtin cd ..; done
+    pwd
+}
+
 monit() {
     test $# -lt 1 && return 1
     ps -eo pcpu,pmem,size,vsize,pid,args | sed -n "1p;/$1/p" | grep -v 'sed -n'
@@ -68,7 +74,8 @@ thumbify() {
 
 # my computer is talking
 say () {
-    uri='http://translate.google.com/translate_tts?tl=en&q='
+    TL=${TL:-en}
+    uri='http://translate.google.com/translate_tts?tl=${TL}&q='
     mplayer -really-quiet "${uri}$*"
 }
 
@@ -153,14 +160,13 @@ alias pkgup='pkgadd -u'
 # desktop stuff
 if test -n "$DISPLAY"; then
     alias winsize="xwininfo -id \`xprop|grep 'window id'|cut -d\  -f7\`"
-    alias rec="ffmpeg -f x11grab -s 1440x900 -r 25 -i :0.0"
+    alias rec="ffmpeg -f x11grab -loglevel quiet -s 1440x900 -an -r 25 -i :0.0 -y -quality best"
     alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
 fi
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
 alias rcommit="curl -s 'http://whatthecommit.com/index.txt'"
-alias radio="mplayer -quiet -nocache http://radio.2f30.org:8000/live.ogg"
 # }}}
 
 ## TWEAKS {{{
