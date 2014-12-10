@@ -10,7 +10,9 @@ run() {
 
     sxhkd -c ~/etc/sxhkdrc >/dev/null 2>&1 &
 
-    sloppy &
+    sloppy  &
+    timebar &
+
     exec xwait
 }
 
