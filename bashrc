@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 ## INIT {{{
 
 # If not running interactively, don't do anything
@@ -9,8 +5,9 @@
 
 test -n "$SSH_CLIENT" && PS1="${fg[8]}$(hostname|cut -b 1-3)" || PS1=
 
-fd='\[\e[1;32m\]'
-export PS1="${PS1}${fd}% ${nofg}"
+fd='\[\e[0m\]'
+ff='\[\e[1;31m\]'
+export PS1="${PS1}${ff}% ${fd}"
 
 # use auto-completion after those words
 complete -cf sudo
