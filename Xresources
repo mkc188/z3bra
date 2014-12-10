@@ -1,17 +1,12 @@
-! =============== X.org default configurations =================
-! file:     ~/.Xresources
-! author:  Willy Goiffon
-! vim: set fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
-! ==============================================================
-
-! URxvt (rxvt-unicode) -----------------------------------------
-
+! rxvt-unicode
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             80x20
-URxvt*font:                 -*-profont-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-profont-medium-*-*--12-*-*-*-*-*-*-1,-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*font:                 -*-profont-medium-*-*--12-*-*-*-*-*-*-1,\
+                            -*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*boldFont:             -*-profont-medium-*-*--12-*-*-*-*-*-*-1,\
+                            -*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
 URxvt*internalBorder:       4
@@ -21,3 +16,5 @@ URxvt.url-select.launcher:  /home/z3bra/bin/link-open
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
+
+! vim: set fenc=utf-8:ft=xdefaults:
