@@ -6,12 +6,12 @@ run() {
     xsetroot -cursor_name left_ptr
 
     xrdb -load  ~/etc/Xresources
-    xrdb -merge ~/etc/theme/wine
+    xrdb -merge ~/etc/theme/smear
 
     sxhkd -c ~/etc/sxhkdrc >/dev/null 2>&1 &
 
-    sloppy  &
-    timebar &
+    wew -a | yawee &
+    pulse &
 
     exec xwait
 }
