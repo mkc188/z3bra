@@ -6,11 +6,11 @@
 test -n "$SSH_CLIENT" && PS1="${fg[8]}$(hostname|cut -b 1-3)" || PS1=
 
 fd='\[\e[0m\]'
-ff='\[\e[1;31m\]'
+ff='\[\e[1;37m\]'
 export PS1="${PS1}${ff}% ${fd}"
 
 # use auto-completion after those words
-complete -cf sudo
+complete -cf sup
 complete -cf man
 complete -cf killall
 complete -cf pkill
@@ -36,11 +36,11 @@ sprunge() {
 }
 
 # my computer is talking
-say () {
-    TL=${TL:-en}
-    uri="http://translate.google.com/translate_tts?tl=${TL}&q="
-    mplayer -really-quiet "${uri}$*"
-}
+#say () {
+#    TL=${TL:-en}
+#    uri="http://translate.google.com/translate_tts?tl=${TL}&q="
+#    mplayer -really-quiet "${uri}$*"
+#}
 
 ## }}}
 ## ALIASES {{{
@@ -57,9 +57,9 @@ alias mv="mv -i"
 # Alias to avoid some "RAAAAAAAAAH !!"
 alias :q="quit"
 alias cd..="cd .."
-alias fu='sudo `fc -n -l -1`'
-alias fuck='sudo `fc -n -l -1`'
-alias sv="EDITOR=vim sudo -e"
+alias fu='sup `fc -n -l -1`'
+alias fuck='sup `fc -n -l -1`'
+alias sv="sup vim"
 
 # Make some output colorfull
 alias ls="ls --color=auto"
@@ -91,11 +91,9 @@ alias update='prt-get update'
 alias pkgup='pkgadd -u'
 
 # desktop stuff
-if test -n "$DISPLAY"; then
-    alias xreload="xrdb -load ~/etc/Xresources; xrdb -merge ~/etc/theme/wine"
-    alias rec="ffmpeg -f x11grab -loglevel quiet -s 1440x900 -an -r 25 -i :0.0"
-    alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
-fi
+alias xreload="xrdb -load ~/etc/Xresources; xrdb -merge ~/etc/theme/wine"
+alias rec="ffmpeg -f x11grab -s 1440x900 -an -r 16 -loglevel quiet -i :0.0 -b:v 5M -y"
+alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
 
 # HANDY RICKY SCRIPT
 alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
