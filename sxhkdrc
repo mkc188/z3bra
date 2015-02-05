@@ -12,11 +12,11 @@ Menu
 
 XF86Audio{Raise,Lower}Volume
  ~/bin/volume {+,-}; \
- ~/bin/popup -t volume volumebar
+ ~/bin/popup -t volume $(volumebar)
 
 XF86AudioMute
  ~/bin/volume !; \
- ~/bin/popup -t volume volumebar
+ ~/bin/popup -t volume $(volumebar)
 
 XF86Audio{Play,Stop,Prev,Next,Mute}
  mpc -h gavroche {toggle,stop,prev,next,pause}
@@ -41,19 +41,21 @@ mod4 + alt + shift + {h,j,k,l}
  wrs {-40 0,0 +40, 0 -40, +40 0} $(pfw)
 
 mod4 + {g,y,u,b,n}
- ~/bin/vroum {md,tl,tr,bl,br}
+ ~/bin/corner {md,tl,tr,bl,br}
 
 mod4 + Escape
  killw $(pfw)
 
 mod4 + x
- ~/bin/vroum full
+ ~/bin/fullscreen $(pfw)
 
 mod4 + s
  chwso -i $(pfw)
 
 alt + {Tab, shift + Tab}
- ~/bin/vroum {next,prev}
+ ~/bin/vroum {next,prev} 2>/dev/null && \
+ wmp -a $(wattr xy $(pfw)) && \
+ wmp -r $(wattr wh $(pfw))
 
 mod4 + {F1,F2,F3,F4,F5}
  ~/bin/groaw -t {1,2,3,4,5}
@@ -68,4 +70,9 @@ mod4 + shift + {F1,F2,F3,F4,F5}
 mod4 + BackSpace
  ~/bin/groaw -d all
 
+@mod4 + button1
+ ~/bin/x-move-resize
+
+mod4 + space
+ export PATH="$PATH:~/bin:."; thinglaunch
 # vim: set foldmethod=marker syntax=conf:
