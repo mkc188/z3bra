@@ -1,16 +1,19 @@
 #!/bin/sh
 
 run() {
+
+    exec 1>&2 2>/dev/null
+
     xsetroot -name groaaaar
-    xsetroot -solid \#281616
+    hsetroot -fill ~/usr/img/bg/stallche.jpg
     xsetroot -cursor_name left_ptr
 
     xrdb -load  ~/etc/Xresources
     xrdb -merge ~/etc/theme/smear
 
-    sxhkd -c ~/etc/sxhkdrc >/dev/null 2>&1 &
+    sxhkd -c ~/etc/sxhkdrc &
 
-    wew -a | yawee &
+    wew | yawee &
     pulse &
 
     exec xwait
