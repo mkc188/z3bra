@@ -22,7 +22,6 @@ complete -cf pgrep
 
 :h () { vim +"h $1" +only +'map q ZQ'; }
 mcd () { mkdir $@ && cd $_; }
-cd() { builtin cd "$@" && ls -CF --color; }
 
 up() {
     test -z "$1" && cd .. && return 1
