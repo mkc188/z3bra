@@ -1,4 +1,4 @@
-*background:    #242424
+*background:    #161616
 *foreground:    #b3b8c4
 
 *color0:        #3e4853
@@ -18,3 +18,12 @@
 *color13:       #8f72a1
 *color14:       #96b5c6
 *color15:       #ffffff
+
+*cursorColor: #b3b8c4
+*highlightColor: #443232
+*highlightTextColor: #cc6464
+
+! Colored man pages
+URxvt.colorIT: #cccccc
+URxvt.colorBD: #ede265
+URxvt.colorUL: #ffffff

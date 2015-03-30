@@ -1,17 +1,23 @@
+!#include </home/z3bra/etc/theme/bow>
+!#include </home/z3bra/etc/theme/flashy>
+!#include </home/z3bra/etc/theme/hckish>
+#include </home/z3bra/etc/theme/smear>
+!#include </home/z3bra/etc/theme/wine>
+
+*font:                      -*-creep-regular-*-*--16-*-*-*-*-*-*-1,\
+                            -*-stlarch-medium-*-*--10-*-*-*-*-*-*-1
 ! rxvt-unicode
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
 URxvt*saveLines:            1024
 URxvt*geometry:             80x20
-URxvt*font:                 -*-profont-medium-*-*--12-*-*-*-*-*-*-1,\
-                            -*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
-URxvt*boldFont:             -*-profont-medium-*-*--12-*-*-*-*-*-*-1,\
-                            -*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt*letterSpace:          -1
+! leave empty to use regular font
+URxvt*boldFont:
 URxvt*scrollBar:            false
 URxvt*cursorBlink:          false
-URxvt*internalBorder:       4
+URxvt*internalBorder:       8
 URxvt*perl-ext-common:      default,url-select,keyboard-select
-!URxvt.url-select.launcher:  /usr/bin/dwb
 URxvt.url-select.launcher:  /home/z3bra/bin/link-open
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
