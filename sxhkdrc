@@ -10,13 +10,16 @@ XF86Mail
 Menu
  ~/bin/menu
 
+mod4 + t
+ ~/bin/popup $(date "+%A %D - %H:%M")
+
 XF86Audio{Raise,Lower}Volume
  ~/bin/volume {+,-}; \
- ~/bin/popup -t volume $(volumebar)
+ ~/bin/popup $(volumebar)
 
 XF86AudioMute
  ~/bin/volume !; \
- ~/bin/popup -t volume $(volumebar)
+ ~/bin/popup $(volumebar)
 
 XF86Audio{Play,Stop,Prev,Next,Mute}
  mpc -h gavroche {toggle,stop,prev,next,pause}
@@ -57,6 +60,9 @@ alt + {Tab, shift + Tab}
  wmp -a $(wattr xy $(pfw)) && \
  wmp -r $(wattr wh $(pfw))
 
+alt + {h,j,k,l}
+ focus {h,j,k,l}
+
 mod4 + {F1,F2,F3,F4,F5}
  ~/bin/groaw -t {1,2,3,4,5}
 
@@ -74,5 +80,11 @@ mod4 + BackSpace
  ~/bin/x-move-resize
 
 mod4 + space
- export PATH="$PATH:~/bin:."; thinglaunch
+ export PATH="$PATH:~/b:."; thinglaunch
+
+mod4 + {t,v}
+ ~/bin/tile {-h,-v}
+
+mod4 + s
+ ~/bin/grid
 # vim: set foldmethod=marker syntax=conf:
