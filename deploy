@@ -52,7 +52,7 @@ link() {
     read -p "hit ^C to abort..."
     for f in `grep -v '^#' $TMPFILE`; do
       echo -n "${f} ... "
-      ln -s $PWD/$f ~/.$f 2>/dev/null && echo $OK || echo $NOPE
+      ln -sf $PWD/$f ~/.$f 2>/dev/null && echo $OK || echo $NOPE
     done
 }
 
@@ -65,6 +65,6 @@ test -f $TMPFILE || listfiles
 config
 simulate
 link
-clean
+#clean
 
 exit 0
