@@ -4,6 +4,8 @@
 " ┗┛ ╹╹ ╹╹┗╸┗━╸   ╹  ╹┗━╸┗━╸
 "                       -- by z3bra
 
+set nohlsearch
+
 " GENERAL {{{
 let mapleader = "!" " Define <leader> key
 
