@@ -5,14 +5,14 @@ run() {
     exec 1>&2 2>/dev/null
 
     xsetroot -name groaaaar
-    hsetroot -fill ~/usr/img/bg/stallche.jpg
+    hsetroot -tile ~/usr/img/bg/stairs.png -tint \#888888 -contrast 3
     xsetroot -cursor_name left_ptr
 
     xrdb -load  ~/etc/Xresources
-    xrdb -merge ~/etc/theme/smear
 
     sxhkd -c ~/etc/sxhkdrc &
 
+    takeoffdir >/dev/null 2>&1 &
     wew | yawee &
     pulse &
 
