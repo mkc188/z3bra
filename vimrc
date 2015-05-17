@@ -4,8 +4,6 @@
 " ┗┛ ╹╹ ╹╹┗╸┗━╸   ╹  ╹┗━╸┗━╸
 "                       -- by z3bra
 
-set nohlsearch
-
 " GENERAL {{{
 let mapleader = "!" " Define <leader> key
 
@@ -31,9 +29,11 @@ set virtualedit=block " make visual blocks easier to understand
 
 set tags+=~/.vim/systags " used for omnicompletion
 set path=.,,inc,src,/usr/include,/usr/local/include " improve vim path
+set nohlsearch " don't hiligh search results
+
 " }}}
 " DISPLAY {{{
-syntax on " Enable syntax
+syntax off " Enable syntax
 colorscheme shblah " Theme & colors
 
 set encoding=utf-8  " Use UTF-8 for file/term encoding
