@@ -1,11 +1,15 @@
 !#include </home/z3bra/etc/theme/bow>
 !#include </home/z3bra/etc/theme/flashy>
 !#include </home/z3bra/etc/theme/hckish>
-#include </home/z3bra/etc/theme/smear>
+!#include </home/z3bra/etc/theme/nightly>
+#include </home/z3bra/etc/theme/coconut>
+!#include </home/z3bra/etc/theme/smokey>
+!#include </home/z3bra/etc/theme/rubbish>
+!#include </home/z3bra/etc/theme/smear>
 !#include </home/z3bra/etc/theme/wine>
 
 *font:                      -*-creep-regular-*-*--16-*-*-*-*-*-*-1,\
-                            -*-stlarch-medium-*-*--10-*-*-*-*-*-*-1
+                            -*-stlarch-medium-*-*--*-*-*-*-*-*-*-1
 ! rxvt-unicode
 URxvt*termName:             rxvt-256color
 URxvt*loginShell:           false
@@ -23,4 +27,5 @@ URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-v:           perl:keyboard-select:activate
 
+xmessage*font:                      -*-creep-regular-*-*--16-*-*-*-*-*-*-1
 ! vim: set fenc=utf-8:ft=xdefaults:
