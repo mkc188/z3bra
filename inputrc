@@ -1,5 +1,6 @@
 set editing-mode vi
 
+set keymap vi-insert
 # clear screen with control-L
 c-l: clear-screen
 
