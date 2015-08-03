@@ -90,7 +90,7 @@ alias update='prt-get update'
 alias pkgup='pkgadd -u'
 
 # desktop stuff
-alias xreload="xrdb -load ~/etc/Xresources"
+alias xreload="xrdb -load ~/conf/xrdb.conf"
 alias rec="ffmpeg -f x11grab -s 1440x900 -an -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet"
 alias fastrec="ffmpeg -f x11grab -s 1440x900 -an -r 25 -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet"
 alias cam="mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry '99%:90%' -ontop"
