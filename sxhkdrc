@@ -1,7 +1,10 @@
-{mod4 + Return,XF86Calculator}
+mod4 + Return
  urxvt
 
-{mod4 + w,XF86HomePage}
+mod4 + space
+ export PATH="$PATH:~/b:."; thinglaunch
+
+mod4 + w
  dwb
 
 XF86Mail
@@ -76,15 +79,11 @@ mod4 + shift + {F1,F2,F3,F4,F5}
 mod4 + BackSpace
  ~/bin/groaw -d all
 
-@mod4 + button1
- ~/bin/x-move-resize
-
-mod4 + space
- export PATH="$PATH:~/b:."; thinglaunch
+mod4 + !button{1,3}
+ {wmv,wrs} -a %i %i $(pfw)
 
 mod4 + {t,v}
  ~/bin/tile {-h,-v}
 
 mod4 + s
  ~/bin/grid
-# vim: set foldmethod=marker syntax=conf:
