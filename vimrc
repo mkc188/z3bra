@@ -5,7 +5,7 @@
 "                       -- by z3bra
 
 " GENERAL {{{
-let mapleader = "!" " Define <leader> key
+let mapleader = " " " Define <leader> key
 
 set mouse= " noppest nope I've ever noped
 
@@ -34,7 +34,6 @@ set nohlsearch " don't hiligh search results
 " }}}
 " DISPLAY {{{
 syntax off " Enable syntax
-colorscheme shblah " Theme & colors
 
 set encoding=utf-8  " Use UTF-8 for file/term encoding
 set wildmenu        " Use the wildmenu
@@ -100,7 +99,7 @@ nmap    <leader>/ I/* <ESC>A */<ESC>
 
 " same for blocks
 vmap    <leader># :s/^\s*/&# /<CR>
-vmap    <leader>/ <ESC>'<O/*<ESC>'>o */<ESC>:'<,'>s/^\s*/& * /<CR>
+nmap    <leader>/ <ESC>'<O/*<ESC>'>o */<ESC>:'<,'>s/^\s*/& * /<CR>
 
 " upload to sprunge.us (without range, upload the whole file)
 command! -range=% Sprunge <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us
@@ -184,5 +183,5 @@ fu! CodeHTML(newft)
 endfu
 
 " }}}
-"
+
 " vim: fdm=marker

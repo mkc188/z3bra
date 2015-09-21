@@ -1,4 +1,4 @@
-PS1='▒▒ '
+PS1='[1;31m██[0m '
 PS2='> '
 HISTSIZE=10240
 HISTFILE=~/.history
