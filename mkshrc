@@ -1,4 +1,4 @@
-PS1='[1;31m██[0m '
+PS1='$ '
 PS2='> '
 HISTSIZE=10240
 HISTFILE=~/.history
@@ -12,38 +12,28 @@ up() {
     cd $up
     pwd
 }
-say () {
-    TL=${TL:-en}
-    uri='http://translate.google.com/translate_tts?tl=${TL}&q='
-    mplayer -really-quiet '${uri}$*'
-}
 upthemall() {
-    for p in ~/crux/ports/*; do
-        cd $p
-        prtup &&
-        fakeroot pkgmk -d &&
-        git add .
-    done
+	CWD=$(pwd)
+	for p in $HOME/crux/ports/*; do
+		cd $p
+		prtup &&
+		fakeroot pkgmk -d &&
+		git add .
+	done
+	cd $CWD
 }
-alias quit='exit'
-alias c='clear'
-alias so='source ~/.bashrc'
-alias :q='quit'
-alias cd..='cd ..'
 alias fu='sup `fc -n -l -1`'
-alias sv='sup vi'
+alias sv='sup vis'
 alias l='ls -1 --color=auto'
 alias ll='l -l'
 alias mtop='ps --no-header -eo pmem,size,vsize,comm | sort -nr | sed 10q'
 alias ctop='ps --no-header -eo pcpu,comm | sort -nr | sed 10q'
-alias v='vim'
-alias vi='vim'
+alias v='vis'
+alias vi='vis'
 alias t='tmux'
-alias csv='column -t -s\;'
 alias vol='alsamixer'
 alias yg="youtube-dl -q -x -o '%(title).%(ext)'"
 alias deptree='prt-get deptree'
-alias update='prt-get update'
 
 # X11 only
 alias xreload='xrdb -load ~/conf/xrdb.conf'

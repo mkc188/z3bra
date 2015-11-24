@@ -1,4 +1,4 @@
-PS1='> '
+PS1='$ '
 PATH=$PATH:/sbin:/usr/sbin:~/bin:.
 PAGER="less -R"
 EDITOR=vim

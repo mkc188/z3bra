@@ -9,12 +9,15 @@ run() {
 
     xrdb -load  ~/conf/xrdb.conf
 
-    sxhkd -c ~/conf/sxhkdrc &
+    sxhkd -m 1 &
 
-    takeoffdir >/dev/null 2>&1 &
+    compton -cCf -D2 -e 0.4 -o1 -r8 -l-12 -t-1 &
+    mailbar     &
+    #bars        &
+    #beepop      &
+    takeoffdir  &
     wew | yawee &
-    compton -cCf -D2 -e 0.4 -o1 -r8 -l-12 -t-1
-    #pulse &
+    #pulse       &
 
     exec xwait
 }
