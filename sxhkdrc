@@ -2,7 +2,7 @@ mod4 + Return
  st
 
 mod4 + space
- export PATH="$PATH:~/b:."; thinglaunch
+ export PATH="$PATH:~/bin:."; thinglaunch
 
 mod4 + w
  surf
