@@ -1,4 +1,4 @@
-PS1='$ '
+PS1='[1;37m$[0m '
 PS2='> '
 HISTSIZE=10240
 HISTFILE=~/.history
@@ -46,5 +46,3 @@ alias rick="echo 'curl -L http://bit.ly/10hA8iC | bash'"
 alias rcommit='curl -s http://whatthecommit.com/index.txt'
 
 bind ^L=clear-screen
-
-todo

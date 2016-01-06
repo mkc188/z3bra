@@ -5,7 +5,7 @@ mod4 + space
  export PATH="$PATH:~/b:."; thinglaunch
 
 mod4 + w
- dwb
+ surf
 
 XF86Mail
  st -e mail
@@ -18,6 +18,9 @@ mod4 + p
 
 mod4 + d
  ~/bin/popup $(date "+%H:%M - %A %d")
+
+mod4 +s
+ ~/bin/ddg
 
 XF86Audio{Raise,Lower}Volume
  ~/bin/volume {+,-}
@@ -95,8 +98,8 @@ mod4 +s
 mod4 + !button1
  wmv -a %i %i $(pfw)
 
-mod4 + @button3
- wrs -a $(wmp) $(pfw)
+mod4 + !button3
+ wrs -a %i %i $(pfw)
 
 mod4 + button{4,5}
  chwso -{r,l} $(pfw)
