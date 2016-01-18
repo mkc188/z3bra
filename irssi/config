@@ -6,6 +6,13 @@ servers = (
     autoconnect = "no";
   },
   {
+    address = "irc.max-p.me";
+    chatnet = "maxp";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "yes";
+  },
+  {
     address = "irc.freenode.net";
     chatnet = "fnode";
     port = "6697";
@@ -13,7 +20,7 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.nixers.net";
+    address = "irc.unix.chat";
     chatnet = "nixers";
     port = "6697";
     use_ssl = "yes";
@@ -24,13 +31,6 @@ servers = (
     chatnet = "blink";
     port = "6697";
     use_ssl = "yes";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.iotek.org";
-    chatnet = "iotek";
-    port = "6697";
-    use_ssl = "yes";
     autoconnect = "no";
   },
   {
@@ -39,6 +39,20 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.rizon.net";
+    chatnet = "rizon";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.online.net";
+    chatnet = "online";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "no";
   }
 );
 
@@ -62,18 +76,21 @@ chatnets = {
   iotek = { type = "IRC"; };
   epik = { type = "IRC"; };
   oftc = { type = "IRC"; };
+  online = { type = "IRC"; };
+  rizon = { type = "IRC"; };
 };
 
 channels = (
   { name = "#defrag-france"; chatnet = "qnet"; autojoin = "Yes"; },
   { name = "#nixers"; chatnet = "nixers"; autojoin = "Yes"; },
-  { name = "#vim-fr"; chatnet = "fnode"; autojoin = "Yes"; },
-  { name = "#archlinux-fr"; chatnet = "fnode"; autojoin = "Yes"; },
+  { name = "#vim-fr"; chatnet = "fnode"; autojoin = "No"; },
+  { name = "#archlinux-fr"; chatnet = "fnode"; autojoin = "No"; },
   { name = "#blinkenshell"; chatnet = "blink"; autojoin = "Yes"; },
   { name = "#iotek"; chatnet = "iotek"; autojoin = "No"; },
   { name = "#crux"; chatnet = "fnode"; autojoin = "Yes"; },
   { name = "#2f30"; chatnet = "fnode"; autojoin = "Yes"; },
-  { name = "#morpheus"; chatnet = "oftc"; autojoin = "No"; }
+  { name = "#morpheus"; chatnet = "oftc"; autojoin = "No"; },
+  { name = "#online"; chatnet = "online"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -127,6 +144,7 @@ aliases = {
   DEOP = "msg ChanServ DEOP $C";
   CHEZWAM = "say http://chezmoicamarche.com";
   TWSS = "say THAT'S WHAT SHE SAID";
+  UGT = "say http://www.total-knowledge.com/~ilya/mips/ugt.html";
 };
 
 keyboard = (
@@ -185,7 +203,7 @@ settings = {
   "fe-text" = {
     scrollback_time = "48h";
     actlist_sort = "refnum";
-    indent = "8";
+    indent = "0";
   };
 
   "fe-common/core" = {
@@ -202,15 +220,16 @@ settings = {
   };
   "perl/core/scripts" = {
     awl_display_key = "%K$H$C$S";
-    awl_display_key_active = "%W$H$C$S%n";
+    awl_display_key_active = "%B$H$C$S%n";
     # awl_sort             = "refnum";
     # awl_hide_data        = "0";
     awl_placement = "top";
     awl_block = "";
     awl_columns = "1";
-    awl_height_adjust = "2";
-    awl_maxlines = "1";
+    awl_height_adjust = "1";
+    awl_maxlines = "0";
     awl_prefer_name = "on";
+    awl_automode = "sbar";
   };
   "irc/core" = {
     ctcp_version_reply = "And what do we say to CTCP VERSION ? NOT. TODAY.";
@@ -219,67 +238,7 @@ settings = {
 
 hilights = ( { text = "z3bra"; nick = "yes"; word = "yes"; } );
 
-windows = {
-  1 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#vim-fr";
-        tag = "fnode";
-      }
-    );
-  };
-  2 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#archlinux-fr";
-        tag = "fnode";
-      }
-    );
-  };
-  3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#nixers";
-        tag = "nixers";
-      }
-    );
-  };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#crux";
-        tag = "fnode";
-      }
-    );
-  };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#2f30";
-        tag = "fnode";
-      }
-    );
-  };
-  6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#blinkenshell";
-        tag = "blink";
-      }
-    );
-  };
-};
+windows = { };
 
 logs = { };
+ignores = ( );
