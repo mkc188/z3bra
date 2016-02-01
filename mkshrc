@@ -14,7 +14,7 @@ up() {
 }
 upthemall() {
 	CWD=$(pwd)
-	for p in $HOME/crux/ports/*; do
+	for p in $HOME/ports/crux/*; do
 		cd $p
 		prtup &&
 		fakeroot pkgmk -d &&
