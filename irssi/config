@@ -78,6 +78,7 @@ chatnets = {
   oftc = { type = "IRC"; };
   online = { type = "IRC"; };
   rizon = { type = "IRC"; };
+  maxp = { type = "IRC"; };
 };
 
 channels = (
@@ -144,6 +145,7 @@ aliases = {
   DEOP = "msg ChanServ DEOP $C";
   CHEZWAM = "say http://chezmoicamarche.com";
   TWSS = "say THAT'S WHAT SHE SAID";
+  IDBY = "say http://i.imgur.com/Ufbr5ej.gif";
   UGT = "say http://www.total-knowledge.com/~ilya/mips/ugt.html";
 };
 
